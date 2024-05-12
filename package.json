@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "inw": "concurrently \"php artisan serve\" \"vite\"",
+        "start": "concurrently \"php artisan serve\" \"vite\"",
         "dev": "vite",
         "build": "vite build"
     },
