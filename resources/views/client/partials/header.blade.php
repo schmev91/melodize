@@ -1,3 +1,101 @@
-<div>
-    <!-- It is never too late to be what you might have been. - George Eliot -->
+<div id="top-bar" class="container-fluid bg-sub pb-1">
+    <div class="container text-secondary-emphasis d-flex">
+        <div id="top-bar-greet" class="d-none d-sm-block col-sm-auto top-bar-left">
+            We have come to bring you the best goods!
+            <i class="fa-solid fa-face-grin-hearts"></i>
+        </div>
+        <!-- top-bar-logo -->
+        <div class="col d-sm-none">
+            <a href="#!home">
+                <img class="img-fluid" style="height: 1rem" src="{{ asset('img/utils/gadgetcamp-logo.png') }}"
+                    alt="" />
+            </a>
+        </div>
+        <div id="top-bar-account" class="col d-flex justify-content-end gap-2 gap-md-3">
+            <a class="text-secondary-emphasis" ng-show="!activeUser" href="#!auth/register">Sign up</a>
+            <a class="text-secondary-emphasis" ng-show="!activeUser" href="#!auth/login">Login</a>
+
+            <a class="text-secondary-emphasis text-decoration-none fw-medium hover-underline"
+                ng-show="activeUser && activeUser.isAdmin" href="#!/admin"><i class="fa-solid fa-hammer"></i>
+                Administrator</a>
+            <span class="text-secondary-emphasis fw-medium me-3" ng-show="activeUser">Hello activeUser.username!</span>
+            <a class="text-secondary-emphasis" ng-show="activeUser" href="#!auth/logout">Logout</a>
+        </div>
+    </div>
+</div>
+<header class="container-fluid bg-white p-2 position-relative">
+    <div id="header" class="container">
+        <div class="row align-items-center justify-content-between">
+            <!-- LOGO xs hidden-->
+            <div class="header-logo d-none d-sm-block col-4 col-lg-2 h-fit-content">
+                <a href="#!home">
+                    <img class="img-fluid hover-bounce" src="{{ asset('img/utils/gadgetcamp-logo.png') }}"
+                        alt="" />
+                </a>
+            </div>
+            <!-- SEARCH -->
+            <div class="col-auto col-lg d-none d-lg-flex">
+                <div class="flex-grow-1">
+                    <form name="search" ng-submit="toShop()" class="search d-flex">
+                        <input class="form-control border rounded-end-0 border-end-0"
+                            placeholder="What are we buying today?" type="text" ng-model="searchKeywords"
+                            ng-change="setKeywords(searchKeywords)" />
+                        <button class="btn border border-start-0 rounded-start-0 p-0 pe-2">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                    <div class="sub-categories d-none d-lg-flex gap-3">
+                        <a class="link-secondary hover-underline text-decoration-none"
+                            href="#!shop/category/smartphones">smartphones</a>
+                        <a class="link-secondary hover-underline text-decoration-none"
+                            href="#!shop/category/laptops">laptops</a>
+                        <a class="link-secondary hover-underline text-decoration-none"
+                            href="#!shop/category/furniture">furniture</a>
+                        <a class="link-secondary hover-underline text-decoration-none"
+                            href="#!shop/category/fragrances">fragrances</a>
+                        <a class="link-secondary hover-underline text-decoration-none"
+                            href="#!shop/category/groceries">groceries</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HEADER-BTNS -->
+            <div
+                class="header-right col col-sm-auto gap-2 gap-md-3 d-flex justify-content-sm-end align-items-center h-fit-content">
+                <div class="d-flex flex-grow-1 gap-2 gap-md-4 align-items-center">
+                    <a ng-class="page == 'shop' ? 'text-accent' : 'text-secondary header-inactive'"
+                        class="text-accent fs-5 text-decoration-none" href="#!shop"><i class="fa-solid fa-shop"></i>
+                        Shop</a>
+                    <a href="#!account" ng-class="page == 'account' ? 'text-accent' : 'text-secondary header-inactive'"
+                        class="text-accent fs-5 text-decoration-none"><i class="fa-regular fa-face-smile-wink"></i>
+                        Account</a>
+                </div>
+                <span class="fw-medium text-secondary opacity-50 h-fit-content">|</span>
+                <!-- SEARCH BUTTON FOR MOBILE -->
+                <div class="responsive-search d-block d-lg-none">
+                    <button type="button" class="text-accent btn p-0 fs-4" data-bs-toggle="modal"
+                        data-bs-target="#searchModal">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <!-- CART-BUTTON -->
+                <div class="header-cart">
+                    <a href="#!cart"><i ng-class="page == 'cart' ? 'text-accent' : 'text-secondary header-inactive'"
+                            class="text-accent fs-3 fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <input type="text" class="form-control" placeholder="What are we buying today?"
+                    ng-model="searchKeywords" ng-change="setKeywords(searchKeywords)" />
+            </div>
+        </div>
+    </div>
 </div>
