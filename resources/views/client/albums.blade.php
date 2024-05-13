@@ -1,4 +1,4 @@
 @extends('layouts.client')
 @section('content')
-    <h1 class="w-fit font-medium">Hello World</h1>
+    <h1 class="w-fit font-medium">Albums</h1>
 @endsection
