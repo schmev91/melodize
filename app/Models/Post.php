@@ -16,11 +16,13 @@ class Post extends Model
     const USER_ID    = 'user_id';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+    const THUMBNAIL = 'thumbnail';
 
     protected $fillable = [
         self::TITLE,
         self::CONTENT,
         self::VIEWS,
         self::USER_ID,
+        self::THUMBNAIL,
      ];
 }

@@ -18,4 +18,6 @@ Route::group([ 'as' => 'client.' ], function () {
     Route::get('tracks', function () {
         return view('client.tracks');
     })->name('tracks');
+
+    require_once __DIR__ . "/client/posts.php";
 });

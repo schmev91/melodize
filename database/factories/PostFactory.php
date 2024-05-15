@@ -23,6 +23,7 @@ class PostFactory extends Factory
             Post::CONTENT => fake()->paragraph(),
             Post::VIEWS   => fake()->randomNumber(),
             Post::USER_ID => User::inRandomOrder()->first()->id,
+            Post::THUMBNAIL   => 'img/posts/default.jpg',
          ];
     }
 }

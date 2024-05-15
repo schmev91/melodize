@@ -23,7 +23,5 @@ class Album extends Model
         self::COVER,
         self::DESCRIPTION,
         self::AMOUNT,
-        self::CREATED_AT,
-        self::UPDATED_AT,
      ];
 }

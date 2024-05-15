@@ -19,7 +19,5 @@ class Artist extends Model
         self::ID,
         self::NAME,
         self::DISPLAY_NAME,
-        self::CREATED_AT,
-        self::UPDATED_AT,
      ];
 }
