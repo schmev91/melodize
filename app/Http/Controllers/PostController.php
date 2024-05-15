@@ -37,9 +37,9 @@ class PostController extends Controller
             $posts = Post::all();
         } else {
             $posts = Post::with('type')
-            ->whereHas('type', function ($query) use ($typeName) {
-                $query->where('name', $typeName);
-            })->get();
+                ->whereHas('type', function ($query) use ($typeName) {
+                    $query->where('name', $typeName);
+                })->get();
         }
 
         return view('client.posts.type', compact('posts'));
@@ -64,9 +64,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Post $post): View
     {
-        //
+        return view('client.posts.show', compact('post'));
     }
 
     /**

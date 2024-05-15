@@ -11,7 +11,7 @@
     </head>
 
     <body
-        class="flex min-h-screen flex-col justify-between bg-client bg-cover bg-no-repeat"
+        class="flex min-h-screen flex-col justify-between gap-5 bg-client bg-cover bg-no-repeat"
     >
         {{-- HEADER --}}
         @include("client.partials.header")
@@ -19,7 +19,7 @@
             content - START
         --}}
         <div class="container">
-            <div class="mt-5 p-2">
+            <div class="p-2">
                 @yield("content")
             </div>
         </div>

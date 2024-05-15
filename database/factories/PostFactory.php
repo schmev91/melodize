@@ -20,10 +20,11 @@ class PostFactory extends Factory
     {
         return [
             Post::TITLE      => fake()->text(256),
-            Post::CONTENT    => fake()->paragraph(),
+            Post::CONTENT    => implode('<br>', fake()->paragraphs(10)),
             Post::VIEWS      => fake()->randomNumber(),
             Post::USER_ID    => User::inRandomOrder()->first()->id,
-            Post::THUMBNAIL  => 'img/posts/default.jpg',
+            Post::THUMBNAIL  => str_replace('public/', ''
+                , fake()->image("public/img/posts", 640, 480, 'post', true, true, null, true)),
             Post::TYPE_ID    => fake()->numberBetween(1, 3),
             Post::CREATED_AT => fake()->dateTime(),
          ];

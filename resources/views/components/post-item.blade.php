@@ -1,17 +1,21 @@
 @props([
     "post" => [],
 ])
-<div class="card card-side glass shadow-xl">
+<div class="group/post card glass card-side shadow-xl">
     <img
         class="w-1/4 object-cover"
         src="{{ asset($post->thumbnail) }}"
         alt="post-img"
     />
     <div class="card-body flex-grow">
-        <h1 class="card-title prose-h3: line-clamp-1">
-            {{ $post->title }}
+        <h1
+            class="card-title line-clamp-1 text-slate-100 group-hover/post:underline"
+        >
+            <a href="{{ route("client.posts.show", $post->id) }}">
+                {{ $post->title }}
+            </a>
         </h1>
-        <p class="line-clamp-4 text-lg">{{ $post->content }}</p>
+        <p class="line-clamp-3 text-lg">{!! $post->content !!}</p>
         <div class="card-actions items-end justify-between">
             <div class="post-badges">
                 <div class="badge badge-neutral gap-1">
@@ -78,7 +82,12 @@
                     {{ $post->type->name }}
                 </div>
             </div>
-            <button class="btn btn-primary">Detail</button>
+            <a
+                href="{{ route("client.posts.show", $post->id) }}"
+                class="btn btn-primary"
+            >
+                Detail
+            </a>
         </div>
     </div>
 </div>
