@@ -19,7 +19,8 @@ class PostController extends Controller
 
     public function mostviewed(): View
     {
-        return view('client.posts.mostviewed');
+        $posts = Post::orderBy('views', 'desc')->take(10)->get();
+        return view('client.posts.mostviewed', compact('posts'));
     }
 
     /**

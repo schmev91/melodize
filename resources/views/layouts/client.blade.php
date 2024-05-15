@@ -19,7 +19,7 @@
             content - START
         --}}
         <div class="container">
-            <div class="mt-5 rounded-md bg-white p-2">
+            <div class="mt-5 p-2">
                 @yield("content")
             </div>
         </div>
