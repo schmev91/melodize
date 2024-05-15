@@ -6,6 +6,7 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Request;
 
 class PostController extends Controller
 {
@@ -19,8 +20,29 @@ class PostController extends Controller
 
     public function mostviewed(): View
     {
-        $posts = Post::orderBy('views', 'desc')->take(10)->get();
+        $posts = Post::with('type')->orderBy(Post::VIEWS, 'desc')->take(10)->get();
         return view('client.posts.mostviewed', compact('posts'));
+    }
+
+    public function newest(): View
+    {
+        $posts = Post::with('type')->orderBy(Post::CREATED_AT, 'desc')->take(10)->get();
+        return view('client.posts.newest', compact('posts'));
+    }
+
+    public function type(): View
+    {
+        $typeName = Request::input('type');
+        if (!$typeName) {
+            $posts = Post::all();
+        } else {
+            $posts = Post::with('type')
+            ->whereHas('type', function ($query) use ($typeName) {
+                $query->where('name', $typeName);
+            })->get();
+        }
+
+        return view('client.posts.type', compact('posts'));
     }
 
     /**

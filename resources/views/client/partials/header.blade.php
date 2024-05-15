@@ -1,4 +1,4 @@
-<header>
+<header class="z-50">
     <div class="navbar bg-base-100 h-fit p-0">
         <div class="navbar-start">
             <div class="dropdown">
@@ -57,6 +57,7 @@
                     <details>
                         <summary>Posts</summary>
                         <ul class="p-2 text-white">
+                            {{-- START - DROPDOWN ITEM --}}
                             <li>
                                 <a
                                     class="text-nowrap"
@@ -65,6 +66,27 @@
                                     Most viewed
                                 </a>
                             </li>
+                            {{-- END - DROPDOWN ITEM --}}
+                            {{-- START - DROPDOWN ITEM --}}
+                            <li>
+                                <a
+                                    class="text-nowrap"
+                                    href="{{ route("client.posts.newest") }}"
+                                >
+                                    Newest
+                                </a>
+                            </li>
+                            {{-- END - DROPDOWN ITEM --}}
+                            {{-- START - DROPDOWN ITEM --}}
+                            <li>
+                                <a
+                                    class="text-nowrap"
+                                    href="{{ route("client.posts.type") }}"
+                                >
+                                    Type
+                                </a>
+                            </li>
+                            {{-- END - DROPDOWN ITEM --}}
                         </ul>
                     </details>
                 </li>

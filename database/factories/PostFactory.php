@@ -19,11 +19,13 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            Post::TITLE   => fake()->text(256),
-            Post::CONTENT => fake()->paragraph(),
-            Post::VIEWS   => fake()->randomNumber(),
-            Post::USER_ID => User::inRandomOrder()->first()->id,
-            Post::THUMBNAIL   => 'img/posts/default.jpg',
+            Post::TITLE      => fake()->text(256),
+            Post::CONTENT    => fake()->paragraph(),
+            Post::VIEWS      => fake()->randomNumber(),
+            Post::USER_ID    => User::inRandomOrder()->first()->id,
+            Post::THUMBNAIL  => 'img/posts/default.jpg',
+            Post::TYPE_ID    => fake()->numberBetween(1, 3),
+            Post::CREATED_AT => fake()->dateTime(),
          ];
     }
 }

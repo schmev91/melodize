@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 Route::group([ 'prefix' => 'posts', 'as' => 'posts.' ], function () {
     $routes = [
         'mostviewed',
+        'newest',
+        'type'
      ];
     foreach ($routes as $routeName) {
         Route::get($routeName, [ PostController::class, $routeName ])
