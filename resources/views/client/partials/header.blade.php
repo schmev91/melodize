@@ -1,36 +1,99 @@
-<header class="bg-white">
-    <div class="container py-2 flex justify-between items-center ">
-        <div class="header-left flex gap-5">
-            <a href="">
-                <img class="h-8" src="{{ asset('img/utils/melodize.png') }}" alt="">
-            </a>
-
-            <div class="header-search flex">
-                <input id="search" type="text" placeholder="search for artist, album or track"
-                    class="py-1 px-2 bg-gray-200 w-80 max-h-10 border-none placeholder:text-sm focus:ring-0">
-                <a href="" class="p-1 my-auto bg-gray-200 stroke-slate-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+<header class="z-50">
+    <div class="navbar h-fit bg-base-100 p-0">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16"
+                        />
                     </svg>
-                </a>
+                </div>
+                <ul
+                    tabindex="0"
+                    class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
+                >
+                    <li>
+                        <a href="{{ route("client.home") }}">Home</a>
+                    </li>
+                    <li><a>Item 3</a></li>
+                    <li>
+                        <a>Parent</a>
+                        <ul class="p-2">
+                            <li><a>Submenu 1</a></li>
+                            <li><a>Submenu 2</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
 
-            <div class="header-nav flex gap-4 items-center">
-                <x-header-link :route="route('client.home')">Home</x-header-link>
-                <x-header-link :route="route('client.albums')">Albums</x-header-link>
-                <x-header-link :route="route('client.artists')">Artists</x-header-link>
-                <x-header-link :route="route('client.tracks')">Tracks</x-header-link>
-            </div>
+            <a class="btn btn-ghost">
+                <img
+                    class="h-7"
+                    src="{{ asset("img/utils/melodize-white.png") }}"
+                />
+            </a>
         </div>
-
-        <div class="header-right flex gap-2">
-            <a href=""
-                class="py-1 px-2 font-medium rounded-md transition-all duration-300 hover:-translate-y-0.5 bg-slate-500 text-white">Sign
-                up</a>
-            <a href=""
-                class="py-1 px-2 font-medium rounded-md transition-all duration-300 hover:-translate-y-0.5 border border-slate-500">Login</a>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal gap-2 px-1">
+                <x-nav-item :route="route('client.home')">Home</x-nav-item>
+                <x-nav-item :route="route('client.albums')">Albums</x-nav-item>
+                <x-nav-item :route="route('client.artists')">
+                    Artists
+                </x-nav-item>
+                <x-nav-item :route="route('client.tracks')">Tracks</x-nav-item>
+                <x-nav-item :route="route('client.posts.index')">
+                    Posts
+                </x-nav-item>
+                {{-- start - drop down --}}
+                {{--
+                    <li
+                    @class(["rounded-md bg-slate-300 text-slate-800" => Route::is("client.posts*")])
+                    >
+                    <details>
+                    <summary>Posts</summary>
+                    <ul class="p-2 text-white">
+                    <li>
+                    <a
+                    class="text-nowrap"
+                    href="{{ route("client.posts.mostviewed") }}"
+                    >
+                    Most viewed
+                    </a>
+                    </li>
+                    </ul>
+                    </details>
+                    </li>
+                --}}
+                {{-- end - drop down --}}
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <button class="btn btn-circle btn-ghost">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                </svg>
+            </button>
         </div>
     </div>
 </header>

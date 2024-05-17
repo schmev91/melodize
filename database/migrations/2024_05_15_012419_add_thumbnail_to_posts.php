@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tracks', function (Blueprint $table) {
-            $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('thumbnail', 512);
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tracks', function (Blueprint $table) {
-            $table->dropForeign([ 'album_id' ]);
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('thumbnail');
         });
     }
 };
