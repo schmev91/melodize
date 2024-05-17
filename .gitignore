@@ -6,9 +6,6 @@
 /storage/*.key
 /vendor
 resources/css/output.css
-.env
-.env.backup
-.env.production
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
