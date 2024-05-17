@@ -1,5 +1,5 @@
 <header class="z-50">
-    <div class="navbar bg-base-100 h-fit p-0">
+    <div class="navbar h-fit bg-base-100 p-0">
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -20,7 +20,7 @@
                 </div>
                 <ul
                     tabindex="0"
-                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                    class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
                 >
                     <li>
                         <a href="{{ route("client.home") }}">Home</a>
@@ -51,49 +51,34 @@
                     Artists
                 </x-nav-item>
                 <x-nav-item :route="route('client.tracks')">Tracks</x-nav-item>
-                <li
+                <x-nav-item :route="route('client.posts.index')">
+                    Posts
+                </x-nav-item>
+                {{-- start - drop down --}}
+                {{--
+                    <li
                     @class(["rounded-md bg-slate-300 text-slate-800" => Route::is("client.posts*")])
-                >
+                    >
                     <details>
-                        <summary>Posts</summary>
-                        <ul class="p-2 text-white">
-                            {{-- START - DROPDOWN ITEM --}}
-                            <li>
-                                <a
-                                    class="text-nowrap"
-                                    href="{{ route("client.posts.mostviewed") }}"
-                                >
-                                    Most viewed
-                                </a>
-                            </li>
-                            {{-- END - DROPDOWN ITEM --}}
-                            {{-- START - DROPDOWN ITEM --}}
-                            <li>
-                                <a
-                                    class="text-nowrap"
-                                    href="{{ route("client.posts.newest") }}"
-                                >
-                                    Newest
-                                </a>
-                            </li>
-                            {{-- END - DROPDOWN ITEM --}}
-                            {{-- START - DROPDOWN ITEM --}}
-                            <li>
-                                <a
-                                    class="text-nowrap"
-                                    href="{{ route("client.posts.type") }}"
-                                >
-                                    Type
-                                </a>
-                            </li>
-                            {{-- END - DROPDOWN ITEM --}}
-                        </ul>
+                    <summary>Posts</summary>
+                    <ul class="p-2 text-white">
+                    <li>
+                    <a
+                    class="text-nowrap"
+                    href="{{ route("client.posts.mostviewed") }}"
+                    >
+                    Most viewed
+                    </a>
+                    </li>
+                    </ul>
                     </details>
-                </li>
+                    </li>
+                --}}
+                {{-- end - drop down --}}
             </ul>
         </div>
         <div class="navbar-end">
-            <button class="btn btn-ghost btn-circle">
+            <button class="btn btn-circle btn-ghost">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5"

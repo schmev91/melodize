@@ -15,19 +15,21 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::with('type')->orderBy(Post::VIEWS, 'desc')->get();
+        return view('client.posts.index', compact('posts'));
+
     }
 
     public function mostviewed(): View
     {
         $posts = Post::with('type')->orderBy(Post::VIEWS, 'desc')->take(10)->get();
-        return view('client.posts.mostviewed', compact('posts'));
+        return view('client.posts.index', compact('posts'));
     }
 
     public function newest(): View
     {
         $posts = Post::with('type')->orderBy(Post::CREATED_AT, 'desc')->take(10)->get();
-        return view('client.posts.newest', compact('posts'));
+        return view('client.posts.index', compact('posts'));
     }
 
     public function type(): View
@@ -42,7 +44,7 @@ class PostController extends Controller
                 })->get();
         }
 
-        return view('client.posts.type', compact('posts'));
+        return view('client.posts.index', compact('posts'));
     }
 
     /**
