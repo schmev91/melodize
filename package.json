@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "start": "concurrently \"php artisan serve --port=6835\" \"vite\" \"tailwindcss -i ./resources/css/input.css -o ./resources/css/output.css --watch\"",
+        "start": "concurrently \"php artisan serve --port=3333\" \"vite\" \"tailwindcss -i ./resources/css/input.css -o ./resources/css/output.css --watch\"",
         "dev": "vite",
         "build": "vite build"
     },
