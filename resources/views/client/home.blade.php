@@ -1,4 +1,3 @@
-@extends('layouts.client')
-@section('content')
-    <h1 class="w-fit font-medium">Hello World</h1>
-@endsection
+<x-layouts.client>
+    <div class="client-basic">Im home</div>
+</x-layouts.client>

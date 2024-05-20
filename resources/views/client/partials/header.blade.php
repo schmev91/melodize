@@ -1,5 +1,5 @@
 <header class="z-50">
-    <div class="navbar h-fit bg-base-100 p-0">
+    <div class="navbar min-h-fit bg-base-100 p-0">
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -22,17 +22,7 @@
                     tabindex="0"
                     class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
                 >
-                    <li>
-                        <a href="{{ route("client.home") }}">Home</a>
-                    </li>
-                    <li><a>Item 3</a></li>
-                    <li>
-                        <a>Parent</a>
-                        <ul class="p-2">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
-                        </ul>
-                    </li>
+                    @include("client.partials.nav")
                 </ul>
             </div>
 
@@ -44,37 +34,8 @@
             </a>
         </div>
         <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal gap-2 px-1">
-                <x-nav-item :route="route('client.home')">Home</x-nav-item>
-                <x-nav-item :route="route('client.albums')">Albums</x-nav-item>
-                <x-nav-item :route="route('client.artists')">
-                    Artists
-                </x-nav-item>
-                <x-nav-item :route="route('client.tracks')">Tracks</x-nav-item>
-                <x-nav-item :route="route('client.posts.index')">
-                    Posts
-                </x-nav-item>
-                {{-- start - drop down --}}
-                {{--
-                    <li
-                    @class(["rounded-md bg-slate-300 text-slate-800" => Route::is("client.posts*")])
-                    >
-                    <details>
-                    <summary>Posts</summary>
-                    <ul class="p-2 text-white">
-                    <li>
-                    <a
-                    class="text-nowrap"
-                    href="{{ route("client.posts.mostviewed") }}"
-                    >
-                    Most viewed
-                    </a>
-                    </li>
-                    </ul>
-                    </details>
-                    </li>
-                --}}
-                {{-- end - drop down --}}
+            <ul class="menu menu-horizontal gap-2 px-1 py-0">
+                @include("client.partials.nav")
             </ul>
         </div>
         <div class="navbar-end">

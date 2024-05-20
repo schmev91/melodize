@@ -1,4 +1,3 @@
-@extends('layouts.client')
-@section('content')
+<x-layouts.client>
     <h1 class="w-fit font-medium">Tracks</h1>
-@endsection
+</x-layouts.client>

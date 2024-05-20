@@ -2,22 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group([ 'as' => 'client.' ], function () {
+$client_routes = [
+    'albums',
+    'artists',
+    'tracks',
+ ];
+
+Route::group([ 'as' => 'client.' ], function () use ($client_routes) {
     Route::get('/', function () {
         return view('client.home');
     })->name('home');
 
-    Route::get('albums', function () {
-        return view('client.albums');
-    })->name('albums');
-
-    Route::get('artists', function () {
-        return view('client.artists');
-    })->name('artists');
-
-    Route::get('tracks', function () {
-        return view('client.tracks');
-    })->name('tracks');
+    foreach ($client_routes as $name) {
+        Route::get($name, function () use ($name) {
+            return view("client.$name");
+        })->name($name);
+    }
 
     require_once __DIR__ . "/client/posts.php";
 });

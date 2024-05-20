@@ -1,0 +1,15 @@
+:root {
+    --such-color: #d4d7f8;
+}
+
+.client-basic {
+    @apply rounded-md bg-white p-2;
+}
+
+#nprogress .bar {
+    background-color: var(--such-color) !important;
+}
+
+.btn {
+    @apply h-fit min-h-fit;
+}

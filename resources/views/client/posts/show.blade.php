@@ -1,6 +1,4 @@
-@extends("layouts.client")
-
-@section("content")
+<x-layouts.client>
     <section class="px-36">
         <div class="mb-5 overflow-hidden rounded-md bg-white">
             <div class="post-banner mb-10">
@@ -18,4 +16,4 @@
             </article>
         </div>
     </section>
-@endsection
+</x-layouts.client>
