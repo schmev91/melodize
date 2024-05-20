@@ -10,6 +10,11 @@ export default {
 
     theme: {
         extend: {
+            colors: {
+                wall: "#191919",
+                such: "#d4d7f8",
+                hypergreen: "#35e668",
+            },
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },

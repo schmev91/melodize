@@ -12,7 +12,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        Route::prefix('admin')
+            ->middleware('web')
+            ->as('admin.')
+            ->group(base_path('routes/admin.php'));
     }
 
     /**
@@ -20,19 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadRoutes();
+        //
     }
 
-    /**
-     * add Routes
-     */
-    public function loadRoutes(): void
-    {
-
-        Route::prefix('admin')
-            ->middleware('web')
-            ->as('admin.')
-            ->group(base_path('routes/admin.php'));
-
-    }
 }

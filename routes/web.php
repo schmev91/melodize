@@ -13,11 +13,5 @@ Route::group([ 'as' => 'client.' ], function () use ($client_routes) {
         return view('client.home');
     })->name('home');
 
-    foreach ($client_routes as $name) {
-        Route::get($name, function () use ($name) {
-            return view("client.$name");
-        })->name($name);
-    }
-
-    require_once __DIR__ . "/client/posts.php";
+    // require_once __DIR__ . "/client/posts.php";
 });

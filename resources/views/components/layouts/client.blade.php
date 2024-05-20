@@ -1,16 +1,13 @@
 <x-layouts.app title="Melodize">
-    <div
-        id="client-container"
-        class="flex flex-col justify-between gap-3 bg-client"
-    >
-        {{-- HEADER --}}
-        @include("client.partials.header")
+    <div class="flex flex-col justify-between gap-6 bg-client">
+        <x-client.header />
 
         <div class="container min-h-screen">
             {{ $slot }}
         </div>
 
-        {{-- FOOTER --}}
-        @include("client.partials.footer")
+        @once
+            <x-client.footer />
+        @endonce
     </div>
 </x-layouts.app>

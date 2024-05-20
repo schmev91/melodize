@@ -10,8 +10,8 @@
 
         <title>{{ $title ?? "Page Title" }}</title>
     </head>
+
     <body class="position-relative">
         {{ $slot }}
     </body>
-    @livewire("music-player")
 </html>
