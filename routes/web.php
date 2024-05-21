@@ -3,9 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 $client_routes = [
-    'albums',
-    'artists',
-    'tracks',
+    'library',
  ];
 
 Route::group([ 'as' => 'client.' ], function () use ($client_routes) {
@@ -13,5 +11,9 @@ Route::group([ 'as' => 'client.' ], function () use ($client_routes) {
         return view('client.home');
     })->name('home');
 
-    // require_once __DIR__ . "/client/posts.php";
+    foreach ($client_routes as $name) {
+        Route::get($name, function () use ($name) {
+            return view($name);
+        })->name($name);
+    }
 });

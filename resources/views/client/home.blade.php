@@ -1,3 +1,3 @@
 <x-layouts.client>
-    <div class="client-basic">Im home</div>
+    <div>Im home</div>
 </x-layouts.client>

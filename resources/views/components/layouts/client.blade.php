@@ -1,6 +1,6 @@
 <x-layouts.app title="Melodize">
-    <div class="flex flex-col justify-between gap-6 bg-client">
-        <x-client.header />
+    <div class="flex flex-col justify-between gap-6 bg-white">
+        <livewire:client.header />
 
         <div class="container min-h-screen">
             {{ $slot }}
