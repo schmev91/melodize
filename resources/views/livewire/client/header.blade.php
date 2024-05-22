@@ -46,8 +46,21 @@
             </span>
         </div>
 
-        <div id="profile">
-            {{--  --}}
+        <div id="profile" class="ms-auto">
+            <div id="auth" class="flex gap-4">
+                <a
+                    class="rounded-md px-2 py-1 font-medium text-white outline outline-1 outline-white"
+                    href=""
+                >
+                    Login
+                </a>
+                <a
+                    class="rounded-md bg-hypergreen px-2 py-1 font-medium text-wall"
+                    href=""
+                >
+                    Register
+                </a>
+            </div>
         </div>
         {{-- END - HEADER INNER --}}
     </div>
