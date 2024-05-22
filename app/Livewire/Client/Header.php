@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class Header extends Component
 {
+
     public array $route_names = [
         'home',
         'library',
@@ -13,14 +14,9 @@ class Header extends Component
 
     public string $active_name = 'client.home';
 
-    public function mount()
+    public function boot()
     {
-
-    }
-
-    public function refresh_header($name)
-    {
-        dd($name);
+        $this->active_name = request()->route()->getName();
     }
 
     public function render()
