@@ -6,6 +6,7 @@ $client_routes = [
     'library',
  ];
 
+
 Route::group([ 'as' => 'client.' ], function () use ($client_routes) {
     Route::get('/', function () {
         return view('client.home');
