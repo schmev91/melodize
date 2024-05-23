@@ -3,12 +3,15 @@
     <div class="header flex items-center">
         {{-- START - HEADER INNER --}}
         <a href="" class="header-logo bg-wall bg-opacity-50 px-2">
-            <img
-                class="h-12 py-3"
-                src="{{ asset("img/utils/melodize-hypergreen.png") }}"
-                alt=""
-            />
+            @persist("header-logo")
+                <img
+                    class="h-12 py-3"
+                    src="{{ asset("img/utils/melodize-hypergreen.png") }}"
+                    alt=""
+                />
+            @endpersist("header-logo")
         </a>
+
         <nav class="flex h-12 items-center" wire:click="$refresh">
             @foreach ($route_names as $key => $name)
                 @php
@@ -46,20 +49,21 @@
             </span>
         </div>
 
-        <div id="profile" class="ms-auto">
-            <div id="auth" class="flex gap-4">
-                <a
-                    class="rounded-md px-2 py-1 font-medium text-white outline outline-1 outline-white"
-                    href=""
-                >
-                    Login
-                </a>
-                <a
-                    class="rounded-md bg-hypergreen px-2 py-1 font-medium text-wall"
-                    href=""
-                >
-                    Register
-                </a>
+        <div class="header-end flex flex-grow items-center justify-end gap-5">
+            <div id="profile">
+                <div id="auth" class="flex gap-4">
+                    <button
+                        class="rounded-md bg-white px-2 py-1 font-medium text-wall"
+                    >
+                        Login
+                    </button>
+                    <button
+                        class="rounded-md px-2 py-1 font-medium text-hypergreen outline outline-1 outline-hypergreen"
+                        onclick="register_modal.showModal()"
+                    >
+                        Register
+                    </button>
+                </div>
             </div>
         </div>
         {{-- END - HEADER INNER --}}

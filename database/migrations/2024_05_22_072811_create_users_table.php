@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('name');
+            $table->string('email');
             $table->boolean('isAdmin')->default(0);
             $table->string('password');
             $table->string('avatar')->default('img/default/avatar.jpg');

@@ -1,9 +1,7 @@
 @props([
     "name" => "",
     "type" => "text",
-    "error" => "true",
-    "edit" => "",
-    "value" => [],
+    "value" => "",
     "required" => null,
 ])
 @php
@@ -15,14 +13,14 @@
 @endphp
 
 <div>
-    <label for="{{ $name }}" class="form-label mb-1">
+    <label for="{{ $name }}" class="label-text mb-1">
         {{ $slot }}
         @if ($required)
             <sup class="text-danger">*</sup>
         @endif
     </label>
     <input
-        name="{{ $name }}"
+        wire:model="{{ $name }}"
         id="{{ $name }}"
         value="{{ $value }}"
         type="{{ $type }}"
@@ -30,9 +28,7 @@
         {{ $attributes->except("class") }}
         {{ $required ? "required" : "" }}
     />
-    @if ($error === "true")
-        @error($name)
-            <small class="error_holder text-danger">{{ $message }}</small>
-        @enderror
-    @endif
+    @error($name)
+        <small class="error_holder text-red-400">{{ $message }}</small>
+    @enderror
 </div>

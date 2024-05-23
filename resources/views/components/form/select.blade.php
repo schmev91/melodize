@@ -36,7 +36,7 @@
     @endif
 </label>
 <select
-    name="{{ $name }}"
+    wire:model="{{ $name }}"
     id="{{ $name }}"
     class="{{ $attributes["class"] }} form-select"
     {{ $attributes->except("class") }}

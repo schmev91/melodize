@@ -20,7 +20,7 @@
         @endif
     </label>
     <textarea
-        name="{{ $name }}"
+        wire:model="{{ $name }}"
         id="{{ $name }}"
         rows="{{ $rows }}"
         class="{{ $attributes["class"] }} form-control"
