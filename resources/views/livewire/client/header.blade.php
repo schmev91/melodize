@@ -25,29 +25,34 @@
             @endforeach
         </nav>
 
-        <div id="search" class="relative ms-6">
+        <form id="search" class="relative ms-6">
             <input
                 type="text"
                 placeholder="Swearch UwO?"
                 class="form-input h-8 w-96 rounded-md bg-slate-200"
+                required
             />
-            <span class="absolute right-2 top-1/2 -translate-y-1/2">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-6 w-6 stroke-slate-600"
+            <button type="submit">
+                <span
+                    class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
                 >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                    />
-                </svg>
-            </span>
-        </div>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="h-6 w-6 stroke-slate-600"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                        />
+                    </svg>
+                </span>
+            </button>
+        </form>
 
         <div class="header-end flex flex-grow items-center justify-end gap-5">
             <div id="profile">
