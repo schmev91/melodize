@@ -54,6 +54,7 @@
                 <div id="auth" class="flex gap-4">
                     <button
                         class="rounded-md bg-white px-2 py-1 font-medium text-wall"
+                        onclick="login_modal.showModal()"
                     >
                         Login
                     </button>
