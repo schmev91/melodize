@@ -16,9 +16,9 @@
 }
 
 ::-webkit-scrollbar-track {
-    @apply bg-base-100;
+    @apply bg-wall;
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply rounded-lg bg-[var(--hypergreen-color)];
+    @apply rounded-lg bg-such;
 }

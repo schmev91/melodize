@@ -1,10 +1,30 @@
 {{-- If your happiness depends on money, you will never be happy with yourself. --}}
 @persist("music-player")
-    <div class="fixed bottom-0 flex justify-center">
-        <audio
-            autoplay
-            src="{{ asset("audio/Gymnopdie_No1.mp3") }}"
-            controls
-        ></audio>
+    <div
+        class="container fixed bottom-0 flex items-center gap-5 border-t border-gray-300 bg-gray-100 py-2"
+    >
+        <div id="player-label" class="flex items-center gap-3">
+            <img
+                class="h-16 w-16 rounded-md object-cover"
+                src="{{ asset("img/default/track.png") }}"
+                alt=""
+            />
+            <div class="label-info flex flex-col gap-1">
+                <span class="text-md text-lg font-medium">Sugarcoat</span>
+                <span class="text-sm font-medium text-gray-500">DAZBEE</span>
+            </div>
+        </div>
+
+        <div id="player-controller" class="flex flex-col items-center gap-2">
+            <div id="ctrl-btns" class="flex items-center gap-5">
+                <x-player.loop />
+                <x-player.previous wire:click="test" />
+                <x-player.pause />
+                <x-player.next />
+                <x-player.shuffle />
+            </div>
+            <progress class="progress w-96" value="72" max="100"></progress>
+        </div>
+        <div id="player-options"></div>
     </div>
 @endpersist('music-player')

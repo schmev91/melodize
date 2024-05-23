@@ -15,7 +15,7 @@
             class="modal-content flex flex-col gap-3 py-4"
         >
             <div class="prose mb-5">
-                <h1 class="prose-h3:">Register</h1>
+                <h1 class="prose-h3">Register</h1>
             </div>
 
             {{-- LOGIN NAME --}}

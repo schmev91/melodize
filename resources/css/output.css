@@ -1968,18 +1968,6 @@ html {
     }
   }
 
-  .btn-outline.btn-success:hover {
-    --tw-text-opacity: 1;
-    color: var(--fallback-suc,oklch(var(--suc)/var(--tw-text-opacity)));
-  }
-
-  @supports (color: color-mix(in oklab, black, black)) {
-    .btn-outline.btn-success:hover {
-      background-color: color-mix(in oklab, var(--fallback-su,oklch(var(--su)/1)) 90%, black);
-      border-color: color-mix(in oklab, var(--fallback-su,oklch(var(--su)/1)) 90%, black);
-    }
-  }
-
   .btn-disabled:hover,
     .btn[disabled]:hover,
     .btn:disabled:hover {
@@ -2207,6 +2195,18 @@ html {
   scrollbar-gutter: stable;
 }
 
+.progress {
+  position: relative;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  overflow: hidden;
+  height: 0.5rem;
+  border-radius: var(--rounded-box, 1rem);
+  background-color: var(--fallback-bc,oklch(var(--bc)/0.2));
+}
+
 .select {
   display: inline-flex;
   cursor: pointer;
@@ -2394,10 +2394,6 @@ html {
     --btn-color: var(--fallback-n);
   }
 
-  .btn-success {
-    --btn-color: var(--fallback-su);
-  }
-
   .prose :where(code):not(:where([class~="not-prose"] *, pre *)) {
     background-color: var(--fallback-b3,oklch(var(--b3)/1));
   }
@@ -2407,11 +2403,6 @@ html {
   .btn-outline.btn-primary.btn-active {
     background-color: color-mix(in oklab, var(--fallback-p,oklch(var(--p)/1)) 90%, black);
     border-color: color-mix(in oklab, var(--fallback-p,oklch(var(--p)/1)) 90%, black);
-  }
-
-  .btn-outline.btn-success.btn-active {
-    background-color: color-mix(in oklab, var(--fallback-su,oklch(var(--su)/1)) 90%, black);
-    border-color: color-mix(in oklab, var(--fallback-su,oklch(var(--su)/1)) 90%, black);
   }
 }
 
@@ -2435,22 +2426,12 @@ html {
   .btn-neutral {
     --btn-color: var(--n);
   }
-
-  .btn-success {
-    --btn-color: var(--su);
-  }
 }
 
 .btn-neutral {
   --tw-text-opacity: 1;
   color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
   outline-color: var(--fallback-n,oklch(var(--n)/1));
-}
-
-.btn-success {
-  --tw-text-opacity: 1;
-  color: var(--fallback-suc,oklch(var(--suc)/var(--tw-text-opacity)));
-  outline-color: var(--fallback-su,oklch(var(--su)/1));
 }
 
 .btn.glass {
@@ -2489,16 +2470,6 @@ html {
 .btn-outline.btn-primary.btn-active {
   --tw-text-opacity: 1;
   color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
-}
-
-.btn-outline.btn-success {
-  --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
-}
-
-.btn-outline.btn-success.btn-active {
-  --tw-text-opacity: 1;
-  color: var(--fallback-suc,oklch(var(--suc)/var(--tw-text-opacity)));
 }
 
 .btn.btn-disabled,
@@ -2891,6 +2862,51 @@ html {
   0% {
     opacity: 0;
   }
+}
+
+.progress::-moz-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+}
+
+.progress:indeterminate {
+  --progress-color: var(--fallback-bc,oklch(var(--bc)/1));
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--progress-color) -1%,
+    var(--progress-color) 10%,
+    transparent 10%,
+    transparent 90%
+  );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
+}
+
+.progress::-webkit-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  background-color: transparent;
+}
+
+.progress::-webkit-progress-value {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+}
+
+.progress:indeterminate::-moz-progress-bar {
+  background-color: transparent;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--progress-color) -1%,
+    var(--progress-color) 10%,
+    transparent 10%,
+    transparent 90%
+  );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
 }
 
 @keyframes progress-loading {
@@ -3488,12 +3504,21 @@ html {
   height: 1.5rem;
 }
 
+.size-5 {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .h-12 {
   height: 3rem;
 }
 
 .h-16 {
   height: 4rem;
+}
+
+.h-4 {
+  height: 1rem;
 }
 
 .h-5 {
@@ -3516,16 +3541,20 @@ html {
   height: 100%;
 }
 
-.h-4 {
-  height: 1rem;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
 
 .w-1\/4 {
   width: 25%;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .w-5 {
@@ -3555,10 +3584,6 @@ html {
 
 .w-full {
   width: 100%;
-}
-
-.w-4 {
-  width: 1rem;
 }
 
 .max-w-6xl {
@@ -3735,24 +3760,19 @@ html {
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 
-.border-wall {
-  --tw-border-opacity: 1;
-  border-color: rgb(25 25 25 / var(--tw-border-opacity));
-}
-
 .border-hypergreen {
   --tw-border-opacity: 1;
   border-color: rgb(53 230 104 / var(--tw-border-opacity));
 }
 
+.border-wall {
+  --tw-border-opacity: 1;
+  border-color: rgb(25 25 25 / var(--tw-border-opacity));
+}
+
 .border-l-green-500 {
   --tw-border-opacity: 1;
   border-left-color: rgb(34 197 94 / var(--tw-border-opacity));
-}
-
-.border-t-hypergreen {
-  --tw-border-opacity: 1;
-  border-top-color: rgb(53 230 104 / var(--tw-border-opacity));
 }
 
 .border-opacity-50 {
@@ -3772,6 +3792,11 @@ html {
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.bg-hypergreen {
+  --tw-bg-opacity: 1;
+  background-color: rgb(53 230 104 / var(--tw-bg-opacity));
 }
 
 .bg-slate-200 {
@@ -3797,11 +3822,6 @@ html {
 .bg-zinc-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(63 63 70 / var(--tw-bg-opacity));
-}
-
-.bg-hypergreen {
-  --tw-bg-opacity: 1;
-  background-color: rgb(53 230 104 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
@@ -3931,10 +3951,6 @@ html {
   line-height: 1.25rem;
 }
 
-.font-bold {
-  font-weight: 700;
-}
-
 .font-medium {
   font-weight: 500;
 }
@@ -4013,6 +4029,11 @@ html {
   color: rgb(53 230 104 / var(--tw-text-opacity));
 }
 
+.text-red-400 {
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity));
+}
+
 .text-slate-100 {
   --tw-text-opacity: 1;
   color: rgb(241 245 249 / var(--tw-text-opacity));
@@ -4036,11 +4057,6 @@ html {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-red-400 {
-  --tw-text-opacity: 1;
-  color: rgb(248 113 113 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -4074,17 +4090,6 @@ html {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-none {
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.outline-none {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
 .outline {
   outline-style: solid;
 }
@@ -4095,12 +4100,6 @@ html {
 
 .outline-hypergreen {
   outline-color: #35e668;
-}
-
-.ring-0 {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
 .ring-gray-300 {
