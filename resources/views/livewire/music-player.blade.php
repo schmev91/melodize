@@ -3,6 +3,10 @@
     <div
         class="container fixed bottom-0 grid grid-cols-3 border-t border-gray-300 bg-gray-100 py-2"
     >
+        <audio
+            autoplay
+            src="{{ Storage::url("tracks/Mikazuki Step (r-906；三日月ステップ)／DAZBEE (Cover).mp3") }}"
+        ></audio>
         <div id="player-label" class="col-start-1 flex items-center gap-3">
             <img
                 class="h-16 w-16 rounded-md object-cover"
@@ -19,7 +23,7 @@
             id="player-controller"
             class="col-auto flex flex-col justify-center gap-2 justify-self-center"
         >
-            <div id="ctrl-btns" class="flex justify-center gap-5">
+            <div id="ctrl-btns" class="flex items-center justify-center gap-5">
                 <x-player.loop />
                 <x-player.previous wire:click="test" />
                 <x-player.pause />
@@ -27,13 +31,13 @@
                 <x-player.shuffle />
             </div>
             <div id="duration" class="flex items-center gap-2">
-                <small class="font-medium text-hypergreen">0:00</small>
+                <small class="font-medium text-neutral">0:00</small>
                 <progress
                     class="progress w-[27rem]"
                     value="72"
                     max="100"
                 ></progress>
-                <small class="textarea-ghost font-medium">3:19</small>
+                <small class="font-medium text-neutral">3:19</small>
             </div>
         </div>
         <div
