@@ -29,17 +29,17 @@
             <div id="duration" class="flex items-center gap-2">
                 <small
                     id="current-duration"
-                    class="font-medium text-neutral"
+                    class="w-8 text-end font-medium text-neutral"
                 ></small>
                 <progress
                     id="player-progress"
-                    class="progress w-[27rem]"
+                    class="progress w-[27rem] cursor-pointer"
                     value="0"
                     max="100"
                 ></progress>
                 <small
                     id="max-duration"
-                    class="font-medium text-neutral"
+                    class="w-8 font-medium text-neutral"
                 ></small>
             </div>
         </div>

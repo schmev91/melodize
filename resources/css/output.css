@@ -3598,6 +3598,14 @@ html {
   width: 100%;
 }
 
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-7 {
+  width: 1.75rem;
+}
+
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -3967,6 +3975,10 @@ html {
 
 .text-center {
   text-align: center;
+}
+
+.text-end {
+  text-align: end;
 }
 
 .text-lg {
