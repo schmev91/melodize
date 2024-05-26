@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignIdFor(user::class);
             $table->string('title');
             $table->string('artist');
-            $table->string('description');
-            $table->string('cover')->default('img/default/track.png');
+            $table->string('description')->nullable();
+            $table->string('cover')->nullable();
             $table->string('url');
             $table->timestamps();
         });

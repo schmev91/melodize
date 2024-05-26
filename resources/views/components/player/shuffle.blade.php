@@ -1,11 +1,9 @@
 <button {{ $attributes }}>
     <!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
     <svg
-        fill="#000000"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         stroke-width="1.5"
-        stroke="currentColor"
         class="size-5"
         id="Capa_1"
         viewBox="0 0 70.074 70.074"

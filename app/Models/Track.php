@@ -11,6 +11,8 @@ class Track extends Model
 {
     use HasFactory;
 
+    const DEFAULT_COVER = 'img/default/track.png';
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

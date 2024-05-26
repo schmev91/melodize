@@ -1,6 +1,10 @@
 :root {
     --such-color: #d4d7f8;
     --hypergreen-color: #35e668;
+    --fallback-p: var(--hypergreen-color);
+    --p: var(--hypergreen-color);
+    --fallback-s: var(--such-color);
+    --s: var(--such-color);
 }
 
 .client-basic {

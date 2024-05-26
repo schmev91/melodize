@@ -3,15 +3,17 @@
     <input
         type="checkbox"
         class="theme-controller hidden"
-        value="light"
+        value="melodize"
         checked
     />
 
-    <div class="flex flex-col justify-between gap-6 bg-white">
+    <div class="flex flex-col justify-between gap-3 bg-wall">
         <livewire:client.header />
 
         <div class="container min-h-screen rounded-md">
-            @yield("content")
+            <div class="glass">
+                @yield("content")
+            </div>
         </div>
 
         @once

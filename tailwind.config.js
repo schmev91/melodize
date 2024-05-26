@@ -43,6 +43,28 @@ export default {
     ],
 
     daisyui: {
-        themes: ["light", "dark", "night"],
+        themes: [
+            {
+                melodize: {
+                    primary: "#35e668",
+
+                    secondary: "#6b7280",
+
+                    accent: "#d4d7f8",
+
+                    neutral: "#d1d5db",
+
+                    "base-100": "#f3f4f6",
+
+                    info: "#38bdf8",
+
+                    success: "#22c55e",
+
+                    warning: "#facc15",
+
+                    error: "#ef4444",
+                },
+            },
+        ],
     },
 };
