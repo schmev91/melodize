@@ -1,14 +1,8 @@
 import { Howl } from "howler";
 
-const playlist = [];
-
 // Initialize Howler.js
 var sound = new Howl({
-    src: [
-        "storage/tracks/シニカル・シニカル feat.Such.mp3",
-        "storage/tracks/Mikazuki Step (r-906；三日月ステップ)／DAZBEE (Cover).mp3",
-    ],
-    // html5: true,
+    src: ["storage/tracks/シニカル・シニカル feat.Such.mp3"],
     onload: onloadHandler,
     onplay: function () {
         initProgressWorker();

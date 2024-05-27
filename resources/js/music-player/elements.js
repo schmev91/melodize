@@ -4,6 +4,10 @@ var musicPlayer = document.getElementById("music-player");
 
 var playBtn = document.getElementById("player-play");
 var pauseBtn = document.getElementById("player-pause");
+var previousBtn = document.getElementById("player-previous");
+var nextBtn = document.getElementById("player-next");
+var loopBtn = document.getElementById("player-loop");
+var shuffleBtn = document.getElementById("player-shuffle");
 
 var progress = document.getElementById("player-progress");
 
@@ -17,6 +21,10 @@ export {
     musicPlayer,
     playBtn,
     pauseBtn,
+    previousBtn,
+    nextBtn,
+    loopBtn,
+    shuffleBtn,
     currentDuration,
     maxDuration,
     progress,
