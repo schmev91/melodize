@@ -7,13 +7,11 @@
         checked
     />
 
-    <div class="flex flex-col justify-between gap-3 bg-wall">
+    <div class="flex min-h-screen flex-col justify-between bg-wall">
         <livewire:client.header />
 
-        <div class="container min-h-screen rounded-md">
-            <div class="glass">
-                @yield("content")
-            </div>
+        <div class="container glass z-10 grow">
+            @yield("content")
         </div>
 
         @once

@@ -1,6 +1,9 @@
 {{-- If your happiness depends on money, you will never be happy with yourself. --}}
 @persist("music-player")
-    <div class="container fixed bottom-0 grid grid-cols-3 bg-zinc-700 py-2">
+    <div
+        id="music-player"
+        class="container fixed bottom-0 z-10 grid grid-cols-3 bg-black py-2"
+    >
         {{-- START --}}
         <x-player.label />
 

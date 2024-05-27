@@ -16,13 +16,13 @@
 }
 
 ::-webkit-scrollbar {
-    @apply w-1;
+    @apply w-0;
 }
-
+/* 
 ::-webkit-scrollbar-track {
-    @apply bg-wall;
+    @apply bg-such;
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply rounded-lg bg-such;
-}
+    @apply rounded-lg bg-hypergreen;
+} */

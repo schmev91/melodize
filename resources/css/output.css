@@ -2636,12 +2636,6 @@ html {
   background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
 }
 
-.progress-primary::-moz-progress-bar {
-  border-radius: var(--rounded-box, 1rem);
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
-}
-
 .progress-accent::-moz-progress-bar {
   border-radius: var(--rounded-box, 1rem);
   --tw-bg-opacity: 1;
@@ -2662,10 +2656,6 @@ html {
   animation: progress-loading 5s ease-in-out infinite;
 }
 
-.progress-primary:indeterminate {
-  --progress-color: var(--fallback-p,oklch(var(--p)/1));
-}
-
 .progress-accent:indeterminate {
   --progress-color: var(--fallback-a,oklch(var(--a)/1));
 }
@@ -2679,11 +2669,6 @@ html {
   border-radius: var(--rounded-box, 1rem);
   --tw-bg-opacity: 1;
   background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
-}
-
-.progress-primary::-webkit-progress-value {
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
 }
 
 .progress-accent::-webkit-progress-value {
@@ -3156,6 +3141,10 @@ html {
   bottom: 0px;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .right-0 {
   right: 0px;
 }
@@ -3178,6 +3167,14 @@ html {
 
 .z-0 {
   z-index: 0;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
 }
 
 .col-auto {
@@ -3345,6 +3342,10 @@ html {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -3392,6 +3393,10 @@ html {
 
 .w-full {
   width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .max-w-6xl {
@@ -3513,6 +3518,10 @@ html {
   overflow: hidden;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -3610,6 +3619,11 @@ html {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
+.bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+
 .bg-hypergreen {
   --tw-bg-opacity: 1;
   background-color: rgb(53 230 104 / var(--tw-bg-opacity));
@@ -3640,19 +3654,9 @@ html {
   background-color: rgb(63 63 70 / var(--tw-bg-opacity));
 }
 
-.bg-gray-400 {
+.bg-pink-300 {
   --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
-}
-
-.bg-gray-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
-}
-
-.bg-gray-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+  background-color: rgb(249 168 212 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
@@ -3940,6 +3944,17 @@ html {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-zinc-700 {
+  --tw-shadow-color: #3f3f46;
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .outline {

@@ -52,6 +52,7 @@
                 type="password"
                 placeholder="Password"
                 required
+                autocomplete
             >
                 <x-svg.key />
             </x-form.input-inline>
