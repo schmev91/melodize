@@ -6,6 +6,6 @@ export { pauseHandler };
 
 function pauseHandler() {
     sound.pause();
-    pauseBtn.classList.add(hideClassName);
-    playBtn.classList.remove(hideClassName);
+    pauseBtn!.classList.add(hideClassName);
+    playBtn!.classList.remove(hideClassName);
 }

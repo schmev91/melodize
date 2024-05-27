@@ -36,5 +36,5 @@
             <x-player.queue class="stroke-white" />
         </div>
     </div>
-    @vite("resources/js/music-player/player.js")
+    @vite("resources/dist/js/music-player/player.js")
 @endpersist('music-player')

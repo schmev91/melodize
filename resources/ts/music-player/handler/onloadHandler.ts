@@ -5,6 +5,6 @@ import { formatTime } from "../../utils.js";
 export { onloadHandler };
 
 function onloadHandler() {
-    maxDuration.innerText = formatTime(sound.duration());
-    currentDuration.innerText = formatTime(sound.seek());
+    maxDuration!.innerText = formatTime(sound.duration());
+    currentDuration!.innerText = formatTime(sound.seek());
 }

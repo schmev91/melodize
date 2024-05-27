@@ -9,12 +9,16 @@ var nextBtn = document.getElementById("player-next");
 var loopBtn = document.getElementById("player-loop");
 var shuffleBtn = document.getElementById("player-shuffle");
 
-var progress = document.getElementById("player-progress");
+var progress = document.getElementById(
+    "player-progress",
+) as HTMLProgressElement;
 
 var currentDuration = document.getElementById("current-duration");
 var maxDuration = document.getElementById("max-duration");
 
-var visualizeCanvas = document.getElementById("visualize-canvas");
+var visualizeCanvas = document.getElementById(
+    "visualize-canvas",
+) as HTMLCanvasElement;
 
 export {
     body,

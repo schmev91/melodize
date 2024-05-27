@@ -6,10 +6,14 @@
 
         <link rel="icon" href="{{ asset("favicon-hypergreen.ico") }}" />
 
-        @vite("resources/css/output.css")
+        @vite("resources/dist/css/output.css")
         @vite("resources/css/global.css")
 
         <title>{{ $title ?? "Page Title" }}</title>
+
+        <script>
+            var exports = {};
+        </script>
 
         <x-script.jsmediatags />
     </head>

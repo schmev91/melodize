@@ -1,13 +1,13 @@
 import { visualizeCanvas } from "./elements";
 import { sound } from "./player";
 
-const context = visualizeCanvas.getContext("2d");
+const context = visualizeCanvas!.getContext("2d");
 
 // Adjust canvas size to match screen width
 visualizeCanvas.width = window.innerWidth;
 visualizeCanvas.height = window.innerHeight - 64;
 
-let analyser;
+let analyser: AnalyserNode;
 
 export default function visualizer() {
     console.log(sound);
@@ -39,14 +39,14 @@ function visualize() {
     const barWidth = (visualizeCanvas.width / bufferLength) * 1.5;
 
     function animate() {
-        context.clearRect(0, 0, visualizeCanvas.width, visualizeCanvas.height);
+        context!.clearRect(0, 0, visualizeCanvas.width, visualizeCanvas.height);
         analyser.getByteFrequencyData(dataArray);
 
         let x = 0;
         for (let i = 0; i < bufferLength; i++) {
             const barHeight = dataArray[i];
-            context.fillStyle = "#d4d7f8";
-            context.fillRect(
+            context!.fillStyle = "#d4d7f8";
+            context!.fillRect(
                 x,
                 visualizeCanvas.height - barHeight,
                 barWidth,

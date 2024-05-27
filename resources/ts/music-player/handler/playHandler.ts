@@ -6,6 +6,6 @@ export { playHandler };
 
 function playHandler() {
     sound.play();
-    playBtn.classList.add(hideClassName);
-    pauseBtn.classList.remove(hideClassName);
+    playBtn!.classList.add(hideClassName);
+    pauseBtn!.classList.remove(hideClassName);
 }

@@ -1,7 +1,7 @@
 import { sound } from "./player";
 import { playHandler, pauseHandler, updateProgressTime } from "./handler";
 
-function shortcutHandler(event) {
+function shortcutHandler(event: KeyboardEvent) {
     switch (event.code) {
         case "Space":
             event.preventDefault();

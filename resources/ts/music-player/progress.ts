@@ -6,10 +6,10 @@ import { progress, currentDuration } from "./elements.js";
 export { initProgressWorker, stopProgressWorker, updateProgressTime };
 
 // update progress on clicking progress bar
-progress.addEventListener("click", function (event) {
+progress!.addEventListener("click", function (event) {
     // Calculate the seek position based on where the user clicked
     const clickPosition = event.offsetX;
-    const width = progress.clientWidth;
+    const width = progress!.clientWidth;
     const seekPosition = clickPosition / width;
 
     // Set the seek position in the audio
@@ -20,8 +20,10 @@ progress.addEventListener("click", function (event) {
     updateProgressTime();
 });
 
+let updateProgressWorker: any;
+
 function initProgressWorker() {
-    let updateProgressWorker = setInterval(updateProgressTime, 1000);
+    updateProgressWorker = setInterval(updateProgressTime, 1000);
 }
 
 function stopProgressWorker() {
@@ -31,6 +33,6 @@ function stopProgressWorker() {
 }
 
 function updateProgressTime() {
-    currentDuration.innerText = formatTime(sound.seek());
-    progress.value = (sound.seek() / sound.duration()) * 100;
+    currentDuration!.innerText = formatTime(sound.seek());
+    progress!.value = (sound.seek() / sound.duration()) * 100;
 }
