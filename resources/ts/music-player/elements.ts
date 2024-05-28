@@ -1,36 +1,36 @@
-var body = document.querySelector("body");
+// elements.ts
 
-var musicPlayer = document.getElementById("music-player");
+export const body = document.querySelector("body") as HTMLBodyElement;
+export const footer = document.getElementById("footer") as HTMLElement;
 
-var playBtn = document.getElementById("player-play");
-var pauseBtn = document.getElementById("player-pause");
-var previousBtn = document.getElementById("player-previous");
-var nextBtn = document.getElementById("player-next");
-var loopBtn = document.getElementById("player-loop");
-var shuffleBtn = document.getElementById("player-shuffle");
-
-var progress = document.getElementById(
+export const musicPlayer = document.getElementById(
+    "music-player",
+) as HTMLElement;
+export const playBtn = document.getElementById(
+    "player-play",
+) as HTMLButtonElement;
+export const pauseBtn = document.getElementById(
+    "player-pause",
+) as HTMLButtonElement;
+export const previousBtn = document.getElementById(
+    "player-previous",
+) as HTMLButtonElement;
+export const nextBtn = document.getElementById(
+    "player-next",
+) as HTMLButtonElement;
+export const loopBtn = document.getElementById(
+    "player-loop",
+) as HTMLButtonElement;
+export const shuffleBtn = document.getElementById(
+    "player-shuffle",
+) as HTMLButtonElement;
+export const progress = document.getElementById(
     "player-progress",
 ) as HTMLProgressElement;
 
-var currentDuration = document.getElementById("current-duration");
-var maxDuration = document.getElementById("max-duration");
+export const currentDuration = document.getElementById("current-duration");
+export const maxDuration = document.getElementById("max-duration");
 
-var visualizeCanvas = document.getElementById(
+export const visualizeCanvas = document.getElementById(
     "visualize-canvas",
 ) as HTMLCanvasElement;
-
-export {
-    body,
-    musicPlayer,
-    playBtn,
-    pauseBtn,
-    previousBtn,
-    nextBtn,
-    loopBtn,
-    shuffleBtn,
-    currentDuration,
-    maxDuration,
-    progress,
-    visualizeCanvas,
-};

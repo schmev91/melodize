@@ -1,38 +1,38 @@
-import { sound } from "./player.js";
+import { Howl } from "./player.js";
 import { formatTime } from "../utils.js";
-
 import { progress, currentDuration } from "./elements.js";
 
-export { initProgressWorker, stopProgressWorker, updateProgressTime };
-
-// update progress on clicking progress bar
-progress!.addEventListener("click", function (event) {
-    // Calculate the seek position based on where the user clicked
-    const clickPosition = event.offsetX;
-    const width = progress!.clientWidth;
-    const seekPosition = clickPosition / width;
-
-    // Set the seek position in the audio
-    const duration = sound.duration();
-    const seekTime = seekPosition * duration;
-
-    sound.seek(seekTime);
-    updateProgressTime();
-});
+export default initProgressWatcher;
+export { startProgressUpdater, stopProgressUpdater, updateProgressTime };
 
 let updateProgressWorker: any;
 
-function initProgressWorker() {
+function initProgressWatcher(player: Howl): Function {
+    return function (event: MouseEvent) {
+        // Calculate the seek position based on where the user clicked
+        const clickPosition = event.offsetX;
+        const width = progress!.clientWidth;
+        const seekPosition = clickPosition / width;
+
+        // Set the seek position in the audio
+        const duration = player.duration();
+        const seekTime = seekPosition * duration;
+
+        player.seek(seekTime);
+        updateProgressTime();
+    };
+}
+
+function startProgressUpdater() {
     updateProgressWorker = setInterval(updateProgressTime, 1000);
 }
 
-function stopProgressWorker() {
-    try {
-        clearInterval(updateProgressWorker);
-    } catch (e) {}
+function stopProgressUpdater() {
+    clearInterval(updateProgressWorker);
 }
 
-function updateProgressTime() {
-    currentDuration!.innerText = formatTime(sound.seek());
-    progress!.value = (sound.seek() / sound.duration()) * 100;
+function updateProgressTime(): void {
+    currentDuration!.innerText = formatTime(globalThis.player.seek());
+    progress!.value =
+        (globalThis.player.seek() / globalThis.player.duration()) * 100;
 }

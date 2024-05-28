@@ -1,19 +1,21 @@
-import { sound } from "./player";
-import { playHandler, pauseHandler, updateProgressTime } from "./handler";
+import { Howl } from "../player";
+import { pauseHandler } from "./pauseHandler";
+import { playHandler } from "./playHandler";
+import { updateProgressTime } from "../progress";
 
 function shortcutHandler(event: KeyboardEvent) {
     switch (event.code) {
         case "Space":
             event.preventDefault();
-            if (sound.playing()) pauseHandler();
+            if (globalThis.player.playing()) pauseHandler();
             else playHandler();
             break;
         case "ArrowLeft":
-            sound.seek(sound.seek() - 3);
+            globalThis.player.seek(globalThis.player.seek() - 3);
             updateProgressTime();
             break;
         case "ArrowRight":
-            sound.seek(sound.seek() + 3);
+            globalThis.player.seek(globalThis.player.seek() + 3);
             updateProgressTime();
             break;
         // case "ArrowUp":
@@ -24,4 +26,5 @@ function shortcutHandler(event: KeyboardEvent) {
         //     break;
     }
 }
+
 export { shortcutHandler };

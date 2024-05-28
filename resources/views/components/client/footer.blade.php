@@ -1,5 +1,5 @@
 <!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->
-<footer class="container bg-black py-3 text-white">
+<footer id="footer" class="container bg-black py-3 text-white">
     <div class="footer">
         <aside class="grid-flow-col items-center">
             <img

@@ -1,26 +1,25 @@
-import { visualizeCanvas } from "./elements";
-import { sound } from "./player";
+import { Howl } from "./player";
+import { footer, visualizeCanvas } from "./elements";
 
 const context = visualizeCanvas!.getContext("2d");
 
 // Adjust canvas size to match screen width
 visualizeCanvas.width = window.innerWidth;
-visualizeCanvas.height = window.innerHeight - 64;
+visualizeCanvas.height = window.innerHeight - footer!.clientHeight;
 
 let analyser: AnalyserNode;
 
-export default function visualizer() {
-    console.log(sound);
+export default function visualizer(player: Howl): void {
     if (!analyser) {
         // Get the AudioContext instance from Howler.js _node
-        const audioCtx = sound._sounds[0]._node.context;
+        const audioCtx = player._sounds[0]._node.context;
 
         // Create the analyser node
         analyser = audioCtx.createAnalyser();
         analyser.fftSize = 128;
 
         // Connect Howler.js sound to the analyser node
-        const audioNode = sound._sounds[0]._node;
+        const audioNode = player._sounds[0]._node;
         audioNode.connect(analyser);
         analyser.connect(audioCtx.destination);
     }
@@ -28,7 +27,7 @@ export default function visualizer() {
     visualize();
 }
 
-function visualize() {
+function visualize(): void {
     if (!analyser) {
         // If analyser is not initialized, return
         return;

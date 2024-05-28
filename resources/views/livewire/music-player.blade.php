@@ -13,13 +13,28 @@
             class="col-auto flex flex-col justify-center gap-2 justify-self-center"
         >
             <div id="ctrl-btns" class="flex items-center justify-center gap-5">
-                <x-player.loop class="stroke-white" id="player-loop" />
-                <x-player.previous class="stroke-white" id="player-previous" />
-                <x-player.pause class="hidden stroke-white" id="player-pause" />
-                <x-player.play class="stroke-white" id="player-play" />
-                <x-player.next class="stroke-white" id="player-next" />
+                <x-player.loop
+                    class="stroke-white hover:stroke-hypergreen"
+                    id="player-loop"
+                />
+                <x-player.previous
+                    class="stroke-white hover:stroke-hypergreen"
+                    id="player-previous"
+                />
+                <x-player.pause
+                    class="hidden stroke-white hover:stroke-hypergreen"
+                    id="player-pause"
+                />
+                <x-player.play
+                    class="stroke-white hover:stroke-hypergreen"
+                    id="player-play"
+                />
+                <x-player.next
+                    class="stroke-white hover:stroke-hypergreen"
+                    id="player-next"
+                />
                 <x-player.shuffle
-                    class="fill-white stroke-white"
+                    class="fill-white stroke-white hover:fill-hypergreen hover:stroke-hypergreen"
                     id="player-shuffle"
                 />
             </div>
@@ -31,10 +46,10 @@
             id="player-options"
             class="col-start-3 flex items-center gap-5 justify-self-end"
         >
-            <x-player.heart class="stroke-white" />
-            <x-player.volume-on class="stroke-white" />
-            <x-player.queue class="stroke-white" />
+            <x-player.heart class="stroke-white hover:stroke-hypergreen" />
+            <x-player.volume-on class="stroke-white hover:stroke-hypergreen" />
+            <x-player.queue class="stroke-white hover:stroke-hypergreen" />
         </div>
     </div>
-    @vite("resources/dist/js/music-player/player.js")
+    @vite("resources/dist/js/music-player/index.js")
 @endpersist('music-player')
