@@ -2,7 +2,7 @@ import { Howl, createPlayer } from "./player";
 import visualizer from "./visualizer";
 import { startProgressUpdater, stopProgressUpdater } from "./progress";
 import { call } from "../utils";
-import { onloadHandler } from "./handler/index";
+import { onloadHandler, playHandler } from "./handler/index";
 import { nextHandler } from "./handler/nextHandler";
 import { initController } from "./controller";
 
@@ -29,8 +29,9 @@ export function refresh() {
     //create a new Player with the current track index
     globalThis.player = createPlayer(globalThis.tracksList[trackIndex]);
     globalThis.player
-        .on("load", onloadHandler)
-        .on("play", call(startProgressUpdater, visualizer))
+        .once("load", onloadHandler)
+        .on("play", call(startProgressUpdater))
+        .once("play", visualizer)
         .on("pause", stopProgressUpdater)
         .on("stop", stopProgressUpdater)
         .on("end", call(stopProgressUpdater, nextHandler));

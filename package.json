@@ -2,8 +2,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "concurrently \"php artisan serve --port=3333\" \"vite\" \"tailwindcss -i ./resources/css/input.css -o ./resources/css/output.css --watch\" \"tsc -w --noEmitOnError \"",
-    "inw": "concurrently \"php artisan serve --port=3333\" \"vite\" \"tailwindcss -i ./resources/css/input.css -o ./resources/dist/css/output.css --watch\" \"tsc -w --noEmitOnError \"",
+    "start": "concurrently \"php artisan serve --port=3333\" \"vite\" \"tailwindcss -i ./resources/css/input.css -o ./resources/css/output.css --watch\" \"tsc -w\"",
+    "inw": "concurrently \"php artisan serve --port=3333\" \"vite\" \"tailwindcss -i ./resources/css/input.css -o ./resources/dist/css/output.css --watch\" \"tsc -w\"",
     "dev": "vite",
     "build": "vite build"
   },
@@ -11,7 +11,6 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.13",
-    "@types/howler": "^2.2.11",
     "alpinejs": "^3.4.2",
     "autoprefixer": "^10.4.2",
     "axios": "^1.6.4",
@@ -25,6 +24,7 @@
   },
   "dependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
+    "@types/howler": "^2.2.11",
     "concurrently": "^8.2.2",
     "glob": "^10.4.1",
     "howler": "^2.2.4"

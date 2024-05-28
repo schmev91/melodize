@@ -1,11 +1,11 @@
 import { refresh } from "../index";
-import { Howl } from "../player";
 
 export { nextHandler };
 
-function nextHandler() {
+function nextHandler(): void {
     globalThis.trackIndex++;
     if (globalThis.trackIndex >= globalThis.tracksList.length)
         globalThis.trackIndex = 0;
     refresh();
+    globalThis.player.play();
 }

@@ -4,7 +4,8 @@
         "module": "ESNext",
         "outDir": "resources/dist/js",
         "strict": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "skipLibCheck": true
     },
     "include": ["resources/**/*.ts"],
     "exclude": ["node_modules"]

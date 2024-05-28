@@ -18,12 +18,14 @@ function shortcutHandler(event: KeyboardEvent) {
             globalThis.player.seek(globalThis.player.seek() + 3);
             updateProgressTime();
             break;
-        // case "ArrowUp":
-        //     sound.volume(sound.volume() + 0.1);
-        //     break;
-        // case "ArrowDown":
-        //     sound.volume(sound.volume() - 0.1);
-        //     break;
+        case "ArrowUp":
+            event.preventDefault();
+            globalThis.player.volume(globalThis.player.volume() + 0.1);
+            break;
+        case "ArrowDown":
+            event.preventDefault();
+            globalThis.player.volume(globalThis.player.volume() - 0.1);
+            break;
     }
 }
 
