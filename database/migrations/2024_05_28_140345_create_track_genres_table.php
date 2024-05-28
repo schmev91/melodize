@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('track_genres', function (Blueprint $table) {
-            $table->id();
             $table->foreignIdFor(\App\Models\Track::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(\App\Models\Genre::class)->constrained()->cascadeOnDelete();
+            $table->primary([ 'track_id', 'genre_id' ]);
             $table->timestamps();
         });
     }

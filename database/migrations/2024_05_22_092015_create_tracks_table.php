@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Genre;
 use App\Models\user;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,8 +14,7 @@ return new class extends Migration
     {
         Schema::create('tracks', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(user::class);
-            $table->foreignIdFor(Genre::class);
+            $table->foreignIdFor(User::class);
             $table->string('title');
             $table->string('artist');
             $table->string('description')->nullable();

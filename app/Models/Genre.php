@@ -4,15 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Genre extends Model
 {
     use HasFactory;
 
-    public function tracks(): HasManyThrough
+    public function tracks(): BelongsToMany
     {
-        return $this->hasManyThrough(Track::class, TrackGenre::class);
+        return $this->belongsToMany(Track::class)
+            ->using(TrackGenre::class);
     }
 
     const ID         = 'id';

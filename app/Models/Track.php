@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Track extends Model
 {
@@ -20,9 +19,10 @@ class Track extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function genres(): HasManyThrough
+    public function genres(): BelongsToMany
     {
-        return $this->hasManyThrough(Genre::class, TrackGenre::class);
+        return $this->belongsToMany(Genre::class)
+            ->using(TrackGenre::class);
     }
 
     public function playlists(): BelongsToMany

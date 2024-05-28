@@ -10,6 +10,9 @@ class TrackGenre extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = [ self::TRACK_ID, self::GENRE_ID ];
+    public $incrementing  = false;
+
     public function track(): BelongsTo
     {
         return $this->belongsTo(Track::class);
@@ -20,7 +23,11 @@ class TrackGenre extends Model
         return $this->belongsTo(Genre::class);
     }
 
-    const ID         = 'id';
+    protected $fillable = [
+        self::TRACK_ID,
+        self::GENRE_ID,
+     ];
+
     const TRACK_ID   = 'track_id';
     const GENRE_ID   = 'genre_id';
     const CREATED_AT = 'created_at';
