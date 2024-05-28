@@ -46,8 +46,8 @@
             id="player-options"
             class="col-start-3 flex items-center gap-5 justify-self-end"
         >
+            <x-player.volume />
             <x-player.heart class="stroke-white hover:stroke-hypergreen" />
-            <x-player.volume-on class="stroke-white hover:stroke-hypergreen" />
             <x-player.queue class="stroke-white hover:stroke-hypergreen" />
         </div>
     </div>

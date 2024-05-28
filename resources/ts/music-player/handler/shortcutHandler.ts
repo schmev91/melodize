@@ -2,6 +2,7 @@ import { Howl } from "../player";
 import { pauseHandler } from "./pauseHandler";
 import { playHandler } from "./playHandler";
 import { updateProgressTime } from "../progress";
+import { volumeDown, volumeUp } from "./volumeHandler";
 
 function shortcutHandler(event: KeyboardEvent) {
     switch (event.code) {
@@ -11,20 +12,20 @@ function shortcutHandler(event: KeyboardEvent) {
             else playHandler();
             break;
         case "ArrowLeft":
-            globalThis.player.seek(globalThis.player.seek() - 3);
+            globalThis.player.seek(Math.floor(globalThis.player.seek() - 3));
             updateProgressTime();
             break;
         case "ArrowRight":
-            globalThis.player.seek(globalThis.player.seek() + 3);
+            globalThis.player.seek(Math.floor(globalThis.player.seek() + 3));
             updateProgressTime();
             break;
         case "ArrowUp":
             event.preventDefault();
-            globalThis.player.volume(globalThis.player.volume() + 0.1);
+            volumeUp();
             break;
         case "ArrowDown":
             event.preventDefault();
-            globalThis.player.volume(globalThis.player.volume() - 0.1);
+            volumeDown();
             break;
     }
 }
