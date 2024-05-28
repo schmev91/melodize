@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Track;
-use App\Http\Requests\StoretrackRequest;
-use App\Http\Requests\UpdatetrackRequest;
+use App\Models\Genre;
+use Illuminate\Http\Request;
 
-class TrackController
+class GenreController
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +26,7 @@ class TrackController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoretrackRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -35,7 +34,7 @@ class TrackController
     /**
      * Display the specified resource.
      */
-    public function show(Track $track)
+    public function show(Genre $genre)
     {
         //
     }
@@ -43,7 +42,7 @@ class TrackController
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Track $track)
+    public function edit(Genre $genre)
     {
         //
     }
@@ -51,7 +50,7 @@ class TrackController
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatetrackRequest $request, Track $track)
+    public function update(Request $request, Genre $genre)
     {
         //
     }
@@ -59,7 +58,7 @@ class TrackController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Track $track)
+    public function destroy(Genre $genre)
     {
         //
     }
