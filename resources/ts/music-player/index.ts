@@ -14,6 +14,7 @@ import {
     trackTitle,
 } from "./elements";
 import { onloadHandler } from "./handler/onloadHandler";
+import { playHandler } from "./handler/playHandler";
 
 declare global {
     var player: Howl;
@@ -27,18 +28,21 @@ const url = `${window.location.href}api/tracks`;
 export async function init(url: string) {
     await fetch(url)
         .then((res) => res.json())
-        .then((data) => {
+        .then(async (data) => {
+            if (globalThis.player) globalThis.player.stop();
+
             const Parser = new LocaltrackParser();
             data = data.map(Parser.parse);
             globalThis.tracksList = data;
             globalThis.trackIndex = 0;
 
             //first run
-            refresh();
+            await refresh();
+            playHandler();
         });
 }
 
-export function refresh() {
+export async function refresh() {
     if (globalThis.player) globalThis.player.stop();
 
     const currentTrack = globalThis.tracksList[trackIndex];
