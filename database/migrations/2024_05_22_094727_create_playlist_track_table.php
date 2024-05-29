@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('identity');
             $table->foreignIdFor(playlist::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(track::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(source::class);
+            $table->foreignIdFor(source::class)->constrained();
             $table->timestamps();
         });
     }

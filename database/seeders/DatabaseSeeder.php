@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SourceSeeder::class,
             GenreSeeder::class,
+            TrackSeeder::class
          ]);
     }
 }

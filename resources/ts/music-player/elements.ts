@@ -34,6 +34,16 @@ export const progress = document.getElementById(
     "player-progress",
 ) as HTMLProgressElement;
 
+export const trackCover = document.getElementById(
+    "player-trackCover",
+) as HTMLImageElement;
+export const trackTitle = document.getElementById(
+    "player-trackTitle",
+) as HTMLElement;
+export const trackArtist = document.getElementById(
+    "player-trackArtist",
+) as HTMLElement;
+
 export const currentDuration = document.getElementById("current-duration");
 
 export const maxDuration = document.getElementById("max-duration");
