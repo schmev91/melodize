@@ -44,6 +44,11 @@
         </form>
 
         <div class="header-end flex flex-grow items-center justify-end gap-5">
+            <a href="">
+                <x-svg.wrench
+                    class="size-7 stroke-white hover:stroke-hypergreen"
+                />
+            </a>
             <div id="profile">
                 <div id="auth" class="flex gap-4">
                     <button

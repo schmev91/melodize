@@ -1,13 +1,17 @@
-export { formatTime, call };
-
-function formatTime(secs: number) {
+export function formatTime(secs: number) {
     const minutes = Math.floor(secs / 60) || 0;
     const seconds = secs - minutes * 60 || 0;
     return `${minutes}:${seconds < 10 ? "0" : ""}${Math.ceil(seconds)}`;
 }
 
-function call(...functions: Function[]) {
+export function call(...functions: Function[]) {
     return function (...args: any) {
         functions.forEach((fn) => fn(...args));
+    };
+}
+
+export function mounter(fn: Function, ...args: any): any {
+    return function () {
+        fn(...args);
     };
 }

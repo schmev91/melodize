@@ -10,10 +10,10 @@
             id="player-trackTitle"
             class="text-md text-lg font-medium text-white"
         >
-            Let make some sound!
+            Let make some noise!
         </span>
         <span id="player-trackArtist" class="text-sm font-medium text-gray-200">
-            Sachii
+            melodize
         </span>
     </div>
 </div>

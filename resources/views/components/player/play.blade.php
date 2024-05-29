@@ -1,5 +1,6 @@
 <button {{ $attributes }}>
     <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
+    {{ $slot }}
     <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
