@@ -11,7 +11,9 @@
         <livewire:client.header />
 
         <div class="container glass z-10 grow">
-            @yield("content")
+            <div class="py-6">
+                @yield("content")
+            </div>
         </div>
 
         @once

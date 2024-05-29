@@ -9,6 +9,7 @@ import { formatTime } from "../../utils.js";
 
 export { onloadHandler };
 
+// @schmev91 THIS FUNCTION IS NO LONGER USED
 function onloadHandler() {
     const { title, artist, cover } =
         globalThis.tracksList[globalThis.trackIndex];
