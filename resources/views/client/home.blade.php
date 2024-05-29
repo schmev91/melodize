@@ -1,7 +1,7 @@
 @extends("components.layouts.client")
 
 @section("content")
-    <section>
+    <section class="mb-5">
         <div class="prose mb-3 flex items-center gap-2">
             <h1 class="prose-h3: m-0 text-white">User uploaded</h1>
             <x-player.play
@@ -16,17 +16,19 @@
                 <div class="carousel-item">
                     <div class="group/track flex cursor-pointer flex-col gap-1">
                         <img
-                            class="h-56 w-56 rounded-box object-cover"
+                            class="h-56 w-56 rounded-box object-cover opacity-75 transition-opacity duration-300 ease-out group-hover/track:opacity-100"
                             src="{{ Storage::url($track->cover) }}"
                             alt="{{ $track->title }} cover"
                         />
                         <div class="flex max-w-56 flex-col">
                             <span
-                                class="line-clamp-1 text-lg font-medium text-white group-hover/track:underline"
+                                class="line-clamp-1 w-fit text-lg font-medium text-white mix-blend-difference transition-colors duration-300 ease-out group-hover/track:text-hypergreen"
                             >
                                 {{ $track->title }}
                             </span>
-                            <span class="line-clamp-1 text-sm text-neutral">
+                            <span
+                                class="line-clamp-1 text-sm text-white mix-blend-difference transition-colors duration-300 ease-out group-hover/track:text-hypergreen"
+                            >
                                 {{ $track->artist }}
                             </span>
                         </div>

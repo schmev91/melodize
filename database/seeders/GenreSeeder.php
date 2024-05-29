@@ -19,6 +19,7 @@ class GenreSeeder extends Seeder
             [ Genre::NAME => 'J-POP' ],
             [ Genre::NAME => 'Vocaloid' ],
             [ Genre::NAME => 'R & B' ],
+            [ Genre::NAME => 'Instrumental' ],
          ]);
     }
 }
