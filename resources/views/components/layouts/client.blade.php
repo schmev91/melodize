@@ -7,7 +7,9 @@
         checked
     />
 
-    <div class="flex min-h-screen flex-col justify-between bg-wall">
+    <div
+        class="flex max-h-screen min-h-screen flex-col justify-between overflow-y-scroll bg-wall"
+    >
         <livewire:client.header />
 
         <div class="container glass z-10 grow">

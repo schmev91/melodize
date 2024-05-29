@@ -1,11 +1,13 @@
 import {
     body,
     footer,
+    musicPlayer,
     nextBtn,
     pauseBtn,
     playBtn,
     previousBtn,
     progress,
+    visualizeCanvas,
     volumeBar,
 } from "./elements";
 import { pauseHandler, playHandler, shortcutHandler } from "./handler/index";
@@ -26,5 +28,9 @@ export function initController(): void {
 
     volumeBar.addEventListener("click", volumeBarWatcher);
 
-    body.style.paddingBottom = footer.clientHeight + "px";
+    // Adjust canvas size to match screen width
+    visualizeCanvas.width = window.innerWidth;
+    visualizeCanvas.height = window.innerHeight - musicPlayer!.clientHeight;
+
+    body.style.paddingBottom = musicPlayer.clientHeight + "px";
 }

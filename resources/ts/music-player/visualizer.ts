@@ -2,10 +2,6 @@ import { footer, visualizeCanvas } from "./elements";
 
 const context = visualizeCanvas!.getContext("2d");
 
-// Adjust canvas size to match screen width
-visualizeCanvas.width = window.innerWidth;
-visualizeCanvas.height = window.innerHeight - footer!.clientHeight;
-
 let analyser: AnalyserNode;
 
 export default function visualizer(): void {
@@ -41,7 +37,14 @@ function visualize(): void {
         let x = 0;
         for (let i = 0; i < bufferLength; i++) {
             const barHeight = dataArray[i];
-            context!.fillStyle = "#d4d7f8";
+
+            // // Calculate color based on the bar index or height
+            // const hue = (i * 360) / bufferLength; // Varying hue from 0 to 360 degrees
+            // context!.fillStyle = `hsl(${hue}, 100%, 50%)`;
+
+            // context!.fillStyle = "#d4d7f8";
+            context!.fillStyle = "#9eb3e6";
+
             context!.fillRect(
                 x,
                 visualizeCanvas.height - barHeight,

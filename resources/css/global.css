@@ -11,6 +11,13 @@
     @apply rounded-md bg-white p-2;
 }
 
+.text-contrast {
+    background: inherit;
+    background-clip: text;
+    color: transparent;
+    filter: invert(1) contrast(2) drop-shadow(var(--hypergreen-color));
+}
+
 #nprogress .bar {
     background-color: var(--such-color) !important;
 }
