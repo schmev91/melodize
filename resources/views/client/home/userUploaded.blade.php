@@ -2,7 +2,7 @@
     <h1 class="prose-h3: m-0 text-white">User uploaded</h1>
     <x-player.play
         id="btn-play_userUploaded"
-        class="btn btn-primary h-8 stroke-white"
+        class="flex items-center gap-1 rounded-md bg-hypergreen stroke-white px-2 py-1 font-medium text-white"
     >
         Play all
     </x-player.play>

@@ -7,8 +7,8 @@
         <a href="" class="header-logo bg-wall bg-opacity-50 px-2">
             @persist("header-logo")
                 <img
-                    class="h-12 py-3"
-                    src="{{ asset("img/utils/melodize-hypergreen.png") }}"
+                    class="h-12 py-1"
+                    src="{{ asset("img/utils/melodize-logo-square.png") }}"
                     alt=""
                 />
             @endpersist("header-logo")
@@ -27,24 +27,10 @@
             @endforeach
         </nav>
 
-        <form id="search" class="relative ms-6">
-            <input
-                type="text"
-                placeholder="Swearch UwO?"
-                class="form-input h-8 w-96 rounded-md bg-slate-200"
-                required
-            />
-            <button type="submit">
-                <span
-                    class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"
-                >
-                    <x-svg.glass />
-                </span>
-            </button>
-        </form>
+        @include("client.header.search")
 
         <div class="header-end flex flex-grow items-center justify-end gap-5">
-            <a href="">
+            <a wire:navigate href="{{ route('backdoor.dashboard') }}">
                 <x-svg.wrench
                     class="size-7 stroke-white hover:stroke-hypergreen"
                 />

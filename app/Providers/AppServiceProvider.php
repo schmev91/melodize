@@ -13,10 +13,10 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         // ADMIN
-        Route::prefix('admin')
+        Route::prefix('backdoor')
             ->middleware('web')
-            ->as('admin.')
-            ->group(base_path('routes/admin.php'));
+            ->as('backdoor.')
+            ->group(base_path('routes/backdoor.php'));
 
         // API
         Route::prefix('api')

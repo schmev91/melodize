@@ -1,3 +1,6 @@
+@props([
+    "size" => 6,
+])
 <button {{ $attributes }}>
     <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
     {{ $slot }}
@@ -6,7 +9,7 @@
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
-        class="size-6"
+        class="size-{{ $size }}"
     >
         <path
             stroke-linecap="round"

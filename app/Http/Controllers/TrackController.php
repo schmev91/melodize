@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Track;
 use App\Http\Requests\StoretrackRequest;
 use App\Http\Requests\UpdatetrackRequest;
+use App\Models\Track;
 
 class TrackController
 {
@@ -13,7 +13,7 @@ class TrackController
      */
     public function index()
     {
-        //
+
     }
 
     /**
