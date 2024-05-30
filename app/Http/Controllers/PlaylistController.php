@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\playlist;
 use App\Http\Requests\StoreplaylistRequest;
 use App\Http\Requests\UpdateplaylistRequest;
+use App\Models\playlist;
+use Illuminate\Contracts\View\View;
 
 class PlaylistController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        return view('backdoor.playlists');
     }
 
     /**

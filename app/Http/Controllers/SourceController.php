@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\source;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class SourceController
@@ -10,9 +11,9 @@ class SourceController
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() : View
     {
-        //
+        return view('backdoor.sources');
     }
 
     /**

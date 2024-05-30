@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class GenreController
@@ -10,9 +11,9 @@ class GenreController
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        return view('backdoor.genres');
     }
 
     /**

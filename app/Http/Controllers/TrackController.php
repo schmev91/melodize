@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoretrackRequest;
 use App\Http\Requests\UpdatetrackRequest;
 use App\Models\Track;
+use Illuminate\Contracts\View\View;
 
 class TrackController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-
+        return view('backdoor.tracks');
     }
 
     /**

@@ -4,7 +4,7 @@
     >
         <livewire:client.header />
 
-        <div class="container glass z-10 flex grow gap-5 py-6">
+        <div class="container glass z-10 flex grow gap-10 py-6">
             @livewire("backdoor.menu")
             <div>
                 @yield("content")
