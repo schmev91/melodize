@@ -10,6 +10,7 @@ class Header extends Component
     public array $route_names = [
         'home',
         'library',
+        'about',
      ];
 
     public string $active_name = 'client.home';

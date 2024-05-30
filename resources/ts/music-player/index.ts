@@ -24,7 +24,6 @@ declare global {
 
 initController();
 
-const url = `${window.location.href}api/tracks`;
 export async function init(url: string) {
     await fetch(url)
         .then((res) => res.json())

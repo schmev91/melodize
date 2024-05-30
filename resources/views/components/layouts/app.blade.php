@@ -19,8 +19,20 @@
     </head>
 
     <body class="position-relative overflow-x-hidden">
+        {{-- theme --}}
+        <input
+            type="checkbox"
+            class="theme-controller hidden"
+            value="melodize"
+            checked
+        />
         {{ $slot }}
-        <canvas id="visualize-canvas" class="absolute left-0 top-0"></canvas>
+        @persist("visualizeCanvas")
+            <canvas
+                id="visualize-canvas"
+                class="absolute left-0 top-0"
+            ></canvas>
+        @endpersist('visualizeCanvas')
     </body>
     @livewire("music-player")
 </html>

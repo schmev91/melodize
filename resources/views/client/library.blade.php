@@ -1,5 +1,9 @@
 @extends("components.layouts.client")
 
 @section("content")
-    <div class="text-black">library</div>
+    <ul>
+        <li>Your playlist</li>
+        <li>Uploaded songs</li>
+        <li>Liked songs</li>
+    </ul>
 @endsection

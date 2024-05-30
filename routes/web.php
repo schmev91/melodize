@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 $client_routes = [
     'library',
+    'about',
  ];
 
 Route::group([ 'as' => 'client.' ], function () use ($client_routes) {

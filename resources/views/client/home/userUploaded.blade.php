@@ -7,16 +7,16 @@
         Play all
     </x-player.play>
 </div>
-<div class="carousel carousel-start space-x-3">
+<div class="scroll-bounce carousel carousel-start space-x-3">
     @foreach ($tracks as $track)
         <div class="carousel-item">
-            <div class="group/track flex cursor-pointer flex-col gap-1">
+            <a href="#" wire:navigate class="group/track flex flex-col gap-1">
                 <img
-                    class="h-56 w-56 rounded-box object-cover opacity-75 transition-opacity duration-300 ease-out group-hover/track:opacity-100"
+                    class="h-48 w-48 rounded-box object-cover opacity-75 transition-opacity duration-300 ease-out group-hover/track:opacity-100"
                     src="{{ Storage::url($track->cover) }}"
                     alt="{{ $track->title }} cover"
                 />
-                <div class="flex max-w-56 flex-col bg-clip-text">
+                <div class="flex max-w-48 flex-col bg-clip-text">
                     <span
                         class="line-clamp-1 text-lg font-medium text-white mix-blend-difference transition-colors duration-300 ease-out group-hover/track:text-hypergreen"
                     >
@@ -28,7 +28,7 @@
                         {{ $track->artist }}
                     </span>
                 </div>
-            </div>
+            </a>
         </div>
     @endforeach
 </div>
