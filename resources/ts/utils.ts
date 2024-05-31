@@ -15,3 +15,11 @@ export function mounter(fn: Function, ...args: any): any {
         fn(...args);
     };
 }
+
+export function getOrigin(): string {
+    return window.location.origin;
+}
+
+export function storageHelper(url: string) {
+    return `${getOrigin()}/storage/${url}`;
+}

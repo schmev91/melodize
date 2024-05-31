@@ -8,7 +8,8 @@ use App\Http\Controllers\TrackController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Dashboard::class)->name('dashboard');
-Route::resource('tracks', TrackController::class);
+Route::resource('tracks', TrackController::class)
+->except('show');
 Route::resource('playlists', PlaylistController::class);
 Route::resource('genres', GenreController::class);
 Route::resource('sources', SourceController::class);

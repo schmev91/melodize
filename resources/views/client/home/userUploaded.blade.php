@@ -10,7 +10,11 @@
 <div class="scroll-bounce carousel carousel-start space-x-3">
     @foreach ($tracks as $track)
         <div class="carousel-item">
-            <a href="#" wire:navigate class="group/track flex flex-col gap-1">
+            <a
+                href="{{ route("client.track.show", $track->id) }}"
+                wire:navigate
+                class="group/track flex flex-col gap-1"
+            >
                 <img
                     class="h-48 w-48 rounded-box object-cover opacity-75 transition-opacity duration-300 ease-out group-hover/track:opacity-100"
                     src="{{ Storage::url($track->cover) }}"

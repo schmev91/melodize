@@ -12,6 +12,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.13",
+    "@types/wavesurfer.js": "^6.0.12",
     "alpinejs": "^3.4.2",
     "autoprefixer": "^10.4.2",
     "daisyui": "^4.11.1",
@@ -27,6 +28,7 @@
     "@types/howler": "^2.2.11",
     "concurrently": "^8.2.2",
     "glob": "^10.4.1",
-    "howler": "^2.2.4"
+    "howler": "^2.2.4",
+    "wavesurfer.js": "^7.7.15"
   }
 }

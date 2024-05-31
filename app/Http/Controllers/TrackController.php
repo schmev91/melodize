@@ -38,9 +38,10 @@ class TrackController
     /**
      * Display the specified resource.
      */
-    public function show(Track $track)
+    public function show(Track $track): View
     {
-        //
+        $related = DB::table('tracks')->where('id', '!=', $track->id)->get();
+        return view('client.track-show', compact('track','related'));
     }
 
     /**
