@@ -5,8 +5,8 @@
     "required" => null,
 ])
 @php
-    if (old($name, $edit)) {
-        $value = old($name, $edit);
+    if (old($name)) {
+        $value = old($name);
     } elseif (empty($value)) {
         $value = "";
     }

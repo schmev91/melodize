@@ -18,7 +18,7 @@
         <x-script.jsmediatags />
     </head>
 
-    <body class="position-relative overflow-x-hidden">
+    <body class="position-relative z-0 overflow-x-hidden">
         {{-- theme --}}
         <input
             type="checkbox"

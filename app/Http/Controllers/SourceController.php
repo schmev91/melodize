@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\source;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SourceController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index() : View
+    public function index(): View
     {
-        return view('backdoor.sources');
+        $sources = DB::table('sources')->get();
+        return view('backdoor.sources-index', compact('sources'));
     }
 
     /**

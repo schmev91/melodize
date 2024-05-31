@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backdoor;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Dashboard
 {
@@ -12,6 +13,8 @@ class Dashboard
      */
     public function __invoke(Request $request): View
     {
-        return view('backdoor.dashboard');
+        $tracks_count    = DB::table('tracks')->count();
+        $playlists_count = DB::table('playlists')->count();
+        return view('backdoor.dashboard', compact('tracks_count', 'playlists_count'));
     }
 }

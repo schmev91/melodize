@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GenreController
 {
@@ -13,7 +14,8 @@ class GenreController
      */
     public function index(): View
     {
-        return view('backdoor.genres');
+        $genres = DB::table('genres')->get();
+        return view('backdoor.genres-index', compact('genres'));
     }
 
     /**

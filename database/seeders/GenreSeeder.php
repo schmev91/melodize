@@ -14,12 +14,12 @@ class GenreSeeder extends Seeder
     public function run(): void
     {
         DB::table('genres')->insert([
-            [ Genre::NAME => 'Future' ],
-            [ Genre::NAME => 'Kawaii Bass' ],
-            [ Genre::NAME => 'J-POP' ],
-            [ Genre::NAME => 'Vocaloid' ],
-            [ Genre::NAME => 'R & B' ],
-            [ Genre::NAME => 'Instrumental' ],
+            [ Genre::NAME => 'Future', genre::CREATED_AT => now(), genre::UPDATED_AT => now() ],
+            [ Genre::NAME => 'Kawaii Bass', genre::CREATED_AT => now(), genre::UPDATED_AT => now() ],
+            [ Genre::NAME => 'J-POP', genre::CREATED_AT => now(), genre::UPDATED_AT => now() ],
+            [ Genre::NAME => 'Vocaloid', genre::CREATED_AT => now(), genre::UPDATED_AT => now() ],
+            [ Genre::NAME => 'R & B', genre::CREATED_AT => now(), genre::UPDATED_AT => now() ],
+            [ Genre::NAME => 'Instrumental', genre::CREATED_AT => now(), genre::UPDATED_AT => now() ],
          ]);
     }
 }
