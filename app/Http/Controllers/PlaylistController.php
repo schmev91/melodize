@@ -6,6 +6,7 @@ use App\Http\Requests\StoreplaylistRequest;
 use App\Http\Requests\UpdateplaylistRequest;
 use App\Models\playlist;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\DB;
 
 class PlaylistController
 {
@@ -14,7 +15,8 @@ class PlaylistController
      */
     public function index(): View
     {
-        return view('backdoor.playlists');
+        $playlists = DB::table('playlists')->get();
+        return view('backdoor.playlists-index', compact('playlists'));
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Http\Requests\StoretrackRequest;
 use App\Http\Requests\UpdatetrackRequest;
 use App\Models\Track;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\DB;
 
 class TrackController
 {
@@ -14,7 +15,8 @@ class TrackController
      */
     public function index(): View
     {
-        return view('backdoor.tracks');
+        $tracks = DB::table('tracks')->get();
+        return view('backdoor.tracks-index', compact("tracks"));
     }
 
     /**
