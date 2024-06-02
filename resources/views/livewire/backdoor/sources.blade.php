@@ -1,8 +1,6 @@
-<!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
-@extends("components.layouts.backdoor")
-
-@section("content")
-    <x-backdoor.table-header title="Tracks" />
+<div>
+    {{-- The best athlete wants his opponent at his best. --}}
+    <x-backdoor.table-header title="Sources" modalId="sourceModal" />
 
     <div class="mt-5 overflow-hidden overflow-x-auto rounded-box bg-wall p-5">
         <table class="table text-white">
@@ -10,29 +8,18 @@
             <thead>
                 <tr class="text-white">
                     <th></th>
-                    <th>Title</th>
-                    <th>Artist</th>
+                    <th>Source Name</th>
+                    <th>Created at</th>
                     <th>Updated at</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($tracks as $i)
+                @foreach ($sources as $i)
                     <tr>
                         <th>{{ $i->id }}</th>
-                        <td>
-                            <div class="flex items-center gap-3">
-                                <img
-                                    class="h-12 w-12 rounded-md object-cover"
-                                    src="{{ Storage::url($i->cover) }}"
-                                    alt=""
-                                />
-                                <span>
-                                    {{ $i->title }}
-                                </span>
-                            </div>
-                        </td>
-                        <td>{{ $i->artist }}</td>
+                        <td>{{ $i->name }}</td>
+                        <td>{{ $i->created_at }}</td>
                         <td>{{ $i->updated_at }}</td>
                         <td>
                             <div class="flex gap-2">
@@ -50,5 +37,11 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div class="pt-2">
+            {{ $sources->links() }}
+        </div>
     </div>
-@endsection
+
+    @include("backdoor.sources.modal")
+</div>

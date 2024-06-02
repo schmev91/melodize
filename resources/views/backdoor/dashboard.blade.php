@@ -1,7 +1,5 @@
 <!-- Simplicity is the ultimate sophistication. - Leonardo da Vinci -->
-@extends("components.layouts.backdoor")
-
-@section("content")
+<x-layouts.backdoor>
     <div class="flex gap-4">
         <div class="flex flex-col gap-4">
             <div class="prose rounded-box bg-wall p-3">
@@ -24,4 +22,4 @@
             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
         ></iframe>
     </div>
-@endsection
+</x-layouts.backdoor>

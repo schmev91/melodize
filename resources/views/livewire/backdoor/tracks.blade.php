@@ -1,8 +1,6 @@
-<!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
-@extends("components.layouts.backdoor")
-
-@section("content")
-    <x-backdoor.table-header title="Playlist" />
+<div>
+    {{-- The Master doesn't talk, he acts. --}}
+    <x-backdoor.table-header title="Tracks" modalId="trackModal" />
 
     <div class="mt-5 overflow-hidden overflow-x-auto rounded-box bg-wall p-5">
         <table class="table text-white">
@@ -10,25 +8,29 @@
             <thead>
                 <tr class="text-white">
                     <th></th>
-                    <th>Playlist Name</th>
-                    <th>Created by</th>
+                    <th>Title</th>
+                    <th>Artist</th>
                     <th>Updated at</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($playlists as $i)
+                @foreach ($tracks as $i)
                     <tr>
                         <th>{{ $i->id }}</th>
-                        <td>{{ $i->name }}</td>
-                        <div class="flex items-center gap-3">
-                            <img
-                                class="h-12 w-12 rounded-md object-cover"
-                                src="{{ Storage::url("img/default.avatar.jpg") }}"
-                                alt=""
-                            />
-                            <span>Schmev</span>
-                        </div>
+                        <td>
+                            <div class="flex items-center gap-3">
+                                <img
+                                    class="h-12 w-12 rounded-md object-cover"
+                                    src="{{ Storage::url($i->cover) }}"
+                                    alt=""
+                                />
+                                <span>
+                                    {{ $i->title }}
+                                </span>
+                            </div>
+                        </td>
+                        <td>{{ $i->artist }}</td>
                         <td>{{ $i->updated_at }}</td>
                         <td>
                             <div class="flex gap-2">
@@ -46,5 +48,11 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div class="pt-2">
+            {{ $tracks->links() }}
+        </div>
     </div>
-@endsection
+
+    @include("backdoor.tracks.modal")
+</div>

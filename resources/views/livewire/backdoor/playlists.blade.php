@@ -1,8 +1,6 @@
-<!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
-@extends("components.layouts.backdoor")
-
-@section("content")
-    <x-backdoor.table-header title="Sources" />
+<div>
+    {{-- The best athlete wants his opponent at his best. --}}
+    <x-backdoor.table-header title="Playlists" modalId="playlistModal" />
 
     <div class="mt-5 overflow-hidden overflow-x-auto rounded-box bg-wall p-5">
         <table class="table text-white">
@@ -10,18 +8,25 @@
             <thead>
                 <tr class="text-white">
                     <th></th>
-                    <th>Source Name</th>
-                    <th>Created at</th>
+                    <th>Playlist Name</th>
+                    <th>Created by</th>
                     <th>Updated at</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($sources as $i)
+                @foreach ($playlists as $i)
                     <tr>
                         <th>{{ $i->id }}</th>
                         <td>{{ $i->name }}</td>
-                        <td>{{ $i->created_at }}</td>
+                        <div class="flex items-center gap-3">
+                            <img
+                                class="h-12 w-12 rounded-md object-cover"
+                                src="{{ Storage::url("img/default.avatar.jpg") }}"
+                                alt=""
+                            />
+                            <span>Schmev</span>
+                        </div>
                         <td>{{ $i->updated_at }}</td>
                         <td>
                             <div class="flex gap-2">
@@ -39,5 +44,11 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div class="pt-2">
+            {{ $playlists->links() }}
+        </div>
     </div>
-@endsection
+
+    @include("backdoor.playlists.modal")
+</div>
