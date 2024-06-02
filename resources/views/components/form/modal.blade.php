@@ -1,6 +1,10 @@
-{{-- Care about people's approval and you will be their prisoner. --}}
-{{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
-<dialog id="login_modal" class="modal">
+<!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
+
+@props([
+    "id" => "",
+    "method" => "",
+])
+<dialog id="{{ $id }}" class="modal">
     <div class="modal-box">
         <form method="dialog" method="post">
             @csrf
@@ -17,28 +21,13 @@
             class="modal-content flex flex-col gap-3 py-4"
         >
             <div class="prose mb-5">
-                <h1 class="prose-h3:">Login</h1>
+                <h1 class="prose-h3:">
+                    {{ $title ?? "Modal Title" }}
+                </h1>
             </div>
 
-            {{-- LOGIN NAME --}}
-            <x-form.input-inline
-                name="form.username"
-                placeholder="username"
-                required
-            >
-                <x-svg.hashtag />
-            </x-form.input-inline>
+            {{ $slot }}
 
-            {{-- PASSWORD --}}
-            <x-form.input-inline
-                name="form.password"
-                type="password"
-                placeholder="Password"
-                required
-                autocomplete
-            >
-                <x-svg.key />
-            </x-form.input-inline>
             <div class="form-btns flex justify-end gap-3">
                 <span class="btn btn-neutral" onclick="login_modal.close()">
                     Close

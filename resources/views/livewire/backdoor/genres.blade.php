@@ -1,8 +1,6 @@
-<!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
-@extends("components.layouts.backdoor")
-
-@section("content")
-    <x-backdoor.table-header title="Genres" />
+{{-- Stop trying to control. --}}
+<div>
+    <x-backdoor.table-header title="Genres" modalId="genreModal" />
 
     <div class="mt-5 overflow-hidden overflow-x-auto rounded-box bg-wall p-5">
         <table class="table text-white">
@@ -39,5 +37,11 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div class="pt-2">
+            {{ $genres->links() }}
+        </div>
     </div>
-@endsection
+
+    @include("backdoor.genres.modal")
+</div>
