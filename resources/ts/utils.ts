@@ -23,3 +23,12 @@ export function getOrigin(): string {
 export function storageHelper(url: string) {
     return `${getOrigin()}/storage/${url}`;
 }
+
+export function once(fn: Function): Function {
+    let called = false;
+    return function (...args: any) {
+        if (called) return;
+        called = true;
+        fn(...args);
+    };
+}

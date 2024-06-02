@@ -34,5 +34,7 @@
             ></canvas>
         @endpersist('visualizeCanvas')
     </body>
-    @livewire("music-player")
+    @persist("music-player")
+        @livewire("music-player")
+    @endpersist('music-player')
 </html>

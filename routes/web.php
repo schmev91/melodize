@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Site\Home;
-use App\Http\Controllers\TrackController;
+use App\Livewire\Client\Home as ClientHome;
+use App\Livewire\Client\TrackShow;
 use Illuminate\Support\Facades\Route;
 
 $client_routes = [
@@ -10,12 +10,11 @@ $client_routes = [
  ];
 
 Route::group([ 'as' => 'client.' ], function () use ($client_routes) {
-    Route::get('/', Home::class)->name('home');
+    Route::get('/', ClientHome::class)->name('home');
 
     foreach ($client_routes as $name) {
-        Route::get($name, "App\Http\Controllers\Site\\" . ucfirst($name))
-            ->name($name);
+        Route::get($name, "App\Livewire\Client\\" . ucfirst($name))->name($name);
     }
 
-    Route::get('tracks/{track}', [ TrackController::class, "show" ])->name('track.show');
+    Route::get('tracks/{track}', TrackShow::class)->name('track.show');
 });

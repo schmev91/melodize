@@ -7,6 +7,7 @@
     >
         @foreach ($related as $i)
             <a
+                wire:navigate
                 href="{{ route("client.track.show", $i->id) }}"
                 class="flex gap-2 rounded-sm px-2 py-1"
             >

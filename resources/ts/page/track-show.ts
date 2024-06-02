@@ -7,14 +7,15 @@ declare global {
         showingTrack: Track;
     }
 }
+export default function trackShow(): void {
+    const { url } = window.showingTrack;
 
-const { url } = window.showingTrack;
+    const wavesurfer = WaveSurfer.create({
+        container: "#waveform",
+        barWidth: 2,
+        waveColor: "#d4d7f8",
+        progressColor: "#35e668",
+    });
 
-const wavesurfer = WaveSurfer.create({
-    container: "#waveform",
-    barWidth: 2,
-    waveColor: "#d4d7f8",
-    progressColor: "#35e668",
-});
-
-wavesurfer.load(storageHelper(url));
+    wavesurfer.load(storageHelper(url));
+}

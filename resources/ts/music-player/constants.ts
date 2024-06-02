@@ -1,3 +1,3 @@
-const hideClassName = "hidden";
+export const hideClassName = "hidden";
 
-export { hideClassName };
+export const navigatedEvent = 'livewire:navigated';

@@ -1,7 +1,5 @@
-<!-- Life is available only in the present moment. - Thich Nhat Hanh -->
-@extends("components.layouts.client")
-
-@section("content")
+{{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+<div>
     <script>
         window.showingTrack = @json($track);
     </script>
@@ -47,5 +45,4 @@
         @include("client.track-show.related")
     </section>
 
-    @vite("resources/dist/js/page/track-show.js")
-@endsection
+</div>

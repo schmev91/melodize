@@ -1,4 +1,4 @@
-import { refresh } from "../index";
+import { refresh } from "../core";
 
 export { nextHandler };
 

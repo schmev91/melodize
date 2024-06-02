@@ -1,9 +1,8 @@
-import { init } from "../music-player/index";
-import { mounter } from "../utils";
+import { init } from "../music-player/core";
+import { getOrigin, mounter } from "../utils";
 
-document
-    .getElementById("btn-play_userUploaded")
-    ?.addEventListener(
-        "click",
-        mounter(init, `${window.location.origin}/api/tracks`),
-    );
+export default function home(): void {
+    document
+        .getElementById("btn-play_userUploaded")
+        ?.addEventListener("click", mounter(init, `${getOrigin()}/api/tracks`));
+}

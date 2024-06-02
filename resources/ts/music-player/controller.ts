@@ -1,6 +1,5 @@
 import {
     body,
-    footer,
     musicPlayer,
     nextBtn,
     pauseBtn,
@@ -33,4 +32,8 @@ export function initController(): void {
     visualizeCanvas.height = window.innerHeight - musicPlayer!.clientHeight;
 
     body.style.paddingBottom = musicPlayer.clientHeight + "px";
+
+    document.addEventListener("livewire:navigated", function () {
+        console.log("navigated");
+    });
 }
