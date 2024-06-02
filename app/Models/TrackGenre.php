@@ -10,6 +10,8 @@ class TrackGenre extends Model
 {
     use HasFactory;
 
+    const TABLE_NAME      = 'track_genres';
+    protected $table      = self::TABLE_NAME;
     protected $primaryKey = [ self::TRACK_ID, self::GENRE_ID ];
     public $incrementing  = false;
 

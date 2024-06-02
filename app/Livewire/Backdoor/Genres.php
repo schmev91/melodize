@@ -14,7 +14,7 @@ class Genres extends Component
 
     public function render()
     {
-        $genres = Genre::paginate(9);
+        $genres = Genre::withCount('tracks')->orderBy(Genre::ID, 'desc')->paginate(6);
         return view('livewire.backdoor.genres', compact('genres'));
     }
 }

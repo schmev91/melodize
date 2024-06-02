@@ -7,7 +7,6 @@
 <dialog id="{{ $id }}" class="modal">
     <div class="modal-box">
         <form method="dialog" method="post">
-            @csrf
             <button
                 class="btn btn-circle btn-ghost btn-sm absolute right-2 top-2"
             >
@@ -17,9 +16,10 @@
 
         <form
             wire:submit="submitForm"
-            id="login_form"
+            id="{{ $id }}-inner"
             class="modal-content flex flex-col gap-3 py-4"
         >
+            @csrf
             <div class="prose mb-5">
                 <h1 class="prose-h3:">
                     {{ $title ?? "Modal Title" }}
@@ -29,7 +29,7 @@
             {{ $slot }}
 
             <div class="form-btns flex justify-end gap-3">
-                <span class="btn btn-neutral" onclick="login_modal.close()">
+                <span class="btn btn-neutral" onclick="{{ $id }}.close()">
                     Close
                 </span>
                 <button

@@ -12,8 +12,13 @@ class Genre extends Model
 
     public function tracks(): BelongsToMany
     {
-        return $this->belongsToMany(Track::class)
+        return $this->belongsToMany(Track::class, TrackGenre::TABLE_NAME)
             ->using(TrackGenre::class);
+    }
+
+    public function totalTracks()
+    {
+        return $this->tracks()->count();
     }
 
     const ID         = 'id';

@@ -12,11 +12,14 @@
     }
 @endphp
 
-<div>
-    <label for="{{ $name }}" class="label-text mb-1">
+<div class="">
+    <label
+        for="{{ $name }}"
+        class="label label-text justify-start gap-1 font-medium"
+    >
         {{ $slot }}
         @if ($required)
-            <sup class="text-danger">*</sup>
+            <span class="text-lg text-red-500">*</span>
         @endif
     </label>
     <input
@@ -24,7 +27,7 @@
         id="{{ $name }}"
         value="{{ $value }}"
         type="{{ $type }}"
-        class="{{ $attributes["class"] }} form-control"
+        class="{{ $attributes["class"] }} input input-bordered py-0"
         {{ $attributes->except("class") }}
         {{ $required ? "required" : "" }}
     />

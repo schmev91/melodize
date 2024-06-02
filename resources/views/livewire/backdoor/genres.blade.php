@@ -9,7 +9,7 @@
                 <tr class="text-white">
                     <th></th>
                     <th>Genre Name</th>
-                    <th>Created at</th>
+                    <th>Tracks</th>
                     <th>Updated at</th>
                     <th>Actions</th>
                 </tr>
@@ -19,7 +19,7 @@
                     <tr>
                         <th>{{ $i->id }}</th>
                         <td>{{ $i->name }}</td>
-                        <td>{{ $i->created_at }}</td>
+                        <td>{{ $i->tracks_count }}</td>
                         <td>{{ $i->updated_at }}</td>
                         <td>
                             <div class="flex gap-2">
