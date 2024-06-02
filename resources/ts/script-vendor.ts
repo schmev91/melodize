@@ -1,6 +1,6 @@
-import home from "../page/home";
-import trackShow from "../page/track-show";
-import { navigatedEvent } from "./constants";
+import home from "./page/home";
+import trackShow from "./page/track-show";
+import { navigatedEvent } from "./music-player/constants";
 
 export default function initScriptVendor(): void {
     document.addEventListener(navigatedEvent, function () {

@@ -1,7 +1,7 @@
 import { Howl } from "./player";
 import { initController } from "./controller";
 import Track from "../interface/Track";
-import initScriptVendor from "./script-vendor";
+import initScriptVendor from "../script-vendor";
 
 declare global {
     var player: Howl;
