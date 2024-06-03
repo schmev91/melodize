@@ -7,12 +7,13 @@ use Livewire\Component;
 
 class Register extends Component
 {
-    public RegisterForm $form;
+    public RegisterForm $registerForm;
 
-    public function submitForm()
+    public function register()
     {
-        dd($this->form);
-        $this->form->reset();
+        $this->validate();
+
+        // $this->redirect('/', true);
     }
 
     public function render()

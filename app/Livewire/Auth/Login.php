@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public LoginForm $form;
+    public LoginForm $loginForm;
 
     public function submitForm()
     {
-        dd($this->form->all());
+        dd('login');
     }
 
     public function render()

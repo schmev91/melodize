@@ -10,7 +10,7 @@
         </form>
 
         <form
-            wire:submit="submitForm"
+            wire:submit="register"
             id="register_form"
             class="modal-content flex flex-col gap-3 py-4"
         >
@@ -20,49 +20,46 @@
 
             {{-- LOGIN NAME --}}
             <x-form.input-inline
-                name="form.username"
+                name="registerForm.username"
                 placeholder="Login Name"
-                required
             >
                 <x-svg.hashtag />
             </x-form.input-inline>
 
             {{-- EMAIL --}}
             <x-form.input-inline
-                name="form.email"
-                type="email"
+                name="registerForm.email"
+                type="text"
                 placeholder="Email"
-                required
             >
                 <x-svg.at />
             </x-form.input-inline>
 
             {{-- YOUR NAME --}}
             <x-form.input-inline
-                name="form.name"
+                name="registerForm.name"
                 placeholder="Your name"
-                required
             >
                 <x-svg.person />
             </x-form.input-inline>
 
             {{-- PASSWORD --}}
             <x-form.input-inline
-                name="form.password"
+                name="registerForm.password"
                 type="password"
                 placeholder="Password"
-                required
                 autocomplete
             >
                 <x-svg.key />
             </x-form.input-inline>
+
             <div class="form-btns flex justify-end gap-3">
                 <span class="btn btn-neutral" onclick="register_modal.close()">
                     Close
                 </span>
+                <button class="btn" type="button">im useless</button>
                 <button
                     class="btn btn-neutral border-hypergreen bg-hypergreen text-white"
-                    type="submit"
                 >
                     Submit
                 </button>

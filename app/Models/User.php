@@ -10,7 +10,6 @@ class User extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ self::USERNAME, self::NAME, self::IS_ADMIN, self::PASSWORD, self::AVATAR ];
 
     public function tracks(): HasMany
     {
@@ -27,6 +26,15 @@ class User extends Model
         return $this->hasMany(Comment::class);
     }
 
+    protected $fillable = [
+        self::USERNAME,
+        self::NAME,
+        self::PASSWORD,
+        self::AVATAR,
+    ];
+
+    const DEFAULT_AVATAR = 'img/default/avatar.jpg';
+    
     const ID         = 'id';
     const USERNAME   = 'username';
     const NAME       = 'name';
@@ -35,4 +43,5 @@ class User extends Model
     const AVATAR     = 'avatar';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
+
 }

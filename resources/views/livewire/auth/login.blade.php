@@ -22,7 +22,7 @@
 
             {{-- LOGIN NAME --}}
             <x-form.input-inline
-                name="form.username"
+                name="loginForm.username"
                 placeholder="username"
                 required
             >
@@ -31,7 +31,7 @@
 
             {{-- PASSWORD --}}
             <x-form.input-inline
-                name="form.password"
+                name="loginForm.password"
                 type="password"
                 placeholder="Password"
                 required
