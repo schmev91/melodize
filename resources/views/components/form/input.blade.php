@@ -23,8 +23,9 @@
         @endif
     </label>
     <input
-        wire:model="{{ $name }}"
+        {{-- wire:model="{{ $name }}" --}}
         id="{{ $name }}"
+        name="{{ $name }}"
         value="{{ $value }}"
         type="{{ $type }}"
         class="{{ $attributes["class"] }} input input-bordered py-0"

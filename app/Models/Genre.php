@@ -21,6 +21,10 @@ class Genre extends Model
         return $this->tracks()->count();
     }
 
+    protected $fillable = [
+        self::NAME,
+     ];
+
     const ID         = 'id';
     const NAME       = 'name';
     const CREATED_AT = 'created_at';

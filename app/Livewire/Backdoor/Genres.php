@@ -4,6 +4,7 @@ namespace App\Livewire\Backdoor;
 
 use App\Models\Genre;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,6 +12,7 @@ use Livewire\WithPagination;
 class Genres extends Component
 {
     use WithPagination;
+
 
     public function render()
     {
