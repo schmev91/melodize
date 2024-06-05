@@ -17,5 +17,8 @@ export default function trackShow(): void {
         progressColor: "#35e668",
     });
 
+    wavesurfer.on("load", function () {
+        document.getElementById("waveform-loading")?.remove();
+    });
     wavesurfer.load(storageHelper(url));
 }

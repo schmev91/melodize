@@ -67,4 +67,13 @@ export default {
             },
         ],
     },
+
+    safelist: [
+        "text-primary",
+        "text-secondary",
+        "text-success",
+        "text-warning",
+        "text-error",
+        "text-info",
+    ],
 };

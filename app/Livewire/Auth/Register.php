@@ -11,9 +11,14 @@ class Register extends Component
 
     public function register()
     {
-        $this->validate();
+        dd($this->registerForm->validate());
 
         // $this->redirect('/', true);
+    }
+
+    public function rendered()
+    {
+        $this->dispatch('rerenderRegister');
     }
 
     public function render()

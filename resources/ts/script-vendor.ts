@@ -5,7 +5,6 @@ import { navigatedEvent } from "./music-player/constants";
 export default function initScriptVendor(): void {
     document.addEventListener(navigatedEvent, function () {
         const parsed = location.pathname.split("/");
-        console.log(parsed);
 
         switch (parsed[1]) {
             case "":

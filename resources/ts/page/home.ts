@@ -1,3 +1,4 @@
+import { EventHandler } from "wavesurfer.js/types/util";
 import { init } from "../music-player/core";
 import { getOrigin, mounter } from "../utils";
 

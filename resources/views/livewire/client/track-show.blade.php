@@ -28,7 +28,11 @@
                 </div>
             </div>
             <div>
-                <div id="waveform"></div>
+                <div id="waveform">
+                    <div id="waveform-loading" class="flex justify-center">
+                        <span class="loading loading-bars loading-lg"></span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="track-image">
@@ -44,5 +48,4 @@
         @include("client.track-show.comments")
         @include("client.track-show.related")
     </section>
-
 </div>

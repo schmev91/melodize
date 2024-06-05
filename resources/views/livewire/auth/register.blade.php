@@ -57,9 +57,9 @@
                 <span class="btn btn-neutral" onclick="register_modal.close()">
                     Close
                 </span>
-                <button class="btn" type="button">im useless</button>
                 <button
                     class="btn btn-neutral border-hypergreen bg-hypergreen text-white"
+                    onclick="register_modal.showModal()"
                 >
                     Submit
                 </button>
@@ -72,3 +72,11 @@
         <button>close</button>
     </form>
 </dialog>
+
+<script>
+     document.addEventListener('livewire:load', function () {
+        @this.on('rerenderRegister', () => {
+            console.log('haha')
+        });
+    });
+</script>

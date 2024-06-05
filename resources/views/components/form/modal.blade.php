@@ -3,7 +3,6 @@
 @props([
     "id" => "",
     "method" => "",
-    "actionStore" => "",
 ])
 <dialog id="{{ $id }}" class="modal">
     <div class="modal-box">
@@ -19,7 +18,9 @@
             method="post"
             id="{{ $id }}-inner"
             class="modal-content flex flex-col gap-3 py-4"
-            action="{{ $actionStore }}"
+            {{-- action="{{ $actionStore }}" --}}
+            wire:submit="store($event)"
+            onsubmit="{{ $id }}.close()"
         >
             @csrf
             <div class="prose mb-5">

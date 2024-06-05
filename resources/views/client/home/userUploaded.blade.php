@@ -7,7 +7,8 @@
         Play all
     </x-player.play>
 </div>
-<div class="scroll-bounce carousel carousel-start space-x-3">
+
+<div class="scroll-bounce-x carousel carousel-start items-center space-x-3">
     @foreach ($tracks as $track)
         <div class="carousel-item">
             <a
@@ -35,4 +36,8 @@
             </a>
         </div>
     @endforeach
+
+    <span
+        class="loading loading-spinner loading-lg size-20 -translate-y-6 bg-slate-300"
+    ></span>
 </div>

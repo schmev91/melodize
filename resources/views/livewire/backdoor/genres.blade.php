@@ -26,11 +26,13 @@
                                 <button class="btn btn-info btn-sm text-white">
                                     Edit
                                 </button>
-                                <button
-                                    class="btn btn-sm border-red-400 bg-red-400 text-white"
+                                <x-form.hyper-btn
+                                    modalId="confirm_deleteGenre"
+                                    class="btn btn-error btn-sm text-white"
+                                    :target="$i->id"
                                 >
                                     Delete
-                                </button>
+                                </x-form.hyper-btn>
                             </div>
                         </td>
                     </tr>
@@ -44,4 +46,20 @@
     </div>
 
     @include("backdoor.genres.modal")
+
+    <x-form.confirm-delete
+        id="confirm_deleteGenre"
+        :action="route('backdoor.genres.destroy','')"
+        varying="target"
+    />
+
+    @script
+        <script type="module">
+            $wire.on('dialogCollapse', ({ id }) => {
+                setTimeout(() => {
+                    window[id].show();
+                }, 100);
+            });
+        </script>
+    @endscript
 </div>

@@ -12,9 +12,9 @@
     }
 @endphp
 
-<div class="">
+<div class="flex flex-col">
     <label
-        for="{{ $name }}"
+        for="input-{{ $name }}"
         class="label label-text justify-start gap-1 font-medium"
     >
         {{ $slot }}
@@ -23,8 +23,8 @@
         @endif
     </label>
     <input
-        {{-- wire:model="{{ $name }}" --}}
-        id="{{ $name }}"
+        id="input-{{ $name }}"
+        wire:model="{{ $name }}"
         name="{{ $name }}"
         value="{{ $value }}"
         type="{{ $type }}"
@@ -33,6 +33,6 @@
         {{ $required ? "required" : "" }}
     />
     @error($name)
-        <small class="error_holder text-red-400">{{ $message }}</small>
+        <small class="error_holder mt-1 text-error">{{ $message }}</small>
     @enderror
 </div>
