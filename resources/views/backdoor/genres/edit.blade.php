@@ -21,10 +21,10 @@
         loading.classList.remove(hideClass);
     });
 
-    genreEdit.addEventListener('open', async ({ detail: { button } }) => {
+    genreEdit.addEventListener('open', ({ detail: { button } }) => {
         const target = button.getAttribute('target');
         const url = window.location.origin + `/api/genre/${target}`;
-        await fetch(url)
+        fetch(url)
             .then((r) => r.json())
             .then(({ name }) => {
                 document.querySelector(
@@ -33,5 +33,11 @@
                 loading.classList.add(hideClass);
                 inputs.classList.remove(hideClass);
             });
+        document
+            .querySelector('#genreEdit-inner')
+            .setAttribute(
+                'wire:submit',
+                `update(${button.getAttribute('target')})`,
+            );
     });
 </script>

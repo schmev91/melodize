@@ -44,7 +44,13 @@ class GenresTable extends Component
 
     public function update(Genre $genre)
     {
+        if ('' == $this->name) {
+            Message::flash(Message::ERROR("Cannot update since it's the same value"));
+            return;
+        }
+        $genre->update([ 'name' => $this->name ]);
 
+        Message::flash(Message::INFO());
     }
 
     public function destroy(Genre $genre)
