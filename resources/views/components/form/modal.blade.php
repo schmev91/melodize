@@ -7,7 +7,7 @@
     "btnType" => "success",
 ])
 <dialog id="{{ $id }}" class="modal">
-    <div class="modal-box">
+    <div class="modal-box max-w-max">
         <form method="dialog">
             <button
                 class="btn btn-circle btn-ghost btn-sm absolute right-2 top-2"
@@ -19,7 +19,7 @@
         <form
             method="post"
             id="{{ $id }}-inner"
-            class="modal-content flex flex-col gap-3 py-4"
+            class="modal-content flex min-w-96 flex-col gap-3 py-4"
             onsubmit="{{ $id }}.close()"
             wire:submit="{{ $action }}"
         >
@@ -33,7 +33,10 @@
             {{ $slot }}
 
             <div class="form-btns flex justify-end gap-3">
-                <span class="btn btn-neutral" onclick="{{ $id }}.close()">
+                <span
+                    class="btn btn-neutral bg-gray-500"
+                    onclick="{{ $id }}.close()"
+                >
                     Close
                 </span>
                 <button class="btn-{{ $btnType }} btn" type="submit">

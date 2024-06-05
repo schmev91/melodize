@@ -2,7 +2,7 @@
     {{-- The Master doesn't talk, he acts. --}}
     <x-backdoor.table-header title="Tracks" modalId="trackModal" />
 
-    <div class="mt-5 overflow-hidden overflow-x-auto rounded-box bg-wall p-5">
+    <div class="mt-5 overflow-x-auto rounded-box bg-wall p-5">
         <table class="table text-white">
             <!-- head -->
             <thead>
@@ -11,7 +11,7 @@
                     <th>Title</th>
                     <th>Artist</th>
                     <th>Updated at</th>
-                    <th>Actions</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -34,14 +34,7 @@
                         <td>{{ $i->updated_at }}</td>
                         <td>
                             <div class="flex gap-2">
-                                <button class="btn btn-info btn-sm text-white">
-                                    Edit
-                                </button>
-                                <button
-                                    class="btn btn-sm border-red-400 bg-red-400 text-white"
-                                >
-                                    Delete
-                                </button>
+                                @include("backdoor.tracks.dropdown")
                             </div>
                         </td>
                     </tr>
@@ -54,5 +47,6 @@
         </div>
     </div>
 
+    @include("backdoor.tracks.manage-genre")
     @include("backdoor.tracks.modal")
 </div>
