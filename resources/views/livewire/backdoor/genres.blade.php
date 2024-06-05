@@ -1,6 +1,6 @@
 {{-- Stop trying to control. --}}
 <div>
-    <x-backdoor.table-header title="Genres" modalId="genreModal" />
+    <x-backdoor.table-header title="Genres" modalId="genreCreate" />
 
     <div class="mt-5 overflow-hidden overflow-x-auto rounded-box bg-wall p-5">
         <table class="table text-white">
@@ -23,12 +23,13 @@
                         <td>{{ $i->updated_at }}</td>
                         <td>
                             <div class="flex gap-2">
-                                <button
-                                    class="btn-open_edit btn btn-info btn-sm text-white"
+                                <x-form.hyper-btn
+                                    modalId="genreEdit"
+                                    class="btn btn-info btn-sm"
                                     target="{{ $i->id }}"
                                 >
                                     Edit
-                                </button>
+                                </x-form.hyper-btn>
                                 <x-form.hyper-btn
                                     modalId="confirm_deleteGenre"
                                     class="btn btn-error btn-sm text-white"
@@ -48,7 +49,8 @@
         </div>
     </div>
 
-    @include("backdoor.genres.modal")
+    @include("backdoor.genres.create")
+    @include("backdoor.genres.edit")
 
     <x-form.confirm-delete
         id="confirm_deleteGenre"

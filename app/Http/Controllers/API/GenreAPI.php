@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Genre;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class GenreAPI
 {
@@ -16,12 +15,12 @@ class GenreAPI
         //
     }
 
-
     /**
      * Display the specified resource.
      */
-    public function show(Genre $genre): JsonResponse
+    public function show(string $id): JsonResponse
     {
+        $genre = Genre::find($id);
         return response()->json($genre);
     }
 

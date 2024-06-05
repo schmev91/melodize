@@ -69,6 +69,7 @@ export default {
     },
 
     safelist: [
+        "hidden",
         "text-primary",
         "text-secondary",
         "text-success",

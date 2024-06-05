@@ -10,11 +10,13 @@
     } elseif (empty($value)) {
         $value = "";
     }
+
+    $inputID = uniqid() . "-" . $name;
 @endphp
 
 <div class="flex flex-col">
     <label
-        for="input-{{ $name }}"
+        for="{{ $inputID }}"
         class="label label-text justify-start gap-1 font-medium"
     >
         {{ $slot }}
@@ -23,7 +25,7 @@
         @endif
     </label>
     <input
-        id="input-{{ $name }}"
+        id="{{ $inputID }}"
         wire:model="{{ $name }}"
         name="{{ $name }}"
         value="{{ $value }}"
