@@ -27,9 +27,8 @@ class GenresTable extends Component
      */
     public function store(): void
     {
-
         $validator = Validator::make(
-            [ 'name' => '' ],
+            [ 'name' => $this->name ],
             [ 'name' => 'required|max:255' ]
         );
 
@@ -40,12 +39,10 @@ class GenresTable extends Component
         }
 
         Genre::create($validator->getData());
-
         Message::flash(Message::SUCCESS());
-
     }
 
-    public function update()
+    public function update(Genre $genre)
     {
 
     }

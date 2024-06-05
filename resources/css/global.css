@@ -30,13 +30,9 @@
     @apply border-none bg-hypergreen font-medium text-white hover:bg-hypergreen hover:bg-opacity-85;
 }
 
-@keyframes bounce-x {
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(-20px);
-    }
+.btn-success,
+.btn-info,
+.btn-error,
+.btn-neutral {
+    @apply text-white;
 }

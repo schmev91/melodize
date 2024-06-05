@@ -23,7 +23,10 @@
                         <td>{{ $i->updated_at }}</td>
                         <td>
                             <div class="flex gap-2">
-                                <button class="btn btn-info btn-sm text-white">
+                                <button
+                                    class="btn-open_edit btn btn-info btn-sm text-white"
+                                    target="{{ $i->id }}"
+                                >
                                     Edit
                                 </button>
                                 <x-form.hyper-btn
