@@ -6,7 +6,7 @@
 
         <link rel="icon" href="{{ asset("favicon-hypergreen.ico") }}" />
 
-        @vite("resources/dist/css/output.css")
+        @vite("public/dist/css/output.css")
         @vite("resources/css/global.css")
 
         <title>{{ $title ?? "Page Title" }}</title>

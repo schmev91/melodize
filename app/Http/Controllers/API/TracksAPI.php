@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Track;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class TracksAPI
 {
@@ -17,14 +16,6 @@ class TracksAPI
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(Track $track)
@@ -32,19 +23,10 @@ class TracksAPI
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Track $track)
+    public function genres(string $id): JsonResponse
     {
-        //
+        $track = Track::find($id);
+        return response()->json($track->genres);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Track $track)
-    {
-        //
-    }
 }

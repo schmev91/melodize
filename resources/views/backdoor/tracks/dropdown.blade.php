@@ -8,7 +8,11 @@
         class="menu dropdown-content z-10 overflow-hidden rounded-md bg-gray-600 p-0 shadow-md"
     >
         <li class="cursor-pointer p-3 hover:bg-hypergreen hover:bg-opacity-30">
-            <x-form.hyper-btn modalId="manageGenre" class="p-0">
+            <x-form.hyper-btn
+                modalId="manageGenre"
+                class="p-0"
+                target="{{ $i->id }}"
+            >
                 Genres
             </x-form.hyper-btn>
         </li>

@@ -50,4 +50,4 @@
             <x-player.queue class="stroke-white hover:stroke-hypergreen" />
         </div>
     </div>
-    @vite("resources/dist/js/music-player/index.js")
+    @vite("public/dist/js/music-player/index.js")

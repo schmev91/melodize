@@ -21,8 +21,8 @@ class Track extends Model
 
     public function genres(): BelongsToMany
     {
-        return $this->belongsToMany(Genre::class)
-            ->using(TrackGenre::class);
+        return $this->belongsToMany(Genre::class, 'track_genres')
+        ;
     }
 
     public function playlists(): BelongsToMany

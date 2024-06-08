@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "module": "ESNext",
-        "outDir": "resources/dist/js",
+        "outDir": "public/dist/js",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
