@@ -25,7 +25,14 @@ class TracksAPI
 
     public function genres(string $id): JsonResponse
     {
-        $track = Track::find($id);
+        $track = Track::with([ 'genres' => function ($q) {
+            $q->select('id', 'name');
+        } ])->find($id);
+
+        if (!$track) {
+            return response()->json([ 'message' => 'Track not found' ], 404);
+        }
+
         return response()->json($track->genres);
     }
 

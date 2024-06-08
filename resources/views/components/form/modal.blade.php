@@ -22,6 +22,7 @@
             class="modal-content flex min-w-96 flex-col gap-3 py-4"
             onsubmit="{{ $id }}.close()"
             wire:submit="{{ $action }}"
+            {{ $attributes }}
         >
             @csrf
             <div class="prose mb-5">

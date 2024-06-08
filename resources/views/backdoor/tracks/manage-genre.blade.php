@@ -1,46 +1,48 @@
 <!-- Simplicity is an acquired taste. - Katharine Gerould -->
-<x-form.modal id="manageGenre" btnText="Save" btnType="primary">
+<x-form.modal
+    id="manageGenre"
+    action="updateTrackGenres"
+    btnText="Save"
+    btnType="primary"
+    x-data="{
+        genreList:
+            {{ json_encode($genres, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) }},
+        trackGenres: $wire.entangle('currentTrackGenres'),
+        searchGenre: '',
+        get filteredGenres() {
+            return this.genreList.filter(
+                ({ id: genreId, name }) =>
+                    ! this.trackGenres.some(
+                        ({ id: existGenreId }) =>
+                            genreId === existGenreId ||
+                            (this.searchGenre
+                                ? ! name
+                                      .toLowerCase()
+                                      .includes(this.searchGenre.toLowerCase())
+                                : false),
+                    ),
+            )
+        },
+        addGenre(genre) {
+            this.trackGenres.push(genre)
+        },
+        removeGenre(id) {
+            this.trackGenres.some(({ genreId }, index) => {
+                if (! id == genreId) return false
+                this.trackGenres.splice(index, 1)
+                return true
+            })
+        },
+    }"
+    @track-genres-load.window="trackGenres = $event.detail.genres"
+>
     <x-slot name="title">Manage track genre</x-slot>
 
     <div id="manageGenre-loading" class="flex justify-center">
         <span class="loading loading-bars loading-lg"></span>
     </div>
 
-    <div
-        id="manageGenre-content"
-        class="hidden"
-        x-data="{
-            genreList:
-                {{ json_encode($genres, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) }},
-            trackGenres: [],
-            searchGenre: '',
-            get filteredGenres() {
-                return this.genreList.filter(
-                    ({ id: genreId, name }) =>
-                        ! this.trackGenres.some(
-                            ({ id: existGenreId }) =>
-                                genreId === existGenreId ||
-                                (this.searchGenre
-                                    ? ! name
-                                          .toLowerCase()
-                                          .includes(this.searchGenre.toLowerCase())
-                                    : false),
-                        ),
-                )
-            },
-            addGenre(genre) {
-                this.trackGenres.push(genre)
-            },
-            removeGenre(id) {
-                this.trackGenres.some(({ genreId }, index) => {
-                    if (! id == genreId) return false
-                    this.trackGenres.splice(index, 1)
-                    return true
-                })
-            },
-        }"
-        @track-genres-load.window="trackGenres = $event.detail.genres"
-    >
+    <div id="manageGenre-content" class="hidden">
         <div class="flex h-96 gap-5">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="">
@@ -109,6 +111,11 @@
 
         manageGenre.addEventListener('open', ({ detail: { button } }) => {
             const target = button.getAttribute('target');
+            //  update target track for updating genres
+            document
+                .getElementById('manageGenre-inner')
+                .setAttribute('wire:submit', `updateTrackGenres(${target})`);
+
             // API url to get genres of a specific track
             const url = window.location.origin + `/api/tracks/${target}/genres`;
             fetch(url)
