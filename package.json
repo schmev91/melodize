@@ -6,7 +6,7 @@
     "inw": "concurrently \"php artisan serve --port=99\" \"vite\" \"tailwindcss -i ./resources/css/input.css -o ./public/dist/css/output.css --watch\" \"tsc -w\"",
     "dev": "vite",
     "build": "vite build",
-    "sync": "git push melodize asm:inw"
+    "sync": "git push && git push melodize asm:inw"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",

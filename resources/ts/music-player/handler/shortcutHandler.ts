@@ -7,7 +7,15 @@ function shortcutHandler(event: KeyboardEvent) {
     try {
         switch (event.code) {
             case "Space":
+                // DONT PREVENT DEFAULT IF IS FOCUSING ON INPUT
+                if (
+                    event.target instanceof HTMLInputElement ||
+                    event.target instanceof HTMLTextAreaElement
+                ) {
+                    return;
+                }
                 event.preventDefault();
+
                 if (globalThis.player.playing()) pauseHandler();
                 else playHandler();
                 break;

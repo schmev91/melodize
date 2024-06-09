@@ -14,18 +14,9 @@
         <script>
             var exports = {};
         </script>
-
-        <x-script.jsmediatags />
     </head>
 
     <body class="position-relative z-0 overflow-x-hidden">
-        {{-- theme --}}
-        <input
-            type="checkbox"
-            class="theme-controller hidden"
-            value="melodize"
-            checked
-        />
         {{ $slot }}
         @persist("visualizeCanvas")
             <canvas
@@ -35,6 +26,14 @@
         @endpersist('visualizeCanvas')
     </body>
     @persist("music-player")
+        {{-- theme --}}
+        <input
+            type="checkbox"
+            class="theme-controller hidden"
+            value="melodize"
+            checked
+        />
         @livewire("music-player")
+        @vite("public/dist/js/music-player/index.js")
     @endpersist('music-player')
 </html>
