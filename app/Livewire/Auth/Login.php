@@ -3,6 +3,7 @@
 namespace App\Livewire\Auth;
 
 use App\Livewire\Forms\Auth\LoginForm;
+use App\Utils\Message;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -14,7 +15,7 @@ class Login extends Component
     {
         $this->logination->withValidator(function ($validator) {
             if ($validator->fails()) {
-                $this->dispatch('dialogCollapse', id: 'login_modal');
+                $this->reopenModal();
             }
 
         });
@@ -28,8 +29,19 @@ class Login extends Component
     public function login()
     {
         $validated = $this->logination->validate();
-        Auth::attempt($validated);
+        if (Auth::attempt($validated)) {
+            $this->dispatch('loggedIn');
+            return;
+        };
 
+        Message::flash(Message::ERROR("Username or Password is not valid"), 'login_message');
+        $this->reopenModal();
+
+    }
+
+    public function reopenModal()
+    {
+        $this->dispatch('dialogCollapse', id: 'login_modal');
     }
 
 }

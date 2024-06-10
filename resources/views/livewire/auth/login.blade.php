@@ -1,6 +1,10 @@
 <x-form.modal id="login_modal" action="login">
     <x-slot name="title">Login</x-slot>
 
+    @if (session("login_message"))
+        {!! session("login_message") !!}
+    @endif
+
     {{-- LOGIN NAME --}}
     <x-form.input-inline name="logination.username" placeholder="username">
         <x-svg.hashtag />

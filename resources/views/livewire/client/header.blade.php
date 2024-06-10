@@ -29,17 +29,23 @@
 
         @include("client.header.search")
 
-        <div class="header-end flex flex-grow items-center justify-end gap-5">
-            <a wire:navigate href="{{ route("backdoor.dashboard") }}">
-                <x-svg.wrench
-                    class="size-7 stroke-white hover:stroke-hypergreen"
-                />
-            </a>
-            <div id="profile">
-                @if (auth()->check())
+        <div class="header-end flex-grow">
+            <div id="profile" class="flex items-center justify-end gap-5">
+                @auth
                     @php
                         $user = auth()->user();
                     @endphp
+
+                    @if ($user->isAdmin)
+                        <a
+                            wire:navigate
+                            href="{{ route("backdoor.dashboard") }}"
+                        >
+                            <x-svg.wrench
+                                class="size-7 stroke-white hover:stroke-hypergreen"
+                            />
+                        </a>
+                    @endif
 
                     <div id="user" class="flex items-center">
                         <div class="dropdown dropdown-end">
@@ -55,14 +61,20 @@
                                 class="menu dropdown-content z-[1] mt-1 w-40 rounded-md bg-base-100 p-2 shadow"
                             >
                                 <li>
-                                    <button type="button" wire:click="logout">
+                                    <button
+                                        type="button"
+                                        @click="$wire.$refresh()"
+                                        wire:click="logout"
+                                    >
                                         Logout
                                     </button>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                @else
+                @endauth
+
+                @guest
                     <div id="auth" class="flex gap-4">
                         <button
                             class="rounded-md bg-white px-2 py-1 font-medium text-wall"
@@ -77,7 +89,7 @@
                             Register
                         </button>
                     </div>
-                @endif
+                @endguest
             </div>
         </div>
         {{-- END - HEADER INNER --}}

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckLogin
+class BackdoorPass
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,10 @@ class CheckLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()) {
+        if (Auth::check() && Auth::user()->isAdmin) {
             return $next($request);
         }
+
+        return redirect()->route('client.home');
     }
 }

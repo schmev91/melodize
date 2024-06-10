@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Middleware\BackdoorPass;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // ADMIN
         Route::prefix('backdoor')
-            ->middleware('web')
+            ->middleware('web', BackdoorPass::class)
             ->as('backdoor.')
             ->group(base_path('routes/backdoor.php'));
 

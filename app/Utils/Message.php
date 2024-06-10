@@ -40,8 +40,9 @@ class Message
         return self::out('secondary', $displayText, $addOnClasses);
     }
 
-    public static function flash($message){
-        session()->flash(self::LABEL, $message);
+    public static function flash($message, $label = self::LABEL)
+    {
+        session()->flash($label, $message);
     }
-    
+
 }
