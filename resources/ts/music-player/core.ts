@@ -59,6 +59,7 @@ export function refresh() {
         .on("stop", stopProgressUpdater)
         .on("end", call(stopProgressUpdater, nextHandler));
 
+    increaseListensCount(currentTrack.id);
     refreshPlayerView(currentTrack);
 }
 
@@ -73,4 +74,9 @@ function refreshPlayerView({ id, title, artist, cover }: Track) {
     // Set max duration for the current playing song
     currentDuration!.innerText = formatTime(globalThis.player.seek());
     maxDuration!.innerText = formatTime(globalThis.player.duration());
+}
+
+async function increaseListensCount(trackId: number) {
+    const url = `${getOrigin()}/api/tracks/${trackId}/listen`;
+    fetch(url);
 }

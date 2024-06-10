@@ -36,4 +36,12 @@ class TracksAPI
         return response()->json($track->genres);
     }
 
+    public function listen(string $id)
+    {
+        $track = Track::findOrFail($id);
+        $track->increment('listens');
+
+        return response()->json([ 'success' => true, 'listens' => $track->listens ]);
+    }
+
 }

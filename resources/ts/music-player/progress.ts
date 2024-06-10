@@ -35,4 +35,6 @@ function updateProgressTime(): void {
 
     if (!globalThis.isPlayingShowing) return;
     globalThis.waveSurfer.setTime(currentTimestamp);
+    document.getElementById("waveform-current")!.innerHTML =
+        formatTime(currentTimestamp);
 }

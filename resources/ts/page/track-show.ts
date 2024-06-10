@@ -1,6 +1,7 @@
 import WaveSurfer from "wavesurfer.js";
 import {
     call,
+    formatTime,
     getCurrentPlaying,
     getOrigin,
     mounter,
@@ -46,6 +47,11 @@ function initWaveSurfer(url: string): void {
         document
             .getElementById("waveform-loading")
             ?.classList.add(hideClassName);
+
+        document.getElementById("waveform-current")!.innerHTML = "0:00";
+        document.getElementById("waveform-duration")!.innerHTML = formatTime(
+            globalThis.waveSurfer.getDuration(),
+        );
 
         const waveform = document.getElementById("waveform");
         const hover: HTMLElement | null =

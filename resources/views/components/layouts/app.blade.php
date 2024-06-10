@@ -36,4 +36,15 @@
         @livewire("music-player")
         @vite("public/dist/js/music-player/index.js")
     @endpersist('music-player')
+
+    <script type="module">
+        document.addEventListener('livewire:init', () => {
+            console.log('livewire init successfully');
+            Livewire.on('dialogCollapse', ({ id }) => {
+                setTimeout(() => {
+                    window[id].show();
+                }, 100);
+            });
+        });
+    </script>
 </html>

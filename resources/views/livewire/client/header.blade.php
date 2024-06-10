@@ -30,26 +30,54 @@
         @include("client.header.search")
 
         <div class="header-end flex flex-grow items-center justify-end gap-5">
-            <a wire:navigate href="{{ route('backdoor.dashboard') }}">
+            <a wire:navigate href="{{ route("backdoor.dashboard") }}">
                 <x-svg.wrench
                     class="size-7 stroke-white hover:stroke-hypergreen"
                 />
             </a>
             <div id="profile">
-                <div id="auth" class="flex gap-4">
-                    <button
-                        class="rounded-md bg-white px-2 py-1 font-medium text-wall"
-                        onclick="login_modal.showModal()"
-                    >
-                        Login
-                    </button>
-                    <button
-                        class="rounded-md px-2 py-1 font-medium text-hypergreen outline outline-1 outline-hypergreen"
-                        onclick="register_modal.showModal()"
-                    >
-                        Register
-                    </button>
-                </div>
+                @if (auth()->check())
+                    @php
+                        $user = auth()->user();
+                    @endphp
+
+                    <div id="user" class="flex items-center">
+                        <div class="dropdown dropdown-end">
+                            <div tabindex="0" role="button">
+                                <img
+                                    src="{{ Storage::url($user->avatar) }}"
+                                    class="h-9 w-9 rounded-full object-cover"
+                                    alt=""
+                                />
+                            </div>
+                            <ul
+                                tabindex="0"
+                                class="menu dropdown-content z-[1] mt-1 w-40 rounded-md bg-base-100 p-2 shadow"
+                            >
+                                <li>
+                                    <button type="button" wire:click="logout">
+                                        Logout
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                @else
+                    <div id="auth" class="flex gap-4">
+                        <button
+                            class="rounded-md bg-white px-2 py-1 font-medium text-wall"
+                            onclick="login_modal.showModal()"
+                        >
+                            Login
+                        </button>
+                        <button
+                            class="rounded-md px-2 py-1 font-medium text-hypergreen outline outline-1 outline-hypergreen"
+                            onclick="register_modal.showModal()"
+                        >
+                            Register
+                        </button>
+                    </div>
+                @endif
             </div>
         </div>
         {{-- END - HEADER INNER --}}

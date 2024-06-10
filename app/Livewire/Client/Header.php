@@ -4,6 +4,7 @@ namespace App\Livewire\Client;
 
 use App\Services\TrackService;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Header extends Component
@@ -43,5 +44,10 @@ class Header extends Component
 
         $this->searchTracks();
 
+    }
+
+    public function logout(): void
+    {
+        Auth::logout();
     }
 }

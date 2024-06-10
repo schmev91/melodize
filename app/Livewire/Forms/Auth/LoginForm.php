@@ -8,8 +8,8 @@ use Livewire\Form;
 class LoginForm extends Form
 {
     #[Rule('required|max:255') ]
-    public string $username = '';
+    public string $username;
 
     #[Rule('required|max:255') ]
-    public string $password = '';
+    public string $password;
 }

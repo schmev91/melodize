@@ -1,7 +1,7 @@
 @props([
     "name" => "",
     "type" => "text",
-    "value" => "",
+    "value" => null,
     "placeholder" => "",
     "required" => null,
 ])
@@ -12,11 +12,13 @@
 
         <input
             wire:model="{{ $name }}"
-            value="{{ $value }}"
+            @if ($value)
+                value="{{ $value }}"
+            @endif
             type="{{ $type }}"
             class="{{ $attributes["class"] }} grow border-none focus:ring-0"
             placeholder="{{ $placeholder }}"
-            {{ $attributes->except("class") }}
+            {{ $attributes->except("class", "required", "") }}
             {{ $required ? "required" : "" }}
         />
     </label>
