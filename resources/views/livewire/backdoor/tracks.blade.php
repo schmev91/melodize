@@ -47,6 +47,16 @@
         </div>
     </div>
 
+    @script
+        <script type="module">
+            $wire.on('dialogCollapse', ({ id }) => {
+                setTimeout(() => {
+                    window[id].show();
+                }, 100);
+            });
+        </script>
+    @endscript
+
     @include("backdoor.tracks.manage-genre")
-    @include("backdoor.tracks.modal")
+    @include("backdoor.tracks.create")
 </div>

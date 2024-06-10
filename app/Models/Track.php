@@ -37,6 +37,10 @@ class Track extends Model
         return $this->hasMany(Comment::class);
     }
 
+    protected $fillables = [
+        self::USER_ID, self::TITLE, self::ARTIST, self::DESCRIPTION, self::COVER, self::URL, self::LISTENS,
+     ];
+
     const ID          = 'id';
     const USER_ID     = 'user_id';
     const TITLE       = 'title';
@@ -44,6 +48,7 @@ class Track extends Model
     const DESCRIPTION = 'description';
     const COVER       = 'cover';
     const URL         = 'url';
+    const LISTENS     = 'listens';
     const CREATED_AT  = 'created_at';
     const UPDATED_AT  = 'updated_at';
 }

@@ -31,9 +31,11 @@ export function initController(): void {
     visualizeCanvas.width = window.innerWidth;
     visualizeCanvas.height = window.innerHeight - musicPlayer!.clientHeight;
 
+    // PADDING TO HAVE THE CONTENT HIGHER
     body.style.paddingBottom = musicPlayer.clientHeight + "px";
 
     document.addEventListener("livewire:navigated", function () {
-        console.log("navigated");
+        // set back to false if user navigate
+        globalThis.isPlayingShowing = false;
     });
 }

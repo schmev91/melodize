@@ -7,6 +7,8 @@ declare global {
     var player: Howl;
     var tracksList: Track[];
     var trackIndex: number;
+    var waveSurfer: WaveSurfer;
+    var isPlayingShowing: boolean;
 }
 
 // add listener to music player buttons

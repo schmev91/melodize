@@ -1,3 +1,5 @@
+import Track from "./interface/Track";
+
 export function formatTime(secs: number) {
     const minutes = Math.floor(secs / 60) || 0;
     const seconds = secs - minutes * 60 || 0;
@@ -31,4 +33,9 @@ export function once(fn: Function): Function {
         called = true;
         fn(...args);
     };
+}
+
+export function getCurrentPlaying(): Track | null {
+    if (!globalThis.tracksList) return null;
+    return globalThis.tracksList[globalThis.trackIndex];
 }

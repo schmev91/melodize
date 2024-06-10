@@ -21,7 +21,7 @@ export default function progressWatcher(event: MouseEvent) {
 }
 
 function startProgressUpdater() {
-    updateProgressWorker = setInterval(updateProgressTime, 1000);
+    updateProgressWorker = setInterval(updateProgressTime, 500);
 }
 
 function stopProgressUpdater() {
@@ -29,7 +29,10 @@ function stopProgressUpdater() {
 }
 
 function updateProgressTime(): void {
-    currentDuration!.innerText = formatTime(globalThis.player.seek());
-    progress!.value =
-        (globalThis.player.seek() / globalThis.player.duration()) * 100;
+    const currentTimestamp = globalThis.player.seek();
+    currentDuration!.innerText = formatTime(currentTimestamp);
+    progress!.value = (currentTimestamp / globalThis.player.duration()) * 100;
+
+    if (!globalThis.isPlayingShowing) return;
+    globalThis.waveSurfer.setTime(currentTimestamp);
 }

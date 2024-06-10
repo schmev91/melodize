@@ -1,6 +1,7 @@
 <!-- People find pleasure in different ways. I find it in keeping my mind clear. - Marcus Aurelius -->
 <div id="search" class="relative ms-6">
     <input
+        id="header-search-input"
         wire:model.live.debounce.500ms="search"
         type="text"
         placeholder="Swearch UwO?"

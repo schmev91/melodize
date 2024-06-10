@@ -1,9 +1,13 @@
 <!-- You must be the change you wish to see in the world. - Mahatma Gandhi -->
-<div id="player-label" class="col-start-1 flex items-center gap-3">
+<a
+    id="player-label"
+    wire:navigate
+    class="col-start-1 flex w-fit items-center gap-3"
+>
     <img
         id="player-trackCover"
         class="h-16 w-16 rounded-md object-cover"
-        src="{{ Storage::url("img/default/track.png") }}"
+        src="https://i.imgur.com/bHuG4rf.gif"
     />
     <div class="label-info flex flex-col gap-1">
         <span
@@ -16,4 +20,4 @@
             melodize
         </span>
     </div>
-</div>
+</a>

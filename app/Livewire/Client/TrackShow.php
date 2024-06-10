@@ -13,6 +13,7 @@ class TrackShow extends Component
 
     public function mount(Track $track)
     {
+        $track->load('genres');
         $this->track = $track;
     }
 

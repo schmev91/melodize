@@ -8,7 +8,7 @@
         <div class="track-detail flex flex-grow flex-col justify-between gap-3">
             <div class="detail-top flex justify-between">
                 <div class="flex gap-2">
-                    <button class="btn-circle btn-lg bg-hypergreen p-3">
+                    <button id="playCurrentShowing" class="btn-circle btn-lg bg-hypergreen p-3">
                         <x-svg.sharp-play class="mx-auto" />
                     </button>
                     <div class="flex flex-col justify-between">
@@ -24,7 +24,15 @@
                     <p class="text-lg font-medium text-white">
                         {{ $track->created_at }}
                     </p>
-                    <span class="badge badge-neutral"># EDM & Dance</span>
+                    @if ($track->genres->isNotEmpty())
+                        <div class="flex max-w-72 flex-wrap justify-end gap-2">
+                            @foreach ($track->genres as $genre)
+                                <span class="badge badge-neutral">
+                                    #{{ $genre->name }}
+                                </span>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
             </div>
             <div>

@@ -35,8 +35,13 @@ class Header extends Component
         $this->searchResult = TrackService::search($this->search);
     }
 
-    public function updatedSearch()
+    public function updatedSearch($value)
     {
+        if ('' == $value) {
+            return;
+        }
+
         $this->searchTracks();
+
     }
 }

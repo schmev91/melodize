@@ -2,22 +2,24 @@ import { pauseHandler } from "./pauseHandler";
 import { playHandler } from "./playHandler";
 import { updateProgressTime } from "../progress";
 import { volumeDown, volumeUp } from "./volumeHandler";
+import { headerSearchInput } from "../elements";
 
 function shortcutHandler(event: KeyboardEvent) {
     try {
         switch (event.code) {
             case "Space":
                 // DONT PREVENT DEFAULT IF IS FOCUSING ON INPUT
-                if (
-                    event.target instanceof HTMLInputElement ||
-                    event.target instanceof HTMLTextAreaElement
-                ) {
-                    return;
-                }
+                if (isFocusInput(event)) return;
                 event.preventDefault();
 
                 if (globalThis.player.playing()) pauseHandler();
                 else playHandler();
+                break;
+            case "Slash":
+                if (isFocusInput(event)) return;
+                event.preventDefault();
+                headerSearchInput.focus();
+
                 break;
             case "ArrowLeft":
                 globalThis.player.seek(
@@ -44,3 +46,10 @@ function shortcutHandler(event: KeyboardEvent) {
 }
 
 export { shortcutHandler };
+
+function isFocusInput(event: KeyboardEvent): boolean {
+    return (
+        event.target instanceof HTMLInputElement ||
+        event.target instanceof HTMLTextAreaElement
+    );
+}

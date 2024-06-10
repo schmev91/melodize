@@ -18,9 +18,9 @@ class TracksAPI
     /**
      * Display the specified resource.
      */
-    public function show(Track $track)
+    public function show(string $id)
     {
-        //
+        return response()->json([ track::find($id) ]);
     }
 
     public function genres(string $id): JsonResponse

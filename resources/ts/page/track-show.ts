@@ -1,6 +1,14 @@
 import WaveSurfer from "wavesurfer.js";
-import { getOrigin, storageHelper } from "../utils";
+import {
+    call,
+    getCurrentPlaying,
+    getOrigin,
+    mounter,
+    storageHelper,
+} from "../utils";
 import Track from "../interface/Track";
+import { hideClassName } from "../music-player/constants";
+import { play } from "../music-player/core";
 
 declare global {
     interface Window {
@@ -8,17 +16,51 @@ declare global {
     }
 }
 export default function trackShow(): void {
-    const { url } = window.showingTrack;
+    const { id, url } = window.showingTrack;
 
-    const wavesurfer = WaveSurfer.create({
+    document
+        .getElementById("playCurrentShowing")
+        ?.addEventListener(
+            "click",
+            call(
+                mounter(play, [window.showingTrack]),
+                mounter(refrestCurrentPlayingFlag, id),
+            ),
+        );
+
+    initWaveSurfer(url);
+
+    refrestCurrentPlayingFlag(id);
+}
+
+function initWaveSurfer(url: string): void {
+    globalThis.waveSurfer = WaveSurfer.create({
         container: "#waveform",
         barWidth: 2,
         waveColor: "#d4d7f8",
         progressColor: "#35e668",
     });
-
-    wavesurfer.on("load", function () {
-        document.getElementById("waveform-loading")?.remove();
+    // REMOVE LOADING BAR ON READY
+    globalThis.waveSurfer.on("ready", function () {
+        document
+            .getElementById("waveform-loading")
+            ?.classList.add(hideClassName);
     });
-    wavesurfer.load(storageHelper(url));
+    // Seek timestamp if is playing current showing or play current showing if not
+    globalThis.waveSurfer.on("seeking", (timestamp) => {
+        if (globalThis.isPlayingShowing) {
+            globalThis.player.seek(timestamp);
+        } else {
+            play([window.showingTrack]);
+            refrestCurrentPlayingFlag(window.showingTrack.id);
+        }
+    });
+    globalThis.waveSurfer.load(storageHelper(url));
+}
+function refrestCurrentPlayingFlag(id: number) {
+    const currentPlaying = getCurrentPlaying();
+    if (!currentPlaying) return;
+    if (id == currentPlaying.id) {
+        globalThis.isPlayingShowing = true;
+    }
 }

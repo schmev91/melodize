@@ -34,6 +34,9 @@ export const progress = document.getElementById(
     "player-progress",
 ) as HTMLProgressElement;
 
+export const playerLabel = document.getElementById(
+    "player-label",
+) as HTMLLinkElement;
 export const trackCover = document.getElementById(
     "player-trackCover",
 ) as HTMLImageElement;
@@ -55,3 +58,7 @@ export const volumeBar = document.getElementById(
 export const visualizeCanvas = document.getElementById(
     "visualize-canvas",
 ) as HTMLCanvasElement;
+
+export const headerSearchInput = document.getElementById(
+    "header-search-input",
+) as HTMLInputElement;
