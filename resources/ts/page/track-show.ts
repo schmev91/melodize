@@ -40,11 +40,20 @@ function initWaveSurfer(url: string): void {
         waveColor: "#d4d7f8",
         progressColor: "#35e668",
     });
+
     // REMOVE LOADING BAR ON READY
     globalThis.waveSurfer.on("ready", function () {
         document
             .getElementById("waveform-loading")
             ?.classList.add(hideClassName);
+
+        const waveform = document.getElementById("waveform");
+        const hover: HTMLElement | null =
+            document.getElementById("waveform-hover");
+        waveform?.addEventListener(
+            "pointermove",
+            (e) => (hover!.style.width = `${e.offsetX}px`),
+        );
     });
     // Seek timestamp if is playing current showing or play current showing if not
     globalThis.waveSurfer.on("seeking", (timestamp) => {

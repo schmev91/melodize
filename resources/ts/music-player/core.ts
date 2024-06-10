@@ -26,7 +26,6 @@ export async function init(url: string) {
 }
 
 export function play(data: Track[]) {
-    console.log(data);
     stopPlayer();
     globalThis.tracksList = parseService(data);
     globalThis.trackIndex = 0;

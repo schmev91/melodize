@@ -8,7 +8,10 @@
         <div class="track-detail flex flex-grow flex-col justify-between gap-3">
             <div class="detail-top flex justify-between">
                 <div class="flex gap-2">
-                    <button id="playCurrentShowing" class="btn-circle btn-lg bg-hypergreen p-3">
+                    <button
+                        id="playCurrentShowing"
+                        class="btn-circle btn-lg bg-hypergreen p-3"
+                    >
                         <x-svg.sharp-play class="mx-auto" />
                     </button>
                     <div class="flex flex-col justify-between">
@@ -36,10 +39,14 @@
                 </div>
             </div>
             <div>
-                <div id="waveform">
+                <div id="waveform" class="group/waveform relative">
                     <div id="waveform-loading" class="flex justify-center">
                         <span class="loading loading-bars loading-lg"></span>
                     </div>
+                    <div
+                        id="waveform-hover"
+                        class="pointer-events-none absolute left-0 top-0 z-10 h-full w-0 bg-hypergreen bg-opacity-35 opacity-0 mix-blend-overlay transition-opacity duration-200 ease-linear group-hover/waveform:opacity-100"
+                    ></div>
                 </div>
             </div>
         </div>
