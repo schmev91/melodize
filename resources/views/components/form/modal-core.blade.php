@@ -3,7 +3,7 @@
 @props([
     "id" => "",
 ])
-<dialog id="{{ $id }}" class="modal">
+<dialog id="{{ $id }}" {{ $attributes->merge(["class" => "modal"]) }}>
     <div class="modal-box max-w-max">
         <form method="dialog">
             <button

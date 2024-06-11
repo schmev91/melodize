@@ -4,13 +4,14 @@ namespace App\Livewire\Auth;
 
 use App\Livewire\Forms\Auth\LoginForm;
 use App\Traits\ModalInteraction;
+use App\Traits\UseToast;
 use App\Utils\Message;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Login extends Component
 {
-    use ModalInteraction;
+    use ModalInteraction, UseToast;
     public static string $modalId       = "login_modal";
     public static string $message_label = "login_message";
 
@@ -36,6 +37,7 @@ class Login extends Component
         $validated = $this->logination->validate();
         if (Auth::attempt($validated)) {
             $this->dispatch('loggedIn');
+            $this->sendToast('Welcome back, ' . Auth::user()->name);
             return;
         };
 

@@ -23,6 +23,7 @@
                 id="visualize-canvas"
                 class="absolute left-0 top-0"
             ></canvas>
+            @include("toast")
         @endpersist('visualizeCanvas')
     </body>
 

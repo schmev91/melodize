@@ -57,7 +57,7 @@
                         @include("client.header.user-dropdown")
                     </div>
 
-                    @livewire("client.profile")
+                    @livewire("client.profile", ["user" => $user])
                 @endauth
 
                 @guest

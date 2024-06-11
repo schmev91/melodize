@@ -36,3 +36,30 @@
 .btn-neutral {
     @apply text-white;
 }
+
+.toast-notification {
+    @apply relative right-0 rounded-l-lg bg-[#FCFCFD] px-10 py-3 font-medium shadow-sm;
+    transition: all;
+    transition-duration: 300ms;
+    animation: move-right-in ease-out 360ms forwards;
+    overflow-x: hidden;
+}
+.toast-notification::after {
+    content: "";
+    @apply absolute bottom-0 left-0 h-1 w-full rounded-l bg-[#9eb3e6];
+    animation: shrink-width 5s linear;
+}
+
+@keyframes move-right-in {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes shrink-width {
+    100% {
+        width: 0;
+    }
+}
