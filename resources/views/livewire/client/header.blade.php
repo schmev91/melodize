@@ -56,6 +56,8 @@
                     <div id="user" class="flex items-center">
                         @include("client.header.user-dropdown")
                     </div>
+
+                    @livewire("client.profile")
                 @endauth
 
                 @guest

@@ -19,4 +19,8 @@
     >
         <x-svg.key />
     </x-form.input-inline>
+
+    <x-slot name="widget">
+        <a href="" class="text-blue-300 underline">Forgot password?</a>
+    </x-slot>
 </x-form.modal>

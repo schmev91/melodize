@@ -21,12 +21,12 @@ class Header extends Component
 
     public string $active_name = 'client.home';
 
-    #[On('logged-in') ]
+    #[On('refresh-header') ]
     public function render()
     {
-        return view('livewire.client.header',[
-            'user'=> Auth::user()
-        ]);
+        return view('livewire.client.header', [
+            'user' => Auth::user(),
+         ]);
     }
 
     public function boot()

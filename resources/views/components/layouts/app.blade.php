@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html
-    lang="{{ str_replace("_", "-", app()->getLocale()) }}"
->
+<html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,10 +26,6 @@
             @include("toast")
         @endpersist('visualizeCanvas')
     </body>
-
-    @auth
-        @livewire("client.profile")
-    @endauth
 
     @persist("music-player")
         {{-- theme --}}

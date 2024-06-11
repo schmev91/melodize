@@ -24,16 +24,19 @@
 
         {{ $slot }}
 
-        <div class="form-btns flex justify-end gap-3">
-            <span
-                class="btn btn-neutral bg-gray-500"
-                onclick="{{ $id }}.close()"
-            >
-                Close
-            </span>
-            <button class="btn-{{ $btnType }} btn" type="submit">
-                {{ $btnText }}
-            </button>
+        <div class="flex items-center justify-between">
+            {{ $widget ?? "" }}
+            <div class="form-btns flex justify-end gap-3">
+                <span
+                    class="btn btn-neutral bg-gray-500"
+                    onclick="{{ $id }}.close()"
+                >
+                    Close
+                </span>
+                <button class="btn-{{ $btnType }} btn" type="submit">
+                    {{ $btnText }}
+                </button>
+            </div>
         </div>
     </form>
 </x-form.modal-core>

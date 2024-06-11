@@ -36,7 +36,7 @@ class Login extends Component
     {
         $validated = $this->logination->validate();
         if (Auth::attempt($validated)) {
-            $this->dispatch('logged-in');
+            $this->dispatch('refresh-header');
             $this->sendToast('Welcome back, ' . Auth::user()->name);
             return;
         };

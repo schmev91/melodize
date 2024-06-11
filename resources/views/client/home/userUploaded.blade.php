@@ -8,7 +8,7 @@
     </x-player.play>
 </div>
 
-<div class="scroll-bounce-x carousel carousel-start items-center space-x-3">
+<div class="carousel carousel-start items-center space-x-3">
     @foreach ($tracks as $track)
         <div class="carousel-item">
             <a

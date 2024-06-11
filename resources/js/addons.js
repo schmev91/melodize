@@ -27,5 +27,5 @@ document.addEventListener("livewire:init", () => {
     });
 
     // SANDBOX
-    profile_modal.show();
+    // profile_modal.show();
 });
