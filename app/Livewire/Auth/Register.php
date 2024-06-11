@@ -4,19 +4,23 @@ namespace App\Livewire\Auth;
 
 use App\Livewire\Forms\Auth\RegisterForm;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\ModalInteraction;
+use App\Utils\Message;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class Register extends Component
 {
+    use ModalInteraction;
+    public static string $modalId = "register_modal";
+
     public RegisterForm $registration;
 
     public function boot()
     {
         $this->registration->withValidator(function ($validator) {
             if ($validator->fails()) {
-                $this->dispatch('dialogCollapse', id: 'register_modal');
+                $this->openModal($this::$modalId);
             }
 
         });
@@ -25,14 +29,14 @@ class Register extends Component
     public function register()
     {
         $this->registration->validate();
-        $user = User::create([
+        User::create([
              ...$this->registration->all(),
             user::PASSWORD => Hash::make($this->registration->password),
          ]);
 
-        Auth::login($user);
+        Message::flash(Message::SUCCESS('Registration successfully, please login.'), Login::$message_label);
+        $this->openModal(Login::$modalId);
 
-        // $this->redirect('/', true);
     }
 
     public function render()

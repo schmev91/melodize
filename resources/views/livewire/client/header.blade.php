@@ -40,55 +40,28 @@
                         <a
                             wire:navigate
                             href="{{ route("backdoor.dashboard") }}"
+                            class="rounded-lg bg-primary stroke-white px-4 py-1"
                         >
-                            <x-svg.wrench
-                                class="size-7 stroke-white hover:stroke-hypergreen"
-                            />
+                            <x-svg.wrench class="size-6" />
                         </a>
                     @endif
 
+                    <button
+                        type="button"
+                        class="rounded-lg bg-primary px-4 py-1"
+                    >
+                        <x-svg.upload class="stroke-white" />
+                    </button>
+
                     <div id="user" class="flex items-center">
-                        <div class="dropdown dropdown-end">
-                            <div tabindex="0" role="button">
-                                <img
-                                    src="{{ Storage::url($user->avatar) }}"
-                                    class="h-9 w-9 rounded-full object-cover"
-                                    alt=""
-                                />
-                            </div>
-                            <ul
-                                tabindex="0"
-                                class="menu dropdown-content z-[1] mt-1 w-40 rounded-md bg-base-100 p-2 shadow"
-                            >
-                                <li>
-                                    <button
-                                        type="button"
-                                        @click="$wire.$refresh()"
-                                        wire:click="logout"
-                                    >
-                                        Logout
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
+                        @include("client.header.user-dropdown")
                     </div>
+
+                    @livewire("client.profile")
                 @endauth
 
                 @guest
-                    <div id="auth" class="flex gap-4">
-                        <button
-                            class="rounded-md bg-white px-2 py-1 font-medium text-wall"
-                            onclick="login_modal.showModal()"
-                        >
-                            Login
-                        </button>
-                        <button
-                            class="rounded-md px-2 py-1 font-medium text-hypergreen outline outline-1 outline-hypergreen"
-                            onclick="register_modal.showModal()"
-                        >
-                            Register
-                        </button>
-                    </div>
+                    @include("client.header.auth-buttons")
                 @endguest
             </div>
         </div>

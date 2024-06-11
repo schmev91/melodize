@@ -51,5 +51,6 @@ class Header extends Component
     public function logout(): void
     {
         Auth::logout();
+        $this->redirect('/', true);
     }
 }
