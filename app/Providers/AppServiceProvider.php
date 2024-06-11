@@ -15,9 +15,9 @@ class AppServiceProvider extends ServiceProvider
     {
         // ADMIN
         Route::prefix('backdoor')
-            ->middleware('web', BackdoorPass::class)
             ->as('backdoor.')
-            ->group(base_path('routes/backdoor.php'));
+            ->group(base_path('routes/backdoor.php'))
+            ->middleware('web', BackdoorPass::class);
 
         // API
         Route::prefix('api')

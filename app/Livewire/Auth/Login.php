@@ -36,12 +36,12 @@ class Login extends Component
     {
         $validated = $this->logination->validate();
         if (Auth::attempt($validated)) {
-            $this->dispatch('loggedIn');
+            $this->dispatch('logged-in');
             $this->sendToast('Welcome back, ' . Auth::user()->name);
             return;
         };
 
-        Message::flash(Message::ERROR("Username or Password is not valid"), $this->message_label);
+        Message::flash(Message::ERROR("Username or Password is not valid"), $this::$message_label);
         $this->openModal($this::$modalId);
 
     }

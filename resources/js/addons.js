@@ -4,6 +4,7 @@ document.addEventListener("livewire:init", () => {
             window[id].show();
         }, 100);
     });
+
     Livewire.on("new-toast", ({ message }) => {
         const toastStack = document.getElementById("toast-stack");
         const toast = document.createElement("div");
@@ -26,5 +27,5 @@ document.addEventListener("livewire:init", () => {
     });
 
     // SANDBOX
-    // profile_modal.show();
+    profile_modal.show();
 });
