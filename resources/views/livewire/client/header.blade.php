@@ -49,6 +49,7 @@
                     <button
                         type="button"
                         class="rounded-lg bg-primary px-4 py-1"
+                        @click="trackUpload_modal.show()"
                     >
                         <x-svg.upload class="stroke-white" />
                     </button>
@@ -58,6 +59,7 @@
                     </div>
 
                     @livewire("client.profile")
+                    @livewire("client.track-upload")
                 @endauth
 
                 @guest

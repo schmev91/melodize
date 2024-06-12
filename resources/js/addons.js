@@ -28,4 +28,5 @@ document.addEventListener("livewire:init", () => {
 
     // SANDBOX
     // profile_modal.show();
+    trackUpload_modal.show();
 });

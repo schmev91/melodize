@@ -3,7 +3,7 @@
 @props([
     "name" => "",
     "rows" => "3",
-    "value" => [],
+    "value" => "",
     "required" => null,
 ])
 @php
@@ -23,7 +23,7 @@
         wire:model="{{ $name }}"
         id="{{ $name }}"
         rows="{{ $rows }}"
-        class="{{ $attributes["class"] }} form-control"
+        class="{{ $attributes["class"] }} textarea textarea-bordered w-full"
         {{ $attributes->except("class") }}
         {{ $required ? "required" : "" }}
     >
