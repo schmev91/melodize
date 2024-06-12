@@ -11,7 +11,7 @@ class Home extends Component
 {
     public function render()
     {
-        $tracks = Track::all();
+        $tracks = Track::orderBy("created_at", 'desc')->get();
         return view('livewire.client.home', compact('tracks'));
     }
 }

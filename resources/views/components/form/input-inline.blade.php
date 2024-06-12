@@ -13,6 +13,7 @@
 
         <input
             wire:model="{{ $name }}"
+            name="{{ $name }}"
             @if ($value)
                 value="{{ $value }}"
             @endif

@@ -37,7 +37,7 @@ class Track extends Model
         return $this->hasMany(Comment::class);
     }
 
-    protected $fillables = [
+    protected $fillable = [
         self::USER_ID, self::TITLE, self::ARTIST, self::DESCRIPTION, self::COVER, self::URL, self::LISTENS,
      ];
 

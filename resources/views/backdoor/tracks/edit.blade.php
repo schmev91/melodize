@@ -1,7 +1,7 @@
 {{-- Nothing in the world is as soft and yielding as water. --}}
 <x-form.modal
-    id="trackUpload_modal"
-    :action="route('api.tracks.store')"
+    id="trackEdit_modal"
+    :action="route('api.tracks.update','1')"
     btn-text="Upload"
     enctype="multipart/form-data"
     isActionNormal="true"
@@ -25,7 +25,7 @@
                 <x-svg.image class="size-4" />
                 cover
             </label>
-            @error("trackUploadForm.coverImg")
+            @error("cover")
                 <small class="error_holder mt-1 max-w-36 text-error">
                     {{ $message }}
                 </small>

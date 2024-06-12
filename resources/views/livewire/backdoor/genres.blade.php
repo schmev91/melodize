@@ -58,15 +58,4 @@
         varying="target"
     />
 
-    {{--
-        @script
-        <script type="module">
-        $wire.on('dialogCollapse', ({ id }) => {
-        setTimeout(() => {
-        window[id].show();
-        }, 100);
-        });
-        </script>
-        @endscript
-    --}}
 </div>

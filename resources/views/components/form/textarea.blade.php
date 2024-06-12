@@ -21,6 +21,7 @@
     </label>
     <textarea
         wire:model="{{ $name }}"
+        name="{{ $name }}"
         id="{{ $name }}"
         rows="{{ $rows }}"
         class="{{ $attributes["class"] }} textarea textarea-bordered w-full"

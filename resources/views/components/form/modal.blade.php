@@ -5,6 +5,7 @@
     "action" => "",
     "btnText" => "Submit",
     "btnType" => "success",
+    "isActionNormal" => false,
 ])
 <x-form.modal-core :$id>
     <form
@@ -12,7 +13,7 @@
         id="{{ $id }}-inner"
         class="modal-content flex min-w-96 flex-col gap-3 py-4"
         onsubmit="{{ $id }}.close()"
-        wire:submit="{{ $action }}"
+        {{ $isActionNormal ? "action=$action" : "wire:submit=$action" }}
         {{ $attributes }}
     >
         @csrf

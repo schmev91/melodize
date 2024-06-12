@@ -20,7 +20,13 @@
             Edit
         </li>
         <li class="cursor-pointer p-3 hover:bg-hypergreen hover:bg-opacity-30">
-            Delete
+            <x-form.hyper-btn
+                modalId="confirm_deleteTrack"
+                class="p-0"
+                target="{{ $i->id }}"
+            >
+                Delete
+            </x-form.hyper-btn>
         </li>
     </ul>
 </div>

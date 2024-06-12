@@ -13,6 +13,7 @@
     "id" => "",
     "action" => "",
     "varying" => null,
+    "isNormal" => false,
 ])
 
 <dialog id="{{ $id }}" class="modal">
@@ -68,7 +69,11 @@
                     const value = button.getAttribute('{{ $varying }}');
 
                     const form = document.getElementById('{{ $id }}-inner');
-                    form.setAttribute('wire:submit', `destroy(${value})`);
+                    form.setAttribute(
+                        '{{ $isNormal ? "action" : "wire:submit" }}',
+                        `{{ $isNormal ? $action . '/${value}' : destroy(${value}) }}`,
+                    );
+                    console.log(form);
                 },
             );
         });

@@ -47,15 +47,12 @@
         </div>
     </div>
 
-    @script
-        <script type="module">
-            $wire.on('dialogCollapse', ({ id }) => {
-                setTimeout(() => {
-                    window[id].show();
-                }, 100);
-            });
-        </script>
-    @endscript
+    <x-form.confirm-delete
+        id="confirm_deleteTrack"
+        :action="route('api.tracks.destroy', '')"
+        varying="target"
+        isNormal="true"
+    />
 
     @include("backdoor.tracks.manage-genre")
     @include("backdoor.tracks.create")
