@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Http\Middleware\BackdoorPass;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -17,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
         Route::prefix('backdoor')
             ->as('backdoor.')
             ->group(base_path('routes/backdoor.php'))
-            ->middleware('web', BackdoorPass::class);
+            ->middleware('web');
 
         // API
         Route::prefix('api')

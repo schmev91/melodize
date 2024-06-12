@@ -71,7 +71,7 @@
                     const form = document.getElementById('{{ $id }}-inner');
                     form.setAttribute(
                         '{{ $isNormal ? "action" : "wire:submit" }}',
-                        `{{ $isNormal ? $action . '/${value}' : destroy(${value}) }}`,
+                        `{{ $isNormal ? $action . '/${value}' : 'destroy(${value})' }}`,
                     );
                     console.log(form);
                 },

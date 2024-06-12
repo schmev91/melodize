@@ -25,10 +25,16 @@
             ></canvas>
             @include("toast")
         @endpersist('visualizeCanvas')
+
         @guest
-        @livewire("auth.register")
-        @livewire("auth.login")
+            @livewire("auth.register")
+            @livewire("auth.login")
         @endguest
+
+        @auth
+            @livewire("client.profile")
+            @livewire("client.track-upload")
+        @endauth
     </body>
 
     @persist("music-player")

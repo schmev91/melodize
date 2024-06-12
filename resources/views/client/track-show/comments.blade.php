@@ -1,42 +1,67 @@
 <div id="comments" class="flex flex-col gap-2">
-    <div class="chat chat-start">
-        <div class="chat-header">
-            <span class="text-white">Schmev</span>
-            <time class="text-gray-300">9:21</time>
-        </div>
-        <div class="avatar chat-image">
-            <div class="w-10 rounded-full">
-                <img src="{{ Storage::url("img/default/avatar.jpg") }}" />
-            </div>
-        </div>
-        <div class="chat-bubble">Great song huh?</div>
+    @auth
+    <div class="flex flex-col">
+        <x-form.textarea name="comment_content" placeholder="What is your though on this track?" rows="2">
+            <span class="font-medium text-gray-300">Comment</span>
+        </x-form.textarea>
+        <button class="btn btn-primary w-fit" wire:click='comment'>Comment</button>
     </div>
-
-    <div class="chat chat-start">
-        <div class="chat-header">
-            <span class="text-white">Elwine</span>
-            <time class="text-gray-300">7:12</time>
-        </div>
-        <div class="avatar chat-image">
-            <div class="w-10 rounded-full">
-                <img src="{{ Storage::url("img/default/avatar.jpg") }}" />
+    @endauth
+    <div id="comments-stack class="flex flex-col gap-2"">
+        @foreach ($comments as $comment)
+        <div class="chat chat-start">
+            <div class="chat-header">
+                <span class="text-white">{{ $comment->user->name }}</span>
+                <time class="text-gray-300">{{ $comment->created_at }}</time>
             </div>
-        </div>
-        <div class="chat-bubble">Sugoiiiii</div>
-    </div>
-
-    <div class="chat chat-start">
-        <div class="chat-header">
-            <span class="text-white">Obi-Wan Kenobi</span>
-            <time class="text-gray-300">12:45</time>
-        </div>
-        <div class="avatar chat-image">
-            <div class="w-10 rounded-full">
-                <img src="{{ Storage::url("img/default/avatar.jpg") }}" />
+            <div class="avatar chat-image">
+                <div class="w-10 rounded-full">
+                    <img src="{{ Storage::url($comment->user->avatar) }}" />
+                </div>
             </div>
+            <div class="chat-bubble">{{ $comment->content }}</div>
         </div>
-        <div class="chat-bubble">
-            It was said that you would, destroy the Sith, not join them.
+        @endforeach
+        
+        <div class="chat chat-start">
+            <div class="chat-header">
+                <span class="text-white">Schmev</span>
+                <time class="text-gray-300">9:21</time>
+            </div>
+            <div class="avatar chat-image">
+                <div class="w-10 rounded-full">
+                    <img src="{{ Storage::url("img/default/avatar.jpg") }}" />
+                </div>
+            </div>
+            <div class="chat-bubble">Great song huh?</div>
+        </div>
+    
+        <div class="chat chat-start">
+            <div class="chat-header">
+                <span class="text-white">Elwine</span>
+                <time class="text-gray-300">7:12</time>
+            </div>
+            <div class="avatar chat-image">
+                <div class="w-10 rounded-full">
+                    <img src="{{ Storage::url("img/default/avatar.jpg") }}" />
+                </div>
+            </div>
+            <div class="chat-bubble">Sugoiiiii</div>
+        </div>
+    
+        <div class="chat chat-start">
+            <div class="chat-header">
+                <span class="text-white">Obi-Wan Kenobi</span>
+                <time class="text-gray-300">12:45</time>
+            </div>
+            <div class="avatar chat-image">
+                <div class="w-10 rounded-full">
+                    <img src="{{ Storage::url("img/default/avatar.jpg") }}" />
+                </div>
+            </div>
+            <div class="chat-bubble">
+                It was said that you would, destroy the Sith, not join them.
+            </div>
         </div>
     </div>
 </div>
