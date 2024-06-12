@@ -15,6 +15,19 @@ class TracksAPI
         return response()->json(Track::all());
     }
 
+    public function store()
+    {
+        //
+    }
+    public function update()
+    {
+        //
+    }
+    public function destroy()
+    {
+        //
+    }
+
     /**
      * Display the specified resource.
      */

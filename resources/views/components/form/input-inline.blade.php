@@ -4,6 +4,7 @@
     "value" => null,
     "placeholder" => "",
     "required" => null,
+    "isConfirmPassword" => false,
 ])
 
 <div>
@@ -20,6 +21,7 @@
             placeholder="{{ $placeholder }}"
             {{ $attributes->except("class", "required", "") }}
             {{ $required ? "required" : "" }}
+            {{ $isConfirmPassword ? 'name="password_confirmation"' : "" }}
         />
     </label>
     @error($name)

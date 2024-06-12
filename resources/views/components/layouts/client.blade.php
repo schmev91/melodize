@@ -15,6 +15,4 @@
         @endonce
     </div>
 
-    @livewire("auth.register")
-    @livewire("auth.login")
 </x-layouts.app>

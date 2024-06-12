@@ -24,7 +24,7 @@
 
         {{ $slot }}
 
-        <div class="flex items-center justify-between">
+        <div class="flex justify-between">
             {{ $widget ?? "" }}
             <div class="form-btns flex justify-end gap-3">
                 <span

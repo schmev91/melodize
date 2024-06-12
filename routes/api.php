@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 $exclude_api = [ 'update', 'destroy', 'store' ];
 
-Route::apiResource('tracks', TracksAPI::class)->except(...$exclude_api);
+Route::apiResource('tracks', TracksAPI::class);
 Route::get('tracks/{track}/genres', [ TracksAPI::class, 'genres' ]);
 Route::get('tracks/{track}/listen', [ TracksAPI::class, 'listen' ]);
 

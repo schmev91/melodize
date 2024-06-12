@@ -25,6 +25,10 @@
             ></canvas>
             @include("toast")
         @endpersist('visualizeCanvas')
+        @guest
+        @livewire("auth.register")
+        @livewire("auth.login")
+        @endguest
     </body>
 
     @persist("music-player")

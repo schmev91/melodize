@@ -3,20 +3,19 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class MailSender extends Mailable
+class passwordResetCodeMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public $code)
     {
         //
     }
@@ -27,7 +26,7 @@ class MailSender extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Did this reached you?',
+            subject: 'Melodize Password Reset Code',
         );
     }
 
@@ -37,7 +36,7 @@ class MailSender extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mailContent',
+            view: 'mail.password-reset-code',
         );
     }
 
@@ -48,6 +47,6 @@ class MailSender extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [  ];
     }
 }
