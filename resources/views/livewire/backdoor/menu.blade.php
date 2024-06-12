@@ -11,7 +11,7 @@
             <x-svg.transparent-cube />
             Dashboard
         </x-backdoor.menu-item>
-        <x-backdoor.menu-item :route="route('client.home')">
+        <x-backdoor.menu-item :route="route('backdoor.users.index')">
             <x-svg.users />
             Users
         </x-backdoor.menu-item>

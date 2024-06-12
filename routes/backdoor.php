@@ -7,9 +7,15 @@ use App\Livewire\Backdoor\GenresTable;
 use App\Livewire\Backdoor\Playlists;
 use App\Livewire\Backdoor\Sources;
 use App\Livewire\Backdoor\TracksTable;
+use App\Livewire\Backdoor\UsersTable;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Dashboard::class)->name('dashboard');
+
+// USER
+Route::get('users', UsersTable::class)->name('users.index');
+Route::apiResource('users', TracksTable::class)
+    ->except('index', 'show');
 
 // TRACK
 Route::get('tracks', TracksTable::class)->name('tracks.index');

@@ -17,6 +17,7 @@
                 <x-form.profile-input :$user name="name" label="Display name" />
                 <x-form.profile-input :$user name="email" label="Email" />
                 <x-form.profile-input
+                    autocomplete="true"
                     :$user
                     name="password"
                     label="Password"
