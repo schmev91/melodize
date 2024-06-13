@@ -9,7 +9,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-#[Layout('components.layouts.backdoor') ]
+#[Layout('components.layouts.app') ]
 class TracksTable extends Component
 {
     use WithPagination;

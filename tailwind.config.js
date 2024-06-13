@@ -50,7 +50,7 @@ export default {
                 melodize: {
                     primary: "#35e668",
 
-                    secondary: "#6b7280",
+                    secondary: "#727272",
 
                     accent: "#d4d7f8",
 

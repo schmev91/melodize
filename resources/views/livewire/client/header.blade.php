@@ -5,13 +5,11 @@
     <div class="header flex items-center">
         {{-- START - HEADER INNER --}}
         <a href="" class="header-logo bg-wall bg-opacity-50 px-2">
-            @persist("header-logo")
-                <img
-                    class="h-12 py-1"
-                    src="{{ asset("img/utils/melodize-logo-square.png") }}"
-                    alt=""
-                />
-            @endpersist("header-logo")
+            <img
+                class="h-12 py-1"
+                src="{{ asset("img/utils/melodize-logo-square.png") }}"
+                alt=""
+            />
         </a>
 
         <nav class="flex h-12 items-center" wire:click="$refresh">

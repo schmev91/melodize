@@ -1,4 +1,4 @@
-<div>
+<x-layouts.backdoor>
     {{-- The Master doesn't talk, he acts. --}}
     <x-backdoor.table-header title="Users" modalId="" />
 
@@ -59,4 +59,4 @@
             {{ $users->links() }}
         </div>
     </div>
-</div>
+</x-layouts.backdoor>

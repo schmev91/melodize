@@ -1,5 +1,5 @@
 {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
-<div>
+<x-layouts.client>
     <script>
         window.showingTrack = @json($track);
     </script>
@@ -71,4 +71,4 @@
         @include("client.track-show.comments")
         @include("client.track-show.related")
     </section>
-</div>
+</x-layouts.client>

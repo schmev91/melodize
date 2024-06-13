@@ -27,14 +27,31 @@
 }
 
 .btn-primary {
-    @apply border-none bg-hypergreen font-medium text-white hover:bg-hypergreen hover:bg-opacity-85;
+    @apply bg-hypergreen hover:bg-hypergreen;
+}
+.btn-secondary {
+    @apply bg-secondary hover:bg-secondary;
+}
+.btn-success {
+    @apply bg-success hover:bg-success;
+}
+.btn-info {
+    @apply bg-info hover:bg-info;
+}
+.btn-error {
+    @apply bg-error hover:bg-error;
+}
+.btn-neutral {
+    @apply bg-neutral hover:bg-neutral;
 }
 
+.btn-primary,
 .btn-success,
 .btn-info,
 .btn-error,
+.btn-secondary,
 .btn-neutral {
-    @apply text-white;
+    @apply border-none font-medium text-white hover:bg-opacity-85;
 }
 
 .toast-notification {

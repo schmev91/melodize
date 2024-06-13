@@ -21,7 +21,7 @@ class Header extends Component
 
     public string $active_name = 'client.home';
 
-    #[On('refresh-header') ]
+    #[On('refresh-permission') ]
     public function render()
     {
         return view('livewire.client.header', [
@@ -53,6 +53,8 @@ class Header extends Component
     public function logout(): void
     {
         Auth::logout();
+        $this->dispatch('refresh-permission');
         $this->redirect('/', true);
+        $this->render();
     }
 }

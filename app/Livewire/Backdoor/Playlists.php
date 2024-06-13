@@ -6,7 +6,7 @@ use App\Models\Playlist;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('components.layouts.backdoor') ]
+#[Layout('components.layouts.app') ]
 class Playlists extends Component
 {
     public function render()

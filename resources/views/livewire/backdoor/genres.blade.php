@@ -1,5 +1,5 @@
 {{-- Stop trying to control. --}}
-<div>
+<x-layouts.backdoor>
     <x-backdoor.table-header title="Genres" modalId="genreCreate" />
 
     <div class="mt-5 overflow-hidden overflow-x-auto rounded-box bg-wall p-5">
@@ -57,5 +57,4 @@
         :action="route('backdoor.genres.destroy','')"
         varying="target"
     />
-
-</div>
+</x-layouts.backdoor>

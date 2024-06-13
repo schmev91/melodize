@@ -1,6 +1,6 @@
 {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
-<div>
+<x-layouts.client>
     <section class="mb-5">
         @include("client.home.userUploaded")
     </section>
-</div>
+</x-layouts.client>

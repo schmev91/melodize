@@ -16,7 +16,7 @@ class BackdoorPass
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!(Auth::check() && Auth::user()->isAdmin)) {
+        if (!(Auth::user()->isAdmin)) {
             return redirect()->route('client.home');
         }
 

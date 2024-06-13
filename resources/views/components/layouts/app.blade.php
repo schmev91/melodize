@@ -17,7 +17,24 @@
     </head>
 
     <body class="position-relative z-0 overflow-x-hidden">
-        {{ $slot }}
+        <div
+            class="flex max-h-screen min-h-screen flex-col justify-between overflow-y-scroll bg-wall"
+        >
+            <livewire:client.header />
+
+            {{ $slot }}
+
+            @once
+                {{-- theme --}}
+                <input
+                    type="checkbox"
+                    class="theme-controller hidden"
+                    value="melodize"
+                    checked
+                />
+                <x-client.footer />
+            @endonce
+        </div>
         @persist("visualizeCanvas")
             <canvas
                 id="visualize-canvas"
@@ -38,13 +55,6 @@
     </body>
 
     @persist("music-player")
-        {{-- theme --}}
-        <input
-            type="checkbox"
-            class="theme-controller hidden"
-            value="melodize"
-            checked
-        />
         @livewire("music-player")
         @vite("public/dist/js/music-player/index.js")
     @endpersist('music-player')

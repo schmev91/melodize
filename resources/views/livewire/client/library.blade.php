@@ -1,5 +1,5 @@
 {{-- The best athlete wants his opponent at his best. --}}
-<div>
+<x-layouts.client>
     <section id="your-playlists">
         <div class="prose mb-3 flex items-center gap-2">
             <h1 class="prose-h3: m-0 text-white">Your playlist</h1>
@@ -38,4 +38,4 @@
             @endforeach
         </div>
     </section>
-</div>
+</x-layouts.client>

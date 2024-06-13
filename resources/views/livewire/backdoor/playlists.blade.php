@@ -1,4 +1,4 @@
-<div>
+<x-layouts.backdoor>
     {{-- The best athlete wants his opponent at his best. --}}
     <x-backdoor.table-header title="Playlists" modalId="playlistModal" />
 
@@ -51,4 +51,4 @@
     </div>
 
     @include("backdoor.playlists.modal")
-</div>
+</x-layouts.backdoor>

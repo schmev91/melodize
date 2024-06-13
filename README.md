@@ -1,3 +1,11 @@
-# HEAVENIZE - A MUSIC ALBUM VENDOR
+<img src="https://github.com/schmev91/gadgetcamp/blob/master/src/img/gadgetcamp-logo.png" width="270px" />
+# MELODIZE MUSIC APP
 
-### WEB4013 - PHP3
+#### Breakdown:
+- Laravel
+- Livewire
+- Alpinejs
+- Howlerjs
+- Wavesurferjs
+- Tailwind
+

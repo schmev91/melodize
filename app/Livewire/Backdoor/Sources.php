@@ -6,7 +6,7 @@ use App\Models\Source;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('components.layouts.backdoor') ]
+#[Layout('components.layouts.app') ]
 class Sources extends Component
 {
     public function render()

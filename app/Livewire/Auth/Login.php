@@ -55,7 +55,8 @@ class Login extends Component
     {
         $validated = $this->logination->validate();
         if (Auth::attempt($validated)) {
-            $this->dispatch('refresh-header');
+            $this->dispatch('refresh-permission');
+            $this->redirect(url()->previous(), true);
             $this->sendToast('Welcome back, ' . Auth::user()->name);
             return;
         };

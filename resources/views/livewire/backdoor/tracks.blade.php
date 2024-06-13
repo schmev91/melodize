@@ -1,5 +1,4 @@
-<div>
-    {{-- The Master doesn't talk, he acts. --}}
+<x-layouts.backdoor>
     <x-backdoor.table-header title="Tracks" modalId="trackModal" />
 
     <div class="mt-5 overflow-x-auto rounded-box bg-wall p-5">
@@ -56,4 +55,4 @@
 
     @include("backdoor.tracks.manage-genre")
     @include("backdoor.tracks.create")
-</div>
+</x-layouts.backdoor>

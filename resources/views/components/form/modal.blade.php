@@ -31,7 +31,7 @@
             {{ $widget ?? "" }}
             <div class="form-btns flex justify-end gap-3">
                 <span
-                    class="btn btn-neutral bg-gray-500"
+                    class="btn bg-gray-500 text-white"
                     onclick="{{ $id }}.close()"
                 >
                     Close
