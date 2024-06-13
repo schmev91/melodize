@@ -54,14 +54,15 @@
     @apply border-none font-medium text-white hover:bg-opacity-85;
 }
 
-.toast-notification {
+.toast-normal,
+.toast-persist {
     @apply relative right-0 rounded-l-lg bg-[#FCFCFD] px-10 py-3 font-medium shadow-sm;
     transition: all;
     transition-duration: 300ms;
     animation: move-right-in ease-out 360ms forwards;
     overflow-x: hidden;
 }
-.toast-notification::after {
+.toast-normal::after {
     content: "";
     @apply absolute bottom-0 left-0 h-1 w-full rounded-l bg-[#9eb3e6];
     animation: shrink-width 5s linear;

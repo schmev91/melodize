@@ -50,7 +50,6 @@
         id="confirm_deleteTrack"
         :action="route('api.tracks.destroy', '')"
         varying="target"
-        isNormal="true"
     />
 
     @include("backdoor.tracks.manage-genre")

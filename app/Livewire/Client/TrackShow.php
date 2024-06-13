@@ -6,10 +6,10 @@ use App\Models\Comment;
 use App\Models\Track;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 #[Layout('components.layouts.app') ]
-
 class TrackShow extends Component
 {
     public Track $track;
@@ -28,8 +28,7 @@ class TrackShow extends Component
         return view('livewire.client.track-show', [
             'track' => $this->track,
             ...compact('related', 'comments'),
-            'title' => $this->track->title,
-         ]);
+         ])->title($this->track[ track::TITLE ]);
     }
 
     public function comment()

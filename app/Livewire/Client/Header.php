@@ -54,7 +54,8 @@ class Header extends Component
     {
         Auth::logout();
         $this->dispatch('refresh-permission');
-        $this->redirect('/', true);
+        $this->redirect(url()->previous(), true);
+
         $this->render();
     }
 }

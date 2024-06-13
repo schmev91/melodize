@@ -3,6 +3,7 @@
 namespace App\Livewire\Forms;
 
 use Livewire\Attributes\Validate;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\Form;
 
 class TrackUploadForm extends Form
@@ -16,9 +17,9 @@ class TrackUploadForm extends Form
     #[Validate('nullable|max:255') ]
     public string $description;
 
-    // #[Validate('nullable|image|max:3072') ]
-    // public TemporaryUploadedFile $coverImg;
+    #[Validate('nullable|image|max:3072') ]
+    public TemporaryUploadedFile $coverImg;
 
-    // #[Validate('required|mimes:mp3,wav,m4a,flac|max:10240') ]
-    // public TemporaryUploadedFile $audio;
+    #[Validate('required|mimes:mp3,wav,m4a,flac|max:10240') ]
+    public TemporaryUploadedFile $audio;
 }

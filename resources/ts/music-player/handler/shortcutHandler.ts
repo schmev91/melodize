@@ -49,7 +49,7 @@ export { shortcutHandler };
 
 function isFocusInput(event: KeyboardEvent): boolean {
     return (
-        event.target instanceof HTMLInputElement ||
-        event.target instanceof HTMLTextAreaElement
+        document.activeElement instanceof HTMLInputElement ||
+        document.activeElement instanceof HTMLTextAreaElement
     );
 }

@@ -5,7 +5,7 @@
     "action" => "",
     "btnText" => "Submit",
     "btnType" => "success",
-    "isActionNormal" => false,
+    "isNormal" => false,
 ])
 <x-form.modal-core :$id>
     <form
@@ -13,10 +13,13 @@
         id="{{ $id }}-inner"
         class="modal-content flex min-w-96 flex-col gap-3 py-4"
         onsubmit="{{ $id }}.close()"
-        {{ $isActionNormal ? "action=$action" : "wire:submit=$action" }}
+        {{ $isNormal ? "action=$action" : "wire:submit=$action" }}
         {{ $attributes }}
     >
-        @csrf
+        @if ($isNormal)
+            @csrf
+        @endif
+
         <div class="prose mb-5">
             <h1 class="modal-title prose-h3:">
                 {{ $title ?? "Dialog Title" }}

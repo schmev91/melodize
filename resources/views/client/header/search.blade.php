@@ -7,6 +7,7 @@
         placeholder="Swearch UwO?"
         class="form-input z-20 h-8 w-[30rem] rounded-md bg-slate-200"
         required
+        autocomplete="off"
     />
     <button type="button" class="z-20" wire:click="searchTracks">
         <span class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer">

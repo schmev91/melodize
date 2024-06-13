@@ -33,8 +33,11 @@
             onclick="{{ $id }}.close()"
             {{-- action="{{ $action }}" --}}
         >
-            @csrf
-            @method("DELETE")
+            @if ($isNormal)
+                @csrf
+                @method("DELETE")
+            @endif
+
             <div class="prose mb-5">
                 <h1 class="prose-h3:">
                     {{ $title ?? "Are you sure you want to delete this?" }}

@@ -14,11 +14,11 @@ class TrackUpload extends Component
 
     public static string $modal = 'trackUpload_modal';
 
-    public TrackUploadForm $trackUploadForm;
+    public TrackUploadForm $newTrack;
 
     public function boot()
     {
-        $this->setFailModalHook($this->trackUploadForm, $this::$modal);
+        $this->setFailModalHook($this->newTrack, $this::$modal);
 
     }
 
@@ -30,8 +30,21 @@ class TrackUpload extends Component
     public function uploadTrack()
     {
         // handling user_id, cover, url
-        $this->trackUploadForm->validate();
-        $this->dispatch('upload-track-request', ...$this->trackUploadForm->all());
+        $this->newTrack->validate();
 
+    }
+    public function updated()
+    {
+        $this->openModal($this::$modal);
+    }
+
+    // public function updatingNewTrackAudio()
+    // {
+    //     $this->sendToast("I'm uploading your track", ToastType::PERSIST, 'uploading-audio');
+    // }
+
+    public function updatedNewTrackAudio()
+    {
+        $this->dismissToasst('uploading-audio');
     }
 }

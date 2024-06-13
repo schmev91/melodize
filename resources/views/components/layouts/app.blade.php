@@ -9,7 +9,7 @@
         @vite("public/dist/css/output.css")
         @vite("resources/css/global.css")
 
-        <title>{{ $title ?? "Page Title" }}</title>
+        <title>{{ $title ?? "Melodize" }}</title>
 
         <script>
             var exports = {};
@@ -60,4 +60,5 @@
     @endpersist('music-player')
 
     @vite("resources/js/addons.js")
+    @vite("resources/js/toast.js")
 </html>
