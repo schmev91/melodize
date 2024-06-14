@@ -22,6 +22,28 @@
     background-color: var(--such-color) !important;
 }
 
+.bg-blur {
+    background-color: transparent;
+    backdrop-filter: blur(3rem);
+}
+
+.bg-melodize {
+    background-color: transparent;
+    backdrop-filter: blur(3rem);
+    position: relative;
+}
+.bg-melodize::before {
+    content: "";
+    z-index: -1;
+    background-image: url("/public/img/utils/client-bg.jpg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
 ::-webkit-scrollbar {
     @apply w-0;
 }

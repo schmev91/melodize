@@ -22,7 +22,9 @@
         >
             <livewire:client.header />
 
-            {{ $slot }}
+            <div class="bg-melodize container z-10 grow">
+                {{ $slot }}
+            </div>
 
             @once
                 {{-- theme --}}
@@ -46,6 +48,7 @@
         @guest
             @livewire("auth.register")
             @livewire("auth.login")
+            @livewire("auth.forgot-password")
         @endguest
 
         @auth

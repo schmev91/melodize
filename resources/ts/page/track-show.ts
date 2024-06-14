@@ -35,6 +35,9 @@ export default function trackShow(): void {
 }
 
 function initWaveSurfer(url: string): void {
+    // EMPTY WAVESURFER CONTAINER
+    document.getElementById("waveform")!.innerHTML = "";
+
     globalThis.waveSurfer = WaveSurfer.create({
         container: "#waveform",
         barWidth: 2,

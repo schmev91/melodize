@@ -24,11 +24,11 @@ class TrackShow extends Component
     public function render()
     {
         $related  = Track::where('id', '!=', $this->track->id)->get();
-        $comments = $this->track->comments;
+        $comments = $this->track->comments()->orderBy(Comment::CREATED_AT, 'desc')->get();
         return view('livewire.client.track-show', [
             'track' => $this->track,
             ...compact('related', 'comments'),
-         ])->title($this->track[ track::TITLE ]);
+         ])->title($this->track->title);
     }
 
     public function comment()

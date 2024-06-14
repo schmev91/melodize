@@ -4,7 +4,7 @@ namespace App\Livewire\Backdoor;
 
 use App\Models\Genre;
 use App\Models\Track;
-use App\Utils\Message;
+use App\Traits\UseToast;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,7 +12,7 @@ use Livewire\WithPagination;
 #[Layout('components.layouts.app') ]
 class TracksTable extends Component
 {
-    use WithPagination;
+    use WithPagination, UseToast;
 
     public array $currentTrackGenres = [  ];
 
@@ -20,7 +20,7 @@ class TracksTable extends Component
     {
         $tracks = Track::orderBy(track::ID, 'desc')->paginate(6);
         $genres = Genre::all([ genre::ID, genre::NAME ]);
-        return view('livewire.backdoor.tracks', compact('tracks', 'genres'));
+        return view('livewire.backdoor.tracks-table', compact('tracks', 'genres'));
     }
 
     public function updateTrackGenres(Track $track)
@@ -28,9 +28,9 @@ class TracksTable extends Component
         try {
             $newGenres = array_map(fn($genre) => $genre[ 'id' ], $this->currentTrackGenres);
             $track->genres()->sync($newGenres);
-            Message::flash(Message::INFO('Updated genres for ' . $track[ track::TITLE ] . " successfully"));
+            $this->sendToast("I have update genres for " . $track[ track::TITLE ]);
         } catch (\Throwable $th) {
-            Message::flash(Message::ERROR('Failed to update genres for ' . $track[ track::TITLE ]));
+            $this->sendToast('Failed to update genres for ' . $track[ track::TITLE ]);
         }
     }
 

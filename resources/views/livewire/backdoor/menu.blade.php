@@ -1,7 +1,5 @@
 {{-- Success is as dangerous as failure. --}}
-<div
-    class="flex h-full flex-col gap-9 rounded-box bg-opacity-90 bg-client py-3"
->
+<div class="flex h-full flex-col gap-9 rounded-box bg-opacity-90 py-3">
     <div class="prose mix-blend-difference">
         <h1 class="px-3 text-white">Backdoor</h1>
     </div>

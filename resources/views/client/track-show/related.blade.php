@@ -17,7 +17,9 @@
                 />
                 <div class="flex flex-col justify-between">
                     <p class="text-lg text-white">{{ $i->title }}</p>
-                    <p class="text-gray-400">{{ $i->artist }}</p>
+                    <p class="text-hypergreen text-opacity-60">
+                        {{ $i->artist }}
+                    </p>
                 </div>
             </a>
         @endforeach
