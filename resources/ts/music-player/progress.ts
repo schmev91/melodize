@@ -30,11 +30,25 @@ function stopProgressUpdater() {
 
 function updateProgressTime(): void {
     const currentTimestamp = globalThis.player.seek();
+    const commentBtn = document.getElementById("comment-btn");
     currentDuration!.innerText = formatTime(currentTimestamp);
     progress!.value = (currentTimestamp / globalThis.player.duration()) * 100;
 
-    if (!globalThis.isPlayingShowing) return;
+    const waveSurferCurrentTime = document.getElementById("waveform-current");
+    // scripts if showing the current playing track
+    if (!globalThis.isPlayingShowing) {
+        if (window.showingTrack) {
+            window.isResettingWaveSurfer = true;
+            globalThis.waveSurfer.setTime(0);
+            waveSurferCurrentTime!.innerHTML = "0:00";
+        }
+        commentBtn?.setAttribute("wire:click", "comment");
+        return;
+    }
+
     globalThis.waveSurfer.setTime(currentTimestamp);
-    document.getElementById("waveform-current")!.innerHTML =
-        formatTime(currentTimestamp);
+    waveSurferCurrentTime!.innerHTML = formatTime(currentTimestamp);
+
+    // Include at column in comment on the current playing track
+    commentBtn?.setAttribute("wire:click", `comment(${currentTimestamp})`);
 }

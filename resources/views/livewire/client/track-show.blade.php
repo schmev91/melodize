@@ -44,7 +44,7 @@
                         id="waveform-container"
                         class="group/waveform relative"
                     >
-                        <div id="waveform"></div>
+                        <div id="waveform" class="min-h-28"></div>
                         <div
                             id="waveform-loading"
                             class="absolute left-1/2 top-1/2 flex justify-center"
@@ -54,7 +54,7 @@
                             ></span>
                         </div>
                         <span
-                            class="absolute -left-4 top-1/2 z-30 -translate-y-1/2 bg-wall px-1 text-xs text-white"
+                            class="absolute -left-4 top-1/2 z-30 hidden -translate-y-1/2 bg-wall px-1 text-xs text-white"
                             id="waveform-current"
                         ></span>
                         <span

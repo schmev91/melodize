@@ -39,3 +39,8 @@ export function getCurrentPlaying(): Track | null {
     if (!globalThis.tracksList) return null;
     return globalThis.tracksList[globalThis.trackIndex];
 }
+
+export function optional(object: any) {
+    if (!object) return {};
+    return object;
+}

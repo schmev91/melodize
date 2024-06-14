@@ -1,5 +1,6 @@
 import LocaltrackParser from "../class/LocaltrackParser";
 import Track from "../interface/Track";
+import { refreshCurrentPlayingFlag } from "../page/track-show";
 import { call, formatTime, getOrigin } from "../utils";
 import {
     trackTitle,
@@ -48,6 +49,7 @@ export function refresh() {
     if (globalThis.player) globalThis.player.stop();
 
     const currentTrack = globalThis.tracksList[trackIndex];
+    refreshCurrentPlayingFlag();
 
     //create a new Player with the current track index
     globalThis.player = createPlayer(currentTrack.url);

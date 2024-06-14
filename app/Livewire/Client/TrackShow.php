@@ -31,7 +31,7 @@ class TrackShow extends Component
          ])->title($this->track->title);
     }
 
-    public function comment()
+    public function comment(float $timestamp = null)
     {
         $this->track->comments()->create([ 'content' => $this->comment_content, Comment::USER_ID => Auth::user()->id ]);
         $this->comment_content = '';

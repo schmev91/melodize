@@ -5,6 +5,7 @@ import {
     getCurrentPlaying,
     getOrigin,
     mounter,
+    optional,
     storageHelper,
 } from "../utils";
 import Track from "../interface/Track";
@@ -13,11 +14,12 @@ import { play } from "../music-player/core";
 
 declare global {
     interface Window {
-        showingTrack: Track;
+        showingTrack?: Track;
+        isResettingWaveSurfer?: boolean;
     }
 }
 export default function trackShow(): void {
-    const { id, url } = window.showingTrack;
+    const { id, url } = window.showingTrack!;
 
     document
         .getElementById("playCurrentShowing")
@@ -25,24 +27,25 @@ export default function trackShow(): void {
             "click",
             call(
                 mounter(play, [window.showingTrack]),
-                mounter(refrestCurrentPlayingFlag, id),
+                mounter(refreshCurrentPlayingFlag, id),
             ),
         );
 
     initWaveSurfer(url);
 
-    refrestCurrentPlayingFlag(id);
+    refreshCurrentPlayingFlag();
 }
 
 function initWaveSurfer(url: string): void {
     // EMPTY WAVESURFER CONTAINER
-    document.getElementById("waveform")!.innerHTML = "";
+    optional(document.getElementById("waveform")).innerHTML = "";
 
     globalThis.waveSurfer = WaveSurfer.create({
         container: "#waveform",
         barWidth: 2,
         waveColor: "#d4d7f8",
         progressColor: "#35e668",
+        hideCursor: true,
     });
 
     // REMOVE LOADING BAR ON READY
@@ -51,7 +54,9 @@ function initWaveSurfer(url: string): void {
             .getElementById("waveform-loading")
             ?.classList.add(hideClassName);
 
-        document.getElementById("waveform-current")!.innerHTML = "0:00";
+        const current = document.getElementById("waveform-current");
+        current!.innerHTML = "0:00";
+        current?.classList.remove(hideClassName);
         document.getElementById("waveform-duration")!.innerHTML = formatTime(
             globalThis.waveSurfer.getDuration(),
         );
@@ -68,17 +73,18 @@ function initWaveSurfer(url: string): void {
     globalThis.waveSurfer.on("seeking", (timestamp) => {
         if (globalThis.isPlayingShowing) {
             globalThis.player.seek(timestamp);
-        } else {
-            play([window.showingTrack]);
-            refrestCurrentPlayingFlag(window.showingTrack.id);
+            return;
         }
+        if (window.isResettingWaveSurfer) {
+            window.isResettingWaveSurfer = undefined;
+            return;
+        }
+        play([window.showingTrack!]);
     });
     globalThis.waveSurfer.load(storageHelper(url));
 }
-function refrestCurrentPlayingFlag(id: number) {
+export function refreshCurrentPlayingFlag() {
     const currentPlaying = getCurrentPlaying();
-    if (!currentPlaying) return;
-    if (id == currentPlaying.id) {
-        globalThis.isPlayingShowing = true;
-    }
+    if (!currentPlaying || !window.showingTrack) return;
+    globalThis.isPlayingShowing = window.showingTrack.id == currentPlaying.id;
 }

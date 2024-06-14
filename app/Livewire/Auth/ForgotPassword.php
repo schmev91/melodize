@@ -19,9 +19,9 @@ class ForgotPassword extends Component
 {
     use ModalInteraction, UseToast;
 
-    public static string $forgotPasswordModalId  = "forgotPassword_modal";
-    public static string $resetRedemptionModalId = "resetCodeRedemption_modal";
-    public static string $resetPasswordModalId   = "resetPassword_modal";
+    public static string $forgotPasswordModal  = "forgotPassword_modal";
+    public static string $resetRedemptionModal = "resetCodeRedemption_modal";
+    public static string $resetPasswordModal   = "resetPassword_modal";
 
     public ForgotPasswordForm $forgotten;
     public redeemPasswordResetForm $redemption;
@@ -31,9 +31,9 @@ class ForgotPassword extends Component
 
     public function boot()
     {
-        $this->setFailModalHook($this->forgotten, $this::$forgotPasswordModalId);
-        $this->setFailModalHook($this->redemption, $this::$resetRedemptionModalId);
-        $this->setFailModalHook($this->resetPw, $this::$resetPasswordModalId);
+        $this->setFailModalHook($this->forgotten, $this::$forgotPasswordModal);
+        $this->setFailModalHook($this->redemption, $this::$resetRedemptionModal);
+        $this->setFailModalHook($this->resetPw, $this::$resetPasswordModal);
     }
 
     public function render()
@@ -48,7 +48,7 @@ class ForgotPassword extends Component
 
         if ($isEmailExist) {
             $setResetCode->handle($this->forgotten->forgotPasswordEmail);
-            $this->openModal($this::$resetRedemptionModalId);
+            $this->openModal($this::$resetRedemptionModal);
         }
 
     }
@@ -60,14 +60,14 @@ class ForgotPassword extends Component
 
         if (!$isSuccess) {
             Message::flash(Message::ERROR("Invalid code"), $this::$redeem_message_label);
-            $this->openModal($this::$resetRedemptionModalId);
+            $this->openModal($this::$resetRedemptionModal);
             return;
         }
 
         $this->redemption->reset();
         Session::put('isAllowResetPassword', true);
         $this->sendToast('Redeem successfully, you can now reset your password');
-        $this->openModal($this::$resetPasswordModalId);
+        $this->openModal($this::$resetPasswordModal);
     }
 
     public function resetPassword()
@@ -82,7 +82,7 @@ class ForgotPassword extends Component
 
         if ($this->resetPw->password != $this->resetPw->confirm) {
             $this->setErrorBag([ 'resetPw.confirm' => 'Confirm password does not match' ]);
-            $this->openModal($this::$resetPasswordModalId);
+            $this->openModal($this::$resetPasswordModal);
             return;
         }
 

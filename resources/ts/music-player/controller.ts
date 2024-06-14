@@ -34,6 +34,9 @@ export function initController(): void {
     // PADDING TO HAVE THE CONTENT HIGHER
     body.style.paddingBottom = musicPlayer.clientHeight + "px";
 
+    document.addEventListener("livewire:navigating", function () {
+        window.showingTrack = undefined;
+    });
     document.addEventListener("livewire:navigated", function () {
         // set back to false if user navigate
         globalThis.isPlayingShowing = false;
