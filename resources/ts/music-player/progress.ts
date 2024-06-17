@@ -37,11 +37,11 @@ function updateProgressTime(): void {
     const waveSurferCurrentTime = document.getElementById("waveform-current");
     // scripts if showing the current playing track
     if (!globalThis.isPlayingShowing) {
-        if (window.showingTrack) {
-            window.isResettingWaveSurfer = true;
-            globalThis.waveSurfer.setTime(0);
-            waveSurferCurrentTime!.innerHTML = "0:00";
-        }
+        if (!window.showingTrack) return;
+
+        window.isResettingWaveSurfer = true;
+        globalThis.waveSurfer.setTime(0);
+        waveSurferCurrentTime!.innerHTML = "0:00";
         commentBtn?.setAttribute("wire:click", "comment");
         return;
     }

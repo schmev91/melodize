@@ -1,5 +1,9 @@
 import Track from "./interface/Track";
 
+export function getAudioContext(): AudioContext {
+    return globalThis.player._sounds[0]._node.context;
+}
+
 export function formatTime(secs: number) {
     const minutes = Math.floor(secs / 60) || 0;
     const seconds = secs - minutes * 60 || 0;

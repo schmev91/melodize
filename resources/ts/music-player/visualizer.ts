@@ -1,3 +1,4 @@
+import { getAudioContext } from "../utils";
 import { footer, visualizeCanvas } from "./elements";
 
 const context = visualizeCanvas!.getContext("2d");
@@ -6,7 +7,8 @@ let analyser: AnalyserNode;
 
 export default function visualizer(): void {
     // Get the AudioContext instance from Howler.js _node
-    const audioCtx = globalThis.player._sounds[0]._node.context;
+    // const audioCtx = globalThis.player._sounds[0]._node.context;
+    const audioCtx = getAudioContext();
 
     // Create the analyser node
     analyser = audioCtx.createAnalyser();
