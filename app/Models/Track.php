@@ -28,6 +28,8 @@ class Track extends Model
     use HasFactory;
 
     const DEFAULT_COVER = 'img/default/track.png';
+    const TRACK_DIR     = 'tracks';
+    const COVER_DIR     = 'img/covers';
 
     public function user(): BelongsTo
     {

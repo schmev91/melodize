@@ -18,7 +18,7 @@ class TrackUploadForm extends Form
     public string $description;
 
     #[Validate('nullable|image|max:3072') ]
-    public TemporaryUploadedFile $coverImg;
+    public ?TemporaryUploadedFile $cover = null;
 
     #[Validate('required|mimes:mp3,wav,m4a,flac|max:10240') ]
     public TemporaryUploadedFile $audio;

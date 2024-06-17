@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Client;
 
+use App\Actions\Tracks\UploadTrackAction;
 use App\Livewire\Forms\TrackUploadForm;
 use App\Traits\ModalInteraction;
 use App\Traits\UseToast;
@@ -27,10 +28,11 @@ class TrackUpload extends Component
         return view('livewire.client.track-upload');
     }
 
-    public function uploadTrack()
+    public function uploadTrack(UploadTrackAction $action)
     {
         // handling user_id, cover, url
-        $this->newTrack->validate();
+        $validated = $this->newTrack->validate();
+        $action->handle($validated);
 
     }
     public function updated()
@@ -38,13 +40,15 @@ class TrackUpload extends Component
         $this->openModal($this::$modal);
     }
 
-    // public function updatingNewTrackAudio()
-    // {
-    //     $this->sendToast("I'm uploading your track", ToastType::PERSIST, 'uploading-audio');
-    // }
-
     public function updatedNewTrackAudio()
     {
+        $this->dispatch(self::uploaded_event);
         $this->dismissToasst('uploading-audio');
+    }
+
+    public function updatedNewTrackCover()
+    {
+        $this->dispatch(self::uploaded_event);
+        $this->dismissToasst('uploading-cover');
     }
 }

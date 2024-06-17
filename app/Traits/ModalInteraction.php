@@ -6,6 +6,9 @@ use Livewire\Form;
 
 trait ModalInteraction
 {
+    const uploading_event = 'file-uploading';
+    const uploaded_event = 'file-uploaded';
+    
     public function openModal(string $modalId): void
     {
         $this->dispatch('dialogCollapse', id: $modalId);
