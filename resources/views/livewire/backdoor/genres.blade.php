@@ -2,7 +2,7 @@
 <x-layouts.backdoor>
     <x-backdoor.table-header title="Genres" modalId="genreCreate" />
 
-    <div class="mt-5 overflow-hidden overflow-x-auto rounded-box bg-wall p-5">
+    <div class="rounded-boxp-5 mt-5 overflow-hidden overflow-x-auto">
         <table class="table text-white">
             <!-- head -->
             <thead>
@@ -52,9 +52,5 @@
     @include("backdoor.genres.create")
     @include("backdoor.genres.edit")
 
-    <x-form.confirm-delete
-        id="confirm_deleteGenre"
-        :action="route('backdoor.genres.destroy','')"
-        varying="target"
-    />
+    <x-form.confirm-delete id="confirm_deleteGenre" varying="target" />
 </x-layouts.backdoor>

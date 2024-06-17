@@ -46,11 +46,7 @@
         </div>
     </div>
 
-    <x-form.confirm-delete
-        id="confirm_deleteTrack"
-        :action="route('api.tracks.destroy', '')"
-        varying="target"
-    />
+    <x-form.confirm-delete id="confirm_deleteTrack" varying="target" />
 
     @include("backdoor.tracks.manage-genre")
     @include("backdoor.tracks.create")

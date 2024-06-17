@@ -45,7 +45,10 @@
             </div>
 
             <div class="form-btns flex justify-end gap-3">
-                <span class="btn btn-neutral" onclick="{{ $id }}.close()">
+                <span
+                    class="btn bg-gray-400 text-white"
+                    onclick="{{ $id }}.close()"
+                >
                     Abort
                 </span>
                 <x-form.hyper-btn class="btn btn-error text-white">

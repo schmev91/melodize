@@ -34,4 +34,14 @@ class TracksTable extends Component
         }
     }
 
+    public function destroy(Track $track)
+    {
+        try {
+            $track->delete();
+            $this->sendToast("I have deleted " . $track[ track::TITLE ]);
+        } catch (\Throwable $th) {
+            $this->sendToast('Failed to delete ' . $track[ track::TITLE ]);
+        }
+    }
+
 }
