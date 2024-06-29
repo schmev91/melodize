@@ -6,7 +6,7 @@
 
         <link rel="icon" href="{{ asset("favicon-hypergreen.ico") }}" />
 
-        @vite("public/dist/css/output.css")
+        @vite("resources/dist/css/output.css")
         @vite("resources/css/global.css")
 
         <title>{{ $title ?? "Melodize" }}</title>
@@ -59,7 +59,7 @@
 
     @persist("music-player")
         @livewire("music-player")
-        @vite("public/dist/js/music-player/index.js")
+        @vite("resources/dist/js/music-player/index.js")
     @endpersist('music-player')
 
     @vite("resources/js/addons.js")

@@ -7,7 +7,7 @@
     <img
         id="player-trackCover"
         class="h-16 w-16 rounded-md object-cover"
-        src="https://i.imgur.com/bHuG4rf.gif"
+        src="{{ asset("img/utils/r906_mawaru.gif") }}"
     />
     <div class="label-info flex flex-col gap-1">
         <span
