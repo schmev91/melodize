@@ -32,7 +32,12 @@ class TrackUpload extends Component
     {
         // handling user_id, cover, url
         $validated = $this->newTrack->validate();
-        $action->handle($validated);
+        $isSuccess = $action->handle($validated);
+        if ($isSuccess) {
+            $this->sendToast('I have upload your track!');
+        } else {
+            $this->sendToast('An error has occur');
+        }
 
     }
     public function updated()

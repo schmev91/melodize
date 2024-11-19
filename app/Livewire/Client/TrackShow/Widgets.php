@@ -5,13 +5,19 @@ namespace App\Livewire\Client\TrackShow;
 use App\Interfaces\TrackWidgetsInterface;
 use App\Models\Comment;
 use App\Models\Playlist;
+use App\Models\Track;
+use App\Models\User;
+use App\Traits\UseToast;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Widgets extends Component implements TrackWidgetsInterface
 {
-    public $track;
+    use UseToast;
+
+    public Track $track;
+    public bool $isLiked;
 
     public Collection $comments;
 
@@ -20,6 +26,7 @@ class Widgets extends Component implements TrackWidgetsInterface
     public function mount($track)
     {
         $this->track    = $track;
+        $this->isLiked  = $this->track->likedUsers->contains(Auth::id());
         $this->comments = $this->track->comments()->orderBy(Comment::CREATED_AT, 'desc')->get();
 
     }
@@ -41,7 +48,27 @@ class Widgets extends Component implements TrackWidgetsInterface
 
     public function like(): void
     {
-        dd('like');
+        if (!Auth::check()) {
+            $this->sendToastError();
+            return;
+        };
+
+        try {
+            if (!$this->isLiked) {
+                $this->track->likedUsers->create([
+                    track::USER_ID => Auth::id(),
+                 ]);
+
+                $this->sendToast('Added to your likes!');
+                return;
+            }
+
+            $this->track->likedUsers()->where(Track::USER_ID, Auth::id())->delete();
+            $this->sendToast('Removed from your likes!');
+
+        } catch (\Throwable $th) {
+            $this->sendToastError();
+        }
     }
 
     public function addPlaylist(Playlist $playlist): void

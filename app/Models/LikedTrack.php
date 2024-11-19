@@ -9,9 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class LikedTrack extends Model
 {
     use HasFactory;
+    const TABLE_NAME = 'liked_tracks';
 
     protected $fillable = [
-
+        self::USER_ID,
+        self::TRACK_ID,
      ];
 
     public function user(): BelongsTo
@@ -24,7 +26,6 @@ class LikedTrack extends Model
         return $this->belongsTo(Track::class);
     }
 
-    const ID         = 'ID';
     const USER_ID    = 'USER_ID';
     const TRACK_ID   = 'TRACK_ID';
     const CREATED_AT = 'CREATED_AT';

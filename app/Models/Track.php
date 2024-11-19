@@ -36,6 +36,12 @@ class Track extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function likedUsers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, LikedTrack::TABLE_NAME)
+            ->using(LikedTrack::class);
+    }
+
     public function genres(): BelongsToMany
     {
         return $this->belongsToMany(Genre::class, 'track_genres')

@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
@@ -28,6 +28,12 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany(Track::class, LikedTrack::TABLE_NAME)
+            ->using(LikedTrack::class);
+    }
+
     protected $fillable = [
         self::USERNAME,
         self::NAME,
@@ -35,22 +41,22 @@ class User extends Authenticatable
         self::PASSWORD,
         self::AVATAR,
      ];
-     protected $hidden = [
+    protected $hidden = [
         self::PASSWORD,
         self::REMEMBER_TOKEN,
-    ];
+     ];
 
     const DEFAULT_AVATAR = 'img/default/avatar.jpg';
 
-    const ID         = 'id';
-    const USERNAME   = 'username';
-    const NAME       = 'name';
-    const EMAIL      = 'email';
-    const IS_ADMIN   = 'isAdmin';
-    const PASSWORD   = 'password';
-    const AVATAR     = 'avatar';
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
+    const ID             = 'id';
+    const USERNAME       = 'username';
+    const NAME           = 'name';
+    const EMAIL          = 'email';
+    const IS_ADMIN       = 'isAdmin';
+    const PASSWORD       = 'password';
+    const AVATAR         = 'avatar';
+    const CREATED_AT     = 'created_at';
+    const UPDATED_AT     = 'updated_at';
     const REMEMBER_TOKEN = 'remember_token';
 
 }
